@@ -6,7 +6,7 @@ We use some code:
 - to validate the JSON schemas for correctness and format them, and
 - to validate that the test suite data files are schema-valid.
 
-To setup an environment to contribute to the Package-URL spec and standard, follow these
+To setup an environment to contribute to the VERS spec and standard, follow these
 instructions::
 
 Setup
@@ -26,7 +26,7 @@ To validate that the schemas and data files are correct, run::
 
 
 To regenerate the Python utility model code from the JSON schemas, then regenerate the
-PURL type documentation from the JSON PURL type definition files, run::
+VERS type documentation from the JSON VERS scheme definition files, run::
 
     make generate
     make docs

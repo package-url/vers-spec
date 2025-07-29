@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: MIT
 # Copyright (c) the purl authors
-# Visit https://github.com/package-url/purl-spec and https://packageurl.org for support
+# Visit https://github.com/package-url/vers-spec and https://packageurl.org for support
 
 PYTHON_EXE?=python3
 VENV_LOCATION=venv
@@ -39,7 +39,7 @@ formatcode:
 formatjson:
 	@echo "-> Format JSON files"
 	@${ACTIVATE} python etc/scripts/format_json.py schemas/
-	@${ACTIVATE} python etc/scripts/format_json.py types/
+	@${ACTIVATE} python etc/scripts/format_json.py schemes/
 	@${ACTIVATE} python etc/scripts/format_json.py tests/
 
 format: formatcode formatjson
@@ -49,9 +49,9 @@ checkjson:
 	@echo "-> Validate JSON schemas"
 	@${ACTIVATE} check-jsonschema --check-metaschema --verbose schemas/*.json
 	@echo "-> Validate JSON data files against the schemas"
-	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-types-index.schema.json --verbose purl-types-index.json
-	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-type-definition.schema.json --verbose types/*-definition.json
-	@${ACTIVATE} check-jsonschema --schemafile schemas/purl-test.schema.json --verbose tests/*/*-test.json
+	@${ACTIVATE} check-jsonschema --schemafile schemas/vers-schemes-index.schema.json --verbose vers-schemes-index.json
+	@${ACTIVATE} check-jsonschema --schemafile schemas/vers-scheme-definition.schema.json --verbose schemes/*-definition.json
+	@${ACTIVATE} check-jsonschema --schemafile schemas/vers-test.schema.json --verbose tests/*/*-test.json
 
 checkcode:
 	@echo "-> Run Ruff linter validation (pycodestyle, bandit, isort, and more)"
@@ -70,14 +70,14 @@ clean:
 gencode:
 	@echo "-> Generate Python code from schemas"
 	@${ACTIVATE} ${CODEGEN} \
-	    --input schemas/purl-types-index.schema.json \
-	    --output etc/scripts/purl_types_index.py
+	    --input schemas/vers-schemes-index.schema.json \
+	    --output etc/scripts/vers_schemes_index.py
 	@${ACTIVATE} ${CODEGEN} \
-	    --input schemas/purl-type-definition.schema.json \
-	    --output etc/scripts/purl_type_definition.py
+	    --input schemas/vers-scheme-definition.schema.json \
+	    --output etc/scripts/vers_scheme_definition.py
 	@${ACTIVATE} ${CODEGEN} \
-	    --input schemas/purl-test.schema.json \
-	    --output etc/scripts/purl_test.py
+	    --input schemas/vers-test.schema.json \
+	    --output etc/scripts/vers_test.py
 	@echo "-> Run Black format for generated code"
 	@${ACTIVATE} black -l 100 --preview --enable-unstable-feature string_processing etc/scripts/*.py
 
