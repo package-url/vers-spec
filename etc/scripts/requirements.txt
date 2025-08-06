@@ -6,3 +6,4 @@ black
 Jinja2
 pydantic
 packageurl-python
+univers

@@ -1,76 +1,76 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
-  "title": "PURL test definition",
-  "description": "Schema for Package-URL building and parsing tests with input and expected output.",
+  "$id": "https://packageurl.org/schemas/vers-test.schema-1.0.json",
+  "title": "VERS test definition",
+  "description": "Schema for Version Range Specifier tests definitions.",
   "type": "object",
   "additionalProperties": false,
   "definitions": {
-    "purl_components": {
-      "title": "PURL decoded components",
-      "description": "Individual decoded PURL components to use as a test input or expected output.",
-      "type": "object",
+    "version_constraint": {
+      "title": "VERS version constraint",
+      "description": "A VERS version constraint as two-tuple array of (comparator, version string).",
+      "type": "array",
       "additionalProperties": false,
+      "minItems": 2,
+      "maxItems": 2,
+      "items": [
+        {
+          "title": "VERS comparator",
+          "description": "A VERS version comparator.",
+          "type": "string",
+          "enum": [
+            "",
+            "*",
+            "=",
+            "!=",
+            ">=",
+            ">",
+            "<=",
+            "<"
+          ]
+        },
+        {
+          "title": "Version",
+          "description": "A version string.",
+          "type": "string",
+          "examples": [
+            "1.2.3",
+            "54.a-RELEASE"
+          ]
+        }
+      ]
+    },
+    "vers_components": {
+      "title": "VERS decoded components",
+      "description": "Individual decoded VERS scheme and constraints to use as a test input or expected output.",
+      "type": "object",
       "properties": {
-        "type": {
-          "title": "PURL type",
-          "description": "Package-URL type component.",
-          "default": null,
-          "type": [
-            "string",
-            "null"
+        "scheme": {
+          "title": "VERS scheme",
+          "description": "A versioning scheme.",
+          "type": "string",
+          "examples": [
+            "maven",
+            "npm",
+            "pypi",
+            "semver"
           ]
         },
-        "namespace": {
-          "title": "PURL namespace",
-          "description": "Package-URL namespace decoded component.",
-          "default": null,
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "name": {
-          "title": "PURL name",
-          "description": "Package-URL name decoded component.",
-          "default": null,
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "version": {
-          "title": "PURL version",
-          "description": "Package-URL version decoded component.",
-          "default": null,
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "qualifiers": {
-          "title": "PURL qualifiers",
-          "description": "Package-URL qualifiers decoded component as an object.",
-          "default": null,
-          "type": [
-            "object",
-            "null"
-          ]
-        },
-        "subpath": {
-          "title": "PURL subpath",
-          "description": "Package-URL subpath decoded component.",
-          "default": null,
-          "type": [
-            "string",
-            "null"
-          ]
+        "version_constraints": {
+          "title": "Version constraints list",
+          "description": "A list of version constraints as two-tuples of (comparator, version).",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/version_constraint"
+          }
         }
       }
     },
-    "purl_test": {
-      "title": "PURL test",
-      "description": "A PURL test with input and expected output.",
+    "vers_test": {
+      "title": "VERS test",
+      "description": "A VERS test with input and expected output.",
       "type": "object",
       "required": [
         "description",
@@ -93,8 +93,8 @@
             "advanced"
           ],
           "meta:enum": {
-            "base": "Test group for base conformance tests for PURL building and parsing.",
-            "advanced": "Test group for advanced tests to support flexible PURL building and parsing."
+            "base": "Test group for base conformance tests for VERS building and parsing.",
+            "advanced": "Test group for advanced tests to support flexible VERS building and parsing."
           }
         },
         "test_type": {
@@ -102,14 +102,26 @@
           "description": "The type of this test like 'build' or 'parse'.",
           "type": "string",
           "enum": [
-            "build",
+            "from_native",
             "parse",
-            "roundtrip"
+            "build",
+            "roundtrip",
+            "merge",
+            "containment",
+            "invert",
+            "comparison",
+            "equality"
           ],
           "meta:enum": {
-            "build": "A PURL building test from decoded components to a canonical PURL string.",
-            "parse": "A PURL building test from decoded components to a canonical PURL string.",
-            "roundtrip": "A PURL routrip test, parsing then building back a PURL from a canonical string input."
+            "from_native": "A VERS construction test from native ecosystem range data input from a data source to a canonical VERS string.",
+            "build": "A VERS building test from decoded components to a canonical VERS string.",
+            "parse": "A VERS parsing test from a VERS string to decoded scheme and constraints list.",
+            "roundtrip": "A VERS roundtrip test, parsing then building back a VERS from a canonical string input.",
+            "merge": "A VERS merging test from an array of VERS strings to a canonical VERS string.",
+            "containment": "A VERS containment to test if a bare version string is contained in the range of a VERS string.",
+            "invert": "A VERS inversion of a VERS string to a canonical VERS string.",
+            "comparison": "A version comparison test to sort an input version strings array using the scheme rules.",
+            "equality": "A version equality test to check if two input versions strings are equal using the scheme rules."
           }
         },
         "expected_failure": {
@@ -133,6 +145,67 @@
           "if": {
             "properties": {
               "test_type": {
+                "const": "from_native"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input for conversion from native version range to VERS",
+                "description": "An object with a data source and native version range data to use as conversion test from native data.",
+                "type": "object",
+                "required": [
+                  "scheme",
+                  "native_range"
+                ],
+                "properties": {
+                  "data_source": {
+                    "title": "Data source for test input",
+                    "description": "A string (like a scheme or else) or URL that identifies the source of the data for this test input.",
+                    "type": "string",
+                    "examples": [
+                      "https://github.com/npm/node-semver#ranges",
+                      "https://gitlab.com/gitlab-org/advisories-community/-/tree/main/packagist",
+                      "https://gitlab.com/gitlab-org/advisories-community/-/tree/main/go",
+                      "https://git.alpinelinux.org/apk-tools/tree/test/unit/version.data",
+                      "https://github.com/rpm-software-management/rpm/blob/master/tests/rpmvercmp.at"
+                    ]
+                  },
+                  "native_range": {
+                    "title": "Input native version range",
+                    "description": "A native version range data that can be any of a string, array or object.",
+                    "type": [
+                      "string",
+                      "object",
+                      "array"
+                    ]
+                  }
+                }
+              },
+              "expected_output": {
+                "title": "Expected canonical VERS",
+                "description": "A canonical VERS string to use as a test ouput.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
                 "const": "parse"
               },
               "expected_failure": {
@@ -147,14 +220,14 @@
           "then": {
             "properties": {
               "input": {
-                "title": "Input test PURL",
-                "description": "A PURL string to use as a test input (canonical or not).",
+                "title": "Input test VERS",
+                "description": "A VERS string to use as a test input (canonical or not).",
                 "type": "string"
               },
               "expected_output": {
-                "title": "Expected output decoded PURL components",
-                "description": "Test output as an object decoded PURL components, unless expected_failure.",
-                "$ref": "#/definitions/purl_components"
+                "title": "Expected output decoded VERS components",
+                "description": "Test output as an object decoded VERS components.",
+                "$ref": "#/definitions/vers_components"
               }
             },
             "required": [
@@ -181,13 +254,13 @@
           "then": {
             "properties": {
               "input": {
-                "title": "Expected output decoded PURL components",
-                "description": "Test output as an object decoded PURL components, unless expected_failure.",
-                "$ref": "#/definitions/purl_components"
+                "title": "Input decoded VERS components",
+                "description": "Test input as an object of decoded VERS components.",
+                "$ref": "#/definitions/vers_components"
               },
               "expected_output": {
-                "title": "Expected canonical PURL",
-                "description": "A canonical PURL string to use as a test ouput.",
+                "title": "Expected canonical VERS",
+                "description": "A canonical VERS string to use as a test ouput.",
                 "type": "string"
               }
             },
@@ -211,14 +284,216 @@
           "then": {
             "properties": {
               "input": {
-                "title": "Input test PURL",
-                "description": "A PURL string to use as a test input (canonical or not).",
+                "title": "Input test VERS",
+                "description": "A VERS string to use as a test input (canonical or not).",
                 "type": "string"
               },
               "expected_output": {
-                "title": "Expected canonical PURL",
-                "description": "A canonical PURL string to use as a test ouput.",
+                "title": "Expected canonical VERS",
+                "description": "A canonical VERS string to use as a test ouput.",
                 "type": "string"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "merge"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input list of VERS strings",
+                "description": "Test input as a list of VERS strings.",
+                "type": "array",
+                "uniqueItems": true,
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "expected_output": {
+                "title": "Expected canonical VERS",
+                "description": "An expected canonical merged VERS string to use as a test ouput.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "containment"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input for version containment",
+                "description": "A version and a VERS string to use as a containment test input.",
+                "type": "object",
+                "required": [
+                  "version",
+                  "vers"
+                ],
+                "properties": {
+                  "version": {
+                    "title": "Input test version",
+                    "description": "A version string to for containment in the input VERS.",
+                    "type": "string"
+                  },
+                  "vers": {
+                    "title": "Input test VERS",
+                    "description": "A canonical VERS string used to test its containmant of the input version.",
+                    "type": "string"
+                  }
+                }
+              },
+              "expected_output": {
+                "title": "True if the version is expected to be contained in the input VERS",
+                "description": "A true boolean if the version is contained in the input VERS or false otherwise.",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "comparison"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input for version comparison",
+                "description": "A VERS scheme and a list of version strings to use as sorting test input.",
+                "type": "object",
+                "required": [
+                  "scheme",
+                  "versions"
+                ],
+                "properties": {
+                  "input_scheme": {
+                    "title": "VERS scheme",
+                    "description": "A versioning scheme.",
+                    "type": "string"
+                  },
+                  "versions": {
+                    "title": "Input list of bare versions",
+                    "description": "Test input as a list of bare versions strings.",
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "expected_output": {
+                "title": "Expected sorted list of bare versions",
+                "description": "An expected sorted list of version strings to use as a test ouput.",
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "equality"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input for version equality",
+                "description": "A VERS scheme and a two-tuple of version strings to compare.",
+                "type": "object",
+                "required": [
+                  "scheme",
+                  "versions"
+                ],
+                "properties": {
+                  "input_scheme": {
+                    "title": "VERS scheme",
+                    "description": "A versioning scheme.",
+                    "type": "string"
+                  },
+                  "versions": {
+                    "title": "Input tuple of two bare versions",
+                    "description": "Test input as a tuple of two  bare versions strings.",
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "expected_output": {
+                "title": "True if two bare versions are expected to be equal",
+                "description": "A true boolean if two bare versions are expected to be equal to use as a test ouput.",
+                "type": "boolean"
               }
             },
             "required": [
@@ -245,8 +520,8 @@
           "then": {
             "properties": {
               "input": {
-                "title": "Input test PURL",
-                "description": "A PURL string to use as a test input (canonical or not).",
+                "title": "Input test VERS",
+                "description": "A VERS string to use as a test input (canonical or not).",
                 "type": "string"
               }
             },
@@ -274,9 +549,9 @@
           "then": {
             "properties": {
               "input": {
-                "title": "Expected output decoded PURL components",
-                "description": "Test output as an object decoded PURL components, unless expected_failure.",
-                "$ref": "#/definitions/purl_components"
+                "title": "Input VERS components",
+                "description": "Test input as an object of decoded VERS components.",
+                "$ref": "#/definitions/vers_components"
               }
             },
             "required": [
@@ -291,19 +566,19 @@
   "properties": {
     "$schema": {
       "title": "JSON schema",
-      "description": "Contains the URL of the JSON schema for Package-URL tests.",
-      "constant": "https://packageurl.org/schemas/purl-test.schema-1.0.json",
+      "description": "Contains the URL of the JSON schema for Version Range Specifier tests.",
+      "constant": "https://packageurl.org/schemas/vers-test.schema-1.0.json",
       "format": "uri"
     },
     "tests": {
       "title": "Test suite",
-      "description": "A list of Package-URL build and parse tests.",
+      "description": "A list of Version Range Specifier tests.",
       "additionalItems": false,
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
       "items": {
-        "$ref": "#/definitions/purl_test"
+        "$ref": "#/definitions/vers_test"
       }
     }
   }
