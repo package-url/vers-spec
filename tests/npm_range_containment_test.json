@@ -1,0 +1,15 @@
+{
+  "$schema": "https://packageurl.org/schemas/vers-test.schema-1.0.json",
+  "tests": [
+    {
+      "description": "Test version containment for npm range with `*` operator.",
+      "test_group": "advanced",
+      "test_type": "containment",
+      "input": {
+        "vers": "vers:nginx/*",
+        "version": "1.0.0"
+      },
+      "expected_output": true
+    }
+  ]
+}
