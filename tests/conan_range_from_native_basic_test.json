@@ -39,7 +39,7 @@
         "scheme": "conan",
         "native_range": "~2.5"
       },
-      "expected_output": "vers:conan/>=2.5|<2.6-"
+      "expected_output": "vers:conan/>=2.5|<2.6"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -49,7 +49,7 @@
         "scheme": "conan",
         "native_range": "~2.5.1"
       },
-      "expected_output": "vers:conan/>=2.5.1|<2.6-"
+      "expected_output": "vers:conan/>=2.5.1|<2.6"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -59,7 +59,7 @@
         "scheme": "conan",
         "native_range": "~1"
       },
-      "expected_output": "vers:conan/>=1|<2-"
+      "expected_output": "vers:conan/>=1|<2"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -69,7 +69,7 @@
         "scheme": "conan",
         "native_range": "^1.2"
       },
-      "expected_output": "vers:conan/>=1.2|<2-"
+      "expected_output": "vers:conan/>=1.2|<2"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -79,7 +79,7 @@
         "scheme": "conan",
         "native_range": "^1.2.3"
       },
-      "expected_output": "vers:conan/>=1.2.3|<2-"
+      "expected_output": "vers:conan/>=1.2.3|<2"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -89,7 +89,7 @@
         "scheme": "conan",
         "native_range": "^0.1.2"
       },
-      "expected_output": "vers:conan/>=0.1.2|<0.2-"
+      "expected_output": "vers:conan/>=0.1.2|<0.2"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -139,7 +139,7 @@
         "scheme": "conan",
         "native_range": ">1 <2.0 || ^3.2 "
       },
-      "expected_output": "vers:conan/>1|<2.0|>=3.2|<4-"
+      "expected_output": "vers:conan/>1|<2.0|>=3.2|<4"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -179,7 +179,7 @@
         "scheme": "conan",
         "native_range": ">1- <2.0 || ^3.2 "
       },
-      "expected_output": "vers:conan/>1|<2.0|>=3.2|<4-"
+      "expected_output": "vers:conan/>1|<2.0|>=3.2|<4"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -189,7 +189,7 @@
         "scheme": "conan",
         "native_range": "^1.1.2-"
       },
-      "expected_output": "vers:conan/>=1.1.2|<2-"
+      "expected_output": "vers:conan/>=1.1.2|<2"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -199,7 +199,7 @@
         "scheme": "conan",
         "native_range": "~1.1.2-"
       },
-      "expected_output": "vers:conan/>=1.1.2|<1.2-"
+      "expected_output": "vers:conan/>=1.1.2|<1.2"
     }
   ]
 }
