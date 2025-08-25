@@ -156,16 +156,6 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<=1.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=1.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "<2.9.3",
         "scheme": "conan"
       },
@@ -190,16 +180,6 @@
         "scheme": "conan"
       },
       "expected_output": "vers:conan/<=0.5.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=0.1.12",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=0.1.12"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -246,56 +226,6 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<=3.6.6",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=3.6.6"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=3.6.6",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=3.6.6"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=3.6.6",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=3.6.6"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<3.6.7",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<3.6.7"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<3.6.7",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<3.6.7"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "<3.6.7",
         "scheme": "conan"
       },
@@ -320,26 +250,6 @@
         "scheme": "conan"
       },
       "expected_output": "vers:conan/<2021.07.22.00"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<1.0.12",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<1.0.12"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<1.0.12",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<1.0.12"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -476,66 +386,6 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<=3.2",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=3.2"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.8.107",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.8.107"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.8.107",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.8.107"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.8.107",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.8.107"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.8.107",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.8.107"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.8.107",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.8.107"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "=2.8.107",
         "scheme": "conan"
       },
@@ -576,120 +426,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<=1.12.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=1.12.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=1.12.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=1.12.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=1.12.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=1.12.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "=1.13.1-1",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/1.13.1-1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.13.1-1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.13.1-1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.13.1-1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.13.1-1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.13.1-1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.13.1-1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.13.1-1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.13.1-1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.13.1-1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.13.1-1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.13.1-1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.13.1-1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.10.4",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.10.4"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.10.4",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.10.4"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -730,16 +470,6 @@
         "scheme": "conan"
       },
       "expected_output": "vers:conan/<2.0.23"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.0.25",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.0.25"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -806,220 +536,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "=3.0.6",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.6"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "=2.2.0",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=2.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=2.3.0"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -1050,76 +570,6 @@
         "scheme": "conan"
       },
       "expected_output": "vers:conan/2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=2.4.0"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -1156,300 +606,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<=2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "=3.0.0",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=3.0.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.0.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.4.0"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -1460,56 +620,6 @@
         "scheme": "conan"
       },
       "expected_output": "vers:conan/<=0.14"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<1.80.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<1.80.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<1.80.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<1.80.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<1.80.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<1.80.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<1.80.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<1.80.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<1.80.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<1.80.0"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -1556,16 +666,6 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<3.5.2",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<3.5.2"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": ">=3.4.1 <=3.5.2",
         "scheme": "conan"
       },
@@ -1586,30 +686,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "=3.6.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/3.6.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": ">=3.0.0 <3.6.2",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/>=3.0.0|<3.6.2"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": ">=0.6.0 <=0.6.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/>=0.6.0|<=0.6.1"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -1716,210 +796,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "<=1.0.8",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/<=1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=1.0.8",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/1.0.8"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -1946,30 +826,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "=0.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/0.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "=0.4.1",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/0.4.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<0.28.4",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<0.28.4"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -2020,16 +880,6 @@
         "scheme": "conan"
       },
       "expected_output": "vers:conan/>1.5.3|<=2.0.90"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<9d",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<9d"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -2166,36 +1016,6 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<4.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<4.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<4.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<4.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<4.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<4.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": ">=3.9.0 <=4.3.0",
         "scheme": "conan"
       },
@@ -2216,36 +1036,6 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "=4.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": ">=3.9.0 <=4.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/>=3.9.0|<=4.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=4.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "<=4.3.0",
         "scheme": "conan"
       },
@@ -2256,46 +1046,6 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "=4.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=4.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=4.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=4.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "<4.4.0",
         "scheme": "conan"
       },
@@ -2306,130 +1056,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=4.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=4.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "=4.4.0",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=4.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<4.4.0"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -2456,70 +1086,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "=4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": ">=3.9.0 <=4.4.0",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/>=3.9.0|<=4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=4.4.0"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -2546,100 +1116,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<1.0.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<1.0.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<1.0.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<1.0.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<1.0.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<1.0.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<1.0.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<1.0.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "=2.9.10",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/2.9.10"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.9.10",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.9.10"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.9.11",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.9.11"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.9.11",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.9.11"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.9.11",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.9.11"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.9.11",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.9.11"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -2686,16 +1166,6 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<2.10.3",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.10.3"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "<1.1.35",
         "scheme": "conan"
       },
@@ -2726,60 +1196,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<0.12.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<0.12.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "<=0.12.1",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/<=0.12.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=0.12.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=0.12.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=0.12.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=0.12.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=0.12.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/0.12.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=0.12.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/0.12.1"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -2800,56 +1220,6 @@
         "scheme": "conan"
       },
       "expected_output": "vers:conan/<=5.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=5.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/5.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=5.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=5.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=5.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/5.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=5.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/5.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=5.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/5.4.0"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -2996,130 +1366,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<2.4.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "<2.5.2",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/<2.5.2"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.5.2",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.5.2"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.5.2",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.5.2"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.3.0"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -3156,150 +1406,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<2.5.4",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.5.4"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.5.4",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.5.4"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.5.4",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.5.4"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=2.5.7",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=2.5.7"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "<3.0.1",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/<3.0.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<3.0.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<3.0.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<3.0.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<3.0.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<3.0.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<3.0.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.3||>=2.5.0 <2.5.4",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.3|>=2.5.0|<2.5.4"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.3||>=2.5.0 <2.5.4",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.3|>=2.5.0|<2.5.4"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.3||>=2.5.0 <2.5.4",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.3|>=2.5.0|<2.5.4"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.3||>=2.5.0 <2.5.4",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.3|>=2.5.0|<2.5.4"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.3||>=2.5.0 <2.5.4",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.3|>=2.5.0|<2.5.4"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.3||>=2.5.0 <2.5.4",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.3|>=2.5.0|<2.5.4"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<3.0.5",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<3.0.5"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -3376,110 +1486,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=2.3.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=2.3.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "=2.3.1",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/2.3.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<=2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<=2.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=2.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.4.0"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -3530,26 +1540,6 @@
         "scheme": "conan"
       },
       "expected_output": "vers:conan/>=1.0.2|<1.0.2y|>=1.1.1|<1.1.1j"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": ">=1.0.2 <1.0.2y||>=1.1.1 <1.1.1j",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/>=1.0.2|<1.0.2y|>=1.1.1|<1.1.1j"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<0"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -3646,26 +1636,6 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": ">=3.0.0 <3.0.3",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/>=3.0.0|<3.0.3"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": ">=3.0.0 <3.0.3",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/>=3.0.0|<3.0.3"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": ">=1.0.2 <1.0.2zf||>=1.1.1 <1.1.1p||>=3.0.0 <3.0.4",
         "scheme": "conan"
       },
@@ -3716,16 +1686,6 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": ">=3.0.0 <3.0.7",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/>=3.0.0|<3.0.7"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": ">=3.0.0 <=3.0.7",
         "scheme": "conan"
       },
@@ -3740,16 +1700,6 @@
         "scheme": "conan"
       },
       "expected_output": "vers:conan/<8.44"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<10.40",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<10.40"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -3866,16 +1816,6 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "=2.27",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/2.27"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "=8.6.11",
         "scheme": "conan"
       },
@@ -3920,16 +1860,6 @@
         "scheme": "conan"
       },
       "expected_output": "vers:conan/<1.05.01"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<0.9.6",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<0.9.6"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -4026,110 +1956,10 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<0.38.1",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<0.38.1"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "<1.0.2||>=2.0.0 <2.0.2",
         "scheme": "conan"
       },
       "expected_output": "vers:conan/<1.0.2|>=2.0.0|<2.0.2"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<1.0.2||>=2.0.0 <2.0.2",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<1.0.2|>=2.0.0|<2.0.2"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<1.0.2||>=2.0.0 <2.0.2",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<1.0.2|>=2.0.0|<2.0.2"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "=4.3.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/4.3.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<4.4.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<4.4.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<4.5.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<4.5.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<4.5.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<4.5.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<4.5.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<4.5.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<4.5.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<4.5.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<4.6.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<4.6.0"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
@@ -4206,16 +2036,6 @@
       "test_group": "advanced",
       "test_type": "from_native",
       "input": {
-        "native_range": "<5.2.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<5.2.0"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
         "native_range": "<5.4.0",
         "scheme": "conan"
       },
@@ -4260,16 +2080,6 @@
         "scheme": "conan"
       },
       "expected_output": "vers:conan/<5.5.2"
-    },
-    {
-      "description": "Construct VERS range from native Conan C/C++ range.",
-      "test_group": "advanced",
-      "test_type": "from_native",
-      "input": {
-        "native_range": "<5.5.0",
-        "scheme": "conan"
-      },
-      "expected_output": "vers:conan/<5.5.0"
     },
     {
       "description": "Construct VERS range from native Conan C/C++ range.",
