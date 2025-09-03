@@ -3,7 +3,7 @@
   "tests": [
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -19,7 +19,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -35,7 +35,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -51,7 +51,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -67,7 +67,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -83,7 +83,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -99,7 +99,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -115,7 +115,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -131,7 +131,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -147,7 +147,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -163,7 +163,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -179,7 +179,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -195,7 +195,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -211,7 +211,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -227,7 +227,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -243,7 +243,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -259,7 +259,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -275,7 +275,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -291,7 +291,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -307,7 +307,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -323,7 +323,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -339,7 +339,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -355,7 +355,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -371,7 +371,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -387,7 +387,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -403,7 +403,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -419,7 +419,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -435,7 +435,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -451,7 +451,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -467,7 +467,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -483,7 +483,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -499,7 +499,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "conan",
@@ -515,7 +515,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -528,7 +528,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -541,7 +541,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -554,7 +554,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -567,7 +567,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -580,7 +580,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -593,7 +593,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -606,7 +606,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -619,7 +619,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -632,7 +632,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -645,7 +645,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -658,7 +658,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -671,7 +671,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -684,7 +684,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",
@@ -697,7 +697,7 @@
     },
     {
       "description": "Comparison test for Conan C/C++ version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "conan",

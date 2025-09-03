@@ -3,7 +3,7 @@
   "tests": [
     {
       "description": "Construct VERS range from native RubyGems range.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "from_native",
       "input": {
         "native_range": "~>2.0.8",
