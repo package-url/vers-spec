@@ -3,7 +3,7 @@
   "tests": [
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -16,7 +16,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -29,7 +29,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -42,7 +42,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -55,7 +55,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -68,7 +68,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -81,7 +81,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -94,7 +94,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -107,7 +107,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -120,7 +120,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -136,7 +136,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -152,7 +152,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -168,7 +168,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -184,7 +184,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -200,7 +200,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -216,7 +216,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -232,7 +232,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -248,7 +248,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -264,7 +264,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -280,7 +280,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -296,7 +296,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -312,7 +312,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -328,7 +328,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "comparison",
     "input": {
       "input_scheme": "nuget",
@@ -344,7 +344,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -357,7 +357,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -370,7 +370,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -383,7 +383,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -396,7 +396,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -409,7 +409,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -422,7 +422,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -435,7 +435,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -448,7 +448,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
@@ -461,7 +461,7 @@
   },
   {
     "description": "Comparison test for NuGet version.",
-    "test_group": "basic",
+    "test_group": "base",
     "test_type": "equality",
     "input": {
       "input_scheme": "nuget",
