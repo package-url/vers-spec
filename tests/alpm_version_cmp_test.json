@@ -3,7 +3,7 @@
   "tests": [
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -19,7 +19,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -35,7 +35,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -51,7 +51,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -67,7 +67,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -83,7 +83,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -99,7 +99,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -115,7 +115,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -131,7 +131,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -147,7 +147,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -163,7 +163,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -179,7 +179,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -195,7 +195,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -211,7 +211,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -227,7 +227,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -243,7 +243,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -259,7 +259,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -275,7 +275,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -291,7 +291,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -307,7 +307,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -323,7 +323,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -339,7 +339,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -355,7 +355,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -371,7 +371,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -387,7 +387,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -403,7 +403,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -419,7 +419,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -435,7 +435,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -451,7 +451,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -467,7 +467,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -483,7 +483,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -499,7 +499,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -515,7 +515,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -531,7 +531,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "comparison",
       "input": {
         "input_scheme": "alpm",
@@ -547,7 +547,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "alpm",
@@ -560,7 +560,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "alpm",
@@ -573,7 +573,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "alpm",
@@ -586,7 +586,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "alpm",
@@ -599,7 +599,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "alpm",
@@ -612,7 +612,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "alpm",
@@ -625,7 +625,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "alpm",
@@ -638,7 +638,7 @@
     },
     {
       "description": "Comparison test for Arch Linux version.",
-      "test_group": "basic",
+      "test_group": "base",
       "test_type": "equality",
       "input": {
         "input_scheme": "alpm",
