@@ -658,7 +658,7 @@ These are generic schemes, to use sparingly for special cases:
   non-negative integers, and ignoring leading zeros. Interpretation of the
   version should stop at the first character that is not a digit or a dot.
 
-- **lexicographic**: a generic versioning scheme that compares versions based on lexicographic order, interpreted as UTF-8.
+- **lexicographic**: a generic versioning scheme that compares versions based on lexicographic order, interpreted as UTF-8. Strings should be compared bytewise as unsigned bytes without normalization. UTF-8 encoding is defined in https://datatracker.ietf.org/doc/html/rfc3629.
 
 - **semver**: a generic scheme that uses the same syntax as ``semver``. It follows the MAJOR.MINOR.PATCH format and is defined in the Semantic Versioning Specification 2.0.0, see https://semver.org/spec/v2.0.0.html. 
 
