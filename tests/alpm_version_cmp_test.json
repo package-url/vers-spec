@@ -1,5 +1,5 @@
 {
-  "$schema": "https://packageurl.org/schemas/vers-test.schema-1.0.json",
+  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.1.json",
   "tests": [
     {
       "description": "Comparison test for Arch Linux version.",

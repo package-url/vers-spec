@@ -1,6 +1,6 @@
 {
-  "$schema": "https://packageurl.org/schemas/vers-test.schema-1.0.json",
-  "tests": [ 
+  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.1.json",
+  "tests": [
   {
     "description": "Construct VERS range from native PyPI range.",
     "test_group": "advanced",
