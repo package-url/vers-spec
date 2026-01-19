@@ -5,63 +5,63 @@ ranges.
 
 ## Context
 
-Software package version ranges and version constraints are essential:
+Software package version ranges and version constraints are essential
+for:
 
-- When resolving the dependencies of a package to express which subset
-  of the versions are supported. For instance a dependency or
+- Resolving the dependencies of a package to express which subset
+  of versions are supported. For instance a dependency or
   requirement statement such as "I require package foo, version 2.0 or
-  later versions" defines a range of acceptable foo versions.
-- When stating that a known vulnerability or bug affects a range of
+  later versions" defines a range of acceptable "foo" versions.
+- Stating that a known vulnerability or bug affects a range of
   package versions. For instance a security advisory such as
   "vulnerability 123 affects package bar, version 3.1 and version 4.2
   but not version 5" defines a range of vulnerable "bar" package
   versions.
 
-Version ranges can be replaced by a list enumerating all the versions of
-interest. But in practice, all the versions may not yet exist when
-defining an open version range such as "v2.0 or later".
-
-Therefore, a version range is a necessary, compact and practical way to
-reference multiple versions rather than listing all the versions.
+Version ranges can be replaced by a list enumerating all versions of
+interest for a package, but such a list cannot cover versions that do 
+not exist when you create the list for an open version range such as 
+"v2.0 or later". A version range is a necessary, compact, and practical 
+way to reference multiple versions rather than listing all versions.
 
 ## Problem
 
-Several version range notations exist and have evolved separately to
-serve the specific needs of each package ecosystem, vulnerability
-databases and tools.
+Several version range notations exist and have evolved independently to
+serve the specific needs of a package ecosystem, vulnerability
+database or tools.
 
-There is no (mostly) universal notation for version ranges and there is
-no universal way to compare two versions, even though the concepts that
-exist in most version range notations are similar.
+There is no universal notation for version ranges and there is
+no universal way to compare two versions, even though the concepts in
+most version range notations are similar.
 
-Each package type or ecosystem may define their own ranges notation and
-version comparison semantics for dependencies. And for security
+Each package type or ecosystem may define its own range notation and
+version comparison semantics for dependencies. For security
 advisories, the lack of a portable and compact notation for vulnerable
-package version ranges means that these ranges may be either ambiguous
-or hard to compute and may be best replaced by complete enumerations of
+package version ranges means that these ranges may be ambiguous
+or hard to compute and may be replaced by complete enumerations of
 all impacted versions, such as in the [NVD CPE Match
-feed](https://nvd.nist.gov/vuln/data-feeds#cpeMatch).
+feed](https://nvd.nist.gov/vuln/data-feeds#cpeMatch). 
 
-Because of this, expressing and resolving a version range is often a
-complex, error prone task.
+Expressing and resolving a version range is often a complex and error 
+prone task because of the ambiguity and the use of enumerations of 
+impacted versions that may require frequent updates.
 
-In particular the need for common notation for version has emerged based
-on the usage of Package-URLs referencing vulnerable package version
-ranges such as in vulnerability databases like
+This specfication for a common notation for version ranges emerged 
+from the use of Package-URLs to reference vulnerable package version
+ranges in vulnerability databases like
 [VulnerableCode](https://github.com/nexB/vulnerablecode/).
 
 ## Solution
 
-A solution to the many version range syntaxes is to design a new
-simplified notation to unify them all with:
+A solution to the many version range notation systems is to design 
+a new simplified notation to unify them with:
 
-- a mostly universal and minimalist, compact notation to express
+- A mostly universal and minimalist, compact notation to express
   version ranges from many different package types and ecosystems.
-- the package type-specific definitions to normalize existing range
+- Package type-specific definitions to normalize existing range
   expressions in this common notation.
-- the designation of which algorithm or procedure to use when
-  comparing two versions such that it is possible to resolve if a
-  version is within or outside of a version range.
+- The designation of which algorithm or procedure to use when
+  comparing two versions so that it is possible to resolve whether
+  a version is within or outside of a version range.
 
-We call this solution "VErsion Range Specifier" or VERS and it is
-described in this document.
+We call this solution "VErsion Range Specifier" or VERS.
