@@ -4,7 +4,7 @@
 might want to change the top heading and dispense with the second-level
 heading below.]
 
-## Related efforts and alternative
+## Related efforts and alternatives
 
 - CUDF defines a generic range notation similar to Debian and integer
   version numbers from the sequence of versions for universal
