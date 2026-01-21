@@ -29,7 +29,7 @@ some of the many notations and conventions in use:
   See: https://rpm-software-management.github.io/rpm/manual/dependencies.html
 - Perl CPAN defines its own version range notation similar to VERS
   with two-segment versions. See:
-  https://metacpan.org/pod/CPAN::Meta::Spec\#Version-Ranges
+  https://metacpan.org/pod/CPAN::Meta::Spec#Version-Ranges
 - Apache Maven and NuGet use similar math interval notation using
   brackets. See: https://en.wikipedia.org/wiki/Interval_(mathematics)
     - Apache Maven
