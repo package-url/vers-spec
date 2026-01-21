@@ -23,7 +23,7 @@ some of the many notations and conventions in use:
   peculiarities for how pre-release and post-release suffixes are used.
   See: https://www.python.org/dev/peps/pep-0440/
 - Debian and Ubuntu use their own notation and are known for
-  their use of "epochs' to disambiguate versions. See:
+  their use of "epochs" to disambiguate versions. See:
   https://www.debian.org/doc/debian-policy/ch-relationships.html
 - RPM distros use their own range notation and use "epochs" like Debian.
   See: https://rpm-software-management.github.io/rpm/manual/dependencies.html
@@ -82,12 +82,14 @@ closely related topic:
 
 ## PURL Type version schemes
 
-The following tables lists the known versioning schemes for some common Package-URL
+*[In the rpm entry is "rmpvercmp" spelled as intended?  What is it?  It does not appear in the linked page.]*
+
+The following table lists the known versioning schemes for some common Package-URL
 **types** (aka. "ecosystem").
 
 | PURL type | Description   | Reference URL      |                                                                                                                                                                                                         
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| deb       | Debian and Ubuntu use these comparators: <, <=, =, >= and >>   | [https://www.debian.org/doc/debian-policy/ch-relationships.html](https://www.debian.org/doc/debian-policy/ch-relationships.html) |
+| deb       | Debian and Ubuntu use these comparators: <<, <=, =, >= and >>   | [https://www.debian.org/doc/debian-policy/ch-relationships.html](https://www.debian.org/doc/debian-policy/ch-relationships.html) |
 | rpm       | RPM distros. A simplified rmpvercmp version comparison routine is used by Arch Linux Pacman. | https://rpm-software-management.github.io/rpm/manual/dependencies.html |
 | gem       | RubyGems uses a version scheme that is similar to "node-semver" for its syntax, but it does not use "semver" versions. | https://guides.rubygems.org/patterns/#semantic-versioning |
 | npm       | npm uses "node-semver" which is based on "semver" with its own  range notation. Several other package types  use "node-semver"-like ranges, but most of these related version schemes do not implement "node-semver". | https://github.com/npm/node-semver#ranges 
@@ -108,7 +110,7 @@ These are generic schemes, to be used sparingly for special cases:
 - **generic**: a generic version comparison algorithm (which will be
   specified later, likely based on a split on any wholly alpha or
   wholly numeric segments and dealing with digit and string
-  comparisons, similar to libversion)
+  comparisons, similar to libversion).
 - **none**: a generic versioning scheme for a range containing no
   versions. 'vers:none/*' is the only valid VERS form for this scheme.
 - **all**: a generic versioning scheme for a range containing all
@@ -123,7 +125,7 @@ These are generic schemes, to be used sparingly for special cases:
   versions based on lexicographic order, interpreted as UTF-8. Strings
   should be compared bytewise as unsigned bytes without normalization.
   UTF-8 encoding is defined in https://datatracker.ietf.org/doc/html/rfc3629.
-- **semver**: a generic scheme that uses the same syntax as `semver`.
+- **semver**: a generic scheme that uses the same syntax as "semver".
   It follows the MAJOR.MINOR.PATCH format and is defined in the
   Semantic Versioning Specification 2.0.0. See
   https://semver.org/spec/v2.0.0.html.
