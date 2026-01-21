@@ -14,5 +14,5 @@
   Maven version range spec. It supports Apache Maven and npm version ranges.
   https://github.com/snyk/unified-range
 - **dephell specifier** is a library to parse and evaluate version ranges
-  and "work with version specifiers. It can parse PEP 440, SemVer, Ruby,
-  NPM, Maven)".https://github.com/dephell/dephell_specifier
+  and "[w]ork with version specifiers (can parse PEP-440, SemVer, Ruby, NPM,
+  Maven)". https://github.com/dephell/dephell_specifier
