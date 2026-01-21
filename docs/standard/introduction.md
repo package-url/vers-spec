@@ -51,6 +51,8 @@ from the use of Package-URLs to reference vulnerable package version
 ranges in vulnerability databases like
 [VulnerableCode](https://github.com/nexB/vulnerablecode/).
 
+*[I think the URL ^ should be https://github.com/aboutcode-org/vulnerablecode]*
+
 ## Solution
 
 A solution to the many version range notation systems is to design 
