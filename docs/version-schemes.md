@@ -128,5 +128,5 @@ These are generic schemes, to be used sparingly for special cases:
   Semantic Versioning Specification 2.0.0. See
   https://semver.org/spec/v2.0.0.html.
 - **datetime**: a generic scheme that uses a timestamp for comparison.
-  The timestamp must adhere to RFC3339, section 5.6, see
+  The timestamp must adhere to RFC3339, section 5.6. See
   https://www.rfc-editor.org/rfc/rfc3339#section-5.6.
