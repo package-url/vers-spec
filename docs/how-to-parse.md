@@ -9,7 +9,7 @@ To parse a VERS string:
 - The left hand side is the URI-scheme that shall be lowercase.
     - Tools shall validate that the URI-scheme value is VERS.
 - The right hand side is the specifier.
-- Split the specifier from left once on a slash '/.
+- Split the specifier from left once on a slash '/'.
 - The left hand side is the **version-scheme** that shall be
   lowercase. Tools should validate that the **version-scheme** is a
   known scheme.
@@ -18,7 +18,7 @@ To parse a VERS string:
   ignoring spaces.
 - If the string is equal to '\*', the **version-constraints** value is
  '*'. Parsing is done and no further processing is needed for this VERS.
-  A tool should report an error if there are characters other than'\*'.
+  A tool should report an error if there are characters other than '\*'.
 - Strip leading and trailing pipes '|' from the constraints string.
 - Split the constraints on pipe '|'. The result is a list of
   **version-constraints** strings. Consecutive pipes shall be treated as one.
@@ -50,12 +50,12 @@ Finally:
 Tools should optionally validate and simplify the list of 
 **version-contraints** strings once parsing is complete by:
 
-- sorting and validating the list of constraints
+- Sorting and validating the list of constraints
 - Simplifying the list of constraints
 
 ### Version-constraints simplification
 
-Tools can simplify a list of **version-constraints** strings using this approach:
+Tools can simplify a list of **version-constraints** strings using the following approach.
 
 These pairs of contiguous constraints with these **comparators** are valid:
 
@@ -113,7 +113,7 @@ A procedure to remove redundant constraints can be:
 
 To check if a "tested version" is contained within a version range:
 
-- Start from a parsed a version range specifier with:
+- Start from a parsed version range specifier with:
 
     - a **version-scheme**
     - a list of constraints of **comparator** and **version**, sorted by
@@ -127,12 +127,12 @@ To check if a "tested version" is contained within a version range:
   this versioning scheme and use these for all version comparisons
   performed below.
 
-- If the "tested version" is equal to the any of the constraint
+- If the "tested version" is equal to any of the constraint
   versions where the constraint comparator is for equality (any of '=',
   '<=', or '>=') then the "tested version" is in the range. Check is
   finished.
 
-- If the "tested version" is equal to the any of the constraint
+- If the "tested version" is equal to any of the constraint
   versions where the constraint comparator is '!=' then the "tested
   version" is NOT in the range. Check is finished.
 
