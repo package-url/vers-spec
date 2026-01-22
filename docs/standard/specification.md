@@ -13,12 +13,12 @@ Components are separated by a specific character for unambiguous parsing.
 | ------------------- | ----------- |:------------------------------------------------------ |
 | scheme              | Required    | The URL scheme with the constant value of "vers". |
 | version-scheme      | Required    | The version specification or "scheme" such as "semver", "npm", "deb", etc. |
-| version-constraints | Required    | Version constraints may be repeated as many times as needed to accurately reflect the intended range. The separator between version-constraints is a single pipe '|'.
+| version-constraints | Required    | Version constraints may be repeated as many times as needed to accurately reflect the intended range. The separator between version-constraints is a single pipe '\|'. |
 
 ## Separator characters
 This is how each of the Separator Characters is used:
 - ':' (colon) is the separator between **scheme** and **version-scheme**
-- '/' (slash) is the separator between **version-scheme** and "**version-constraints**
+- '/' (slash) is the separator between **version-scheme** and **version-constraints**
 - '|' (pipe) is the separator between **version-constraints**
 
 **Example 1 (Informative): npm**
@@ -84,7 +84,7 @@ such as a scheme that applies to a single package or project.
 A **comparator** is composed of these ASCII characters: 
 - the Equals character: '=' (equals, '=')
 - the Not Equals character: '!=' (exclamation mark, '!')
-- the Greater Than character: '>' (greater than, ">')
+- the Greater Than character: '>' (greater than, '>')
 - the Less Than character: '<' (less than, '<')
 - the Asterisk character: '\*' (asterisk, '*')
 
@@ -111,12 +111,12 @@ A **comparator** must be one of these comparison operators:
   than or equal to the provided version. For example '<=1.2.3' means
   less than or equal to "1.2.3".
 - '>' is the Greater-than operator. This includes all versions greater
-  than the provided version. -
+  than the provided version.
 - '>=' is the Greater-or-equal operator. This includes all versions
   greater than or equal to the provided version. For example '>=1.2.3'
   means greater than or equal to "1.2.3".
 - The special asterisk '\*'  operator matches any version. It must be
-  used alone and xclusive of any other constraint and must not be followed
+  used alone and exclusive of any other constraint and must not be followed
   by a version. For example, 'vers:deb/\*' represents all versions of a
   Debian package. This includes past, current and possible future versions.
 
@@ -129,6 +129,8 @@ VERS construction and validation rules are designed such that a VERS is
 easy to read and understand by humans and straightforward to process
 with tools. The rules are designed to prevent the creation of empty or 
 impossible version ranges.
+
+*[JJMH: The 1st bullet example looks wrong -- the first expression starts with '<' but the 2nd expression does not.]*
 
 - Spaces are not significant and are removed in a canonical form. For
   example '|<1.2.3|>=2.0|' and '| 1.2. 3 | > = 2 . 0 |' are equivalent.
@@ -155,13 +157,13 @@ are:
   and can occur only once in any **version-constraint** component of
   VERS, regardless of the **comparators**. Tools shall report an
   error for duplicated versions.
-- There can be only one asterisk: "\*" must only occur once and alone in a
+- There can be only one asterisk: '\*' must only occur once and alone in a
   range, without any other constraint or version.
 
 Starting from a de-duplicated and sorted list of constraints, these
 extra rules apply to the **comparators** of any two contiguous constraints:
 
-- A constraint using the '!=' operator can be followed by an a constraint
+- A constraint using the '!=' operator can be followed by a constraint
   using any operator (any of '=', '!=', '>', '>=', '<', '<=') or no
   constraint.
 
@@ -220,7 +222,7 @@ PURL **type**, the version range specifier will be:
 
     vers:npm/1.2.3|>=2.0.0|<5.0.0
 
-*[JMH/MJH: the following VERS example seems to interpret the 1st constraint as "or" versus
+*[JMH/MJH: the preceding VERS example seems to interpret the 1st constraint as "or" versus
 "and" for the second and third constraints. 1.2.3 we need a clear and complete
 description of the separators and their respective uses.]*
 
@@ -236,8 +238,8 @@ manifest the version range specification is:
     vers:pypi/0.0.0|0.0.1|0.0.2|0.0.3|1.0|2.0pre1
 
 ##### A complex statement about a vulnerability in a "maven" package:
-For a a "maven" package vulnerability that affects multiple branches, 
-each with their own fixed version: `affects Apache TomEE 8.0.0-M1 - 8.0.1, 
+For a "maven" package vulnerability that affects multiple branches, 
+each with its own fixed version: `affects Apache TomEE 8.0.0-M1 - 8.0.1, 
 Apache TomEE 7.1.0 - 7.1.2, Apache TomEE 7.0.0-M1 - 7.0.7, 
 Apache TomEE 1.0.0-beta1 - 1.7.5.`
 
@@ -255,6 +257,8 @@ Apache TomEE 1.0.0-beta1 - 1.7.5.`
 
   See also: https://repo1.maven.org/maven2/org/apache/tomee/apache-tomee/
 
+*[JMH: I think the following heading has one hash too many and is meant to be a 5-hash heading like those just above.]*
+
 ###### Converting RubyGems custom syntax for dependencies:
 Note how the pessimistic version constraint is expanded for the RubyGems dependency
 expression: `'library', '~>2.2.0', '!=2.2.1'`:
@@ -263,4 +267,4 @@ expression: `'library', '~>2.2.0', '!=2.2.1'`:
 
       vers:gem/>=2.2.0|!=2.2.1|<2.3.0
 
-*[JMH the dependency does not include the "<2.3.0" constraint in the VERS notation.]*:
+*[JMH the dependency expression does not include the "<2.3.0" constraint in the VERS notation.]*:
