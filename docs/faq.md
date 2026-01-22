@@ -21,7 +21,7 @@ reciprocally.
 
 There are likely a few rare cases where round tripping from and to
 VERS may not be possible. In any case round tripping to and from a
-VERS notation should produce equivalent results even the results 
+VERS notation should produce equivalent results even if the results 
 do not exactly match the original strings.
 
 Another issue with existing version range notations is that they are
@@ -99,23 +99,23 @@ This specification and the Package-URL **types** should be
 updated accordingly to provide a mapping with the upcoming CVE
 **collectionURL**.
 
-An issue with CVE v5 is that it introduces a new trailing "*"
+An issue with CVE v5 is that it introduces a new trailing '*'
 notation that does not exist in most version range notations and may
 not be computable easily in many cases. The description of the
 **lessThan** property is:
 
-"The non-inclusive upper limit of the range. This is the least version NOT 
-in the range. The usual version syntax is expanded to allow a pattern to 
-end in an asterisk (\*), indicating an arbitrarily large number in the 
-version ordering. For example, {version: 1.0 lessThan: 1.\*} would describe
-the entire 1.X branch for most range kinds, and {version: 2.0, lessThan: \*} 
-describes all versions starting at 2.0, including 3.0, 5.1, and so on."
+> The non-inclusive upper limit of the range. This is the least version NOT 
+> in the range. The usual version syntax is expanded to allow a pattern to 
+> end in an asterisk (\*), indicating an arbitrarily large number in the 
+> version ordering. For example, {version: 1.0 lessThan: 1.\*} would describe
+> the entire 1.X branch for most range kinds, and {version: 2.0, lessThan: \*} 
+> describes all versions starting at 2.0, including 3.0, 5.1, and so on.
 
 The conversion to VERS range should be:
 
-- For version 1.0 and **lessThan**:'\*', the VERS equivalent is: '>=1.0'.
+- For version 1.0 and **lessThan**: '\*', the VERS equivalent is: '>=1.0'.
 
-- For version 1.0 and **lessThan**:'.\*', the VERS equivalent can be
+- For version 1.0 and **lessThan**: '.\*', the VERS equivalent can be
   computed for "semver" versions as '>=1.0|<2' but this is not accurate
   because the versioning schemes have different rules. For instance,
   pre-release may be treated in some cases as part of the v1. branch and in
