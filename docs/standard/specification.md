@@ -89,6 +89,27 @@ A **comparator** is composed of these ASCII characters:
 - the Less Than character: '<' (less than, '<')
 - the Asterisk character: '\*' (asterisk, '*')
 
+A **comparator** must be one of the following:
+- '=' is the Equality o**comparator**. This means a version must be equal to
+the provided version.
+- '!=' is the Inequality **comparator**. This means that a version must not be
+equal to the provided version and it must be excluded from the range.
+For example: '!=1.2.3' means that version   "1.2.3" is excluded.
+- '<' is the Less-than **comparator**. This includes all versions less than
+the provided version. 
+- '<=': is the Less-or-equal **comparator**. This includes all versions less
+than or equal to the provided version. For example '<=1.2.3' means
+less than or equal to "1.2.3".
+- '>' is the Greater-than **comparator**. This includes all versions greater
+than the provided version.
+- '>=' is the Greater-or-equal **comparator**. This includes all versions
+greater than or equal to the provided version. For example '>=1.2.3'
+means greater than or equal to "1.2.3".
+- The special asterisk '\*' **comparator** matches any version. It must be
+used alone and exclusive of any other constraint and must not be followed
+by a version. For example, 'vers:deb/\*' represents all versions of a
+Debian package. This includes past, current and possible future versions.
+
 #### Version strings
 A Version is an ASCII string.
 
@@ -99,29 +120,7 @@ the equality of two normalized version strings according to the applicable
 **version-scheme** may, however, define normalization and other rules for 
 equality such as the "pypi" rules from PEP 440.
 
-A **comparator** must be one of these comparison operators:
-
-- '=' is the Equality operator. This means a version must be equal to
-the provided version.
-- '!=' is the Inequality operator. This means that a version must not be
-equal to the provided version and it must be excluded from the range.
-For example: '!=1.2.3' means that version   "1.2.3" is excluded.
-- '<' is the Less-than operator. This includes all versions less than
-the provided version. 
-- '<=': is the Less-or-equal operator. This includes all versions less
-than or equal to the provided version. For example '<=1.2.3' means
-less than or equal to "1.2.3".
-- '>' is the Greater-than operator. This includes all versions greater
-than the provided version.
-- '>=' is the Greater-or-equal operator. This includes all versions
-greater than or equal to the provided version. For example '>=1.2.3'
-means greater than or equal to "1.2.3".
-- The special asterisk '\*'  operator matches any version. It must be
-used alone and exclusive of any other constraint and must not be followed
-by a version. For example, 'vers:deb/\*' represents all versions of a
-Debian package. This includes past, current and possible future versions.
-
-A package version satisfies a set of **versions-constraints** if it is 
+A package version satisfies a set of **version-constraints** if it is 
 contained within any of the intervals defined by the **version-constraints**.
 
 ## Normalized, canonical representation and validation
@@ -143,45 +142,48 @@ its own case sensitivity.
 **comparator** characters (i.e., '>', '<', '=', '!', '*', '|'), the version
 shall be quoted using the URL quoting rules. This should be rare in practice.
 
-The list of **version-constraints** strings for a range are like a set of signposts in the version timeline of a package. With a few simple validation rules, we can avoid the creation of most empty or impossible version ranges. These rules are:
+The list of **version-constraints** strings for a range are like a set of 
+signposts in the version timeline of a package. With a few simple validation 
+rules, we can avoid the creation of most empty or impossible version ranges. 
+These rules are:
 
 - Constraints are sorted by version. The canonical ordering is the
-version order. The ordering of **version-constraint** components
+version order. The ordering of **version-constraints** components
 is not significant but this sort order is needed when checking
 if a version is contained within a range.
 - Versions are unique. Each version must be unique in a range
-and can occur only once in any **version-constraint** component of
+and can occur only once in any **version-constraints** component of
 VERS, regardless of the **comparators**. Tools shall report an
 error for duplicated versions.
-- There can be only one asterisk: '\*' must only occur once and alone in a
-range, without any other constraint or version.
+- There can be only one asterisk: if used, '\*' must occur only once and alone
+in a range, without any other constraint or version.
 
 Starting from a de-duplicated and sorted list of constraints, these
 extra rules apply to the **comparators** of any two contiguous constraints:
 
-- A constraint using the '!=' operator can be followed by a constraint
-using any operator (any of '=', '!=', '>', '>=', '<', '<=') or no
+- A constraint using the '!=' **comparator** can be followed by a constraint
+using any **comparator** (any of '=', '!=', '>', '>=', '<', '<=') or no
 constraint.
 
-Ignoring all constraints with '!=' operators:
+Ignoring all constraints with the '!=' **comparator**:
 
-- A constraint using the '=' operator must be followed only by a constraint with
-one of   '=', '>', or '>=' as the operator or no constraint.
+- A constraint using the '=' **comparator** must be followed only by a constraint 
+with one of   '=', '>', or '>=' as the **comparator** or no constraint.
 
-Ignoring all constraints with a '=' or '!=' operator, the sequence
+Ignoring all constraints with a '=' or '!=' **comparator**, the sequence
 of constraints must be an alternation of Greater-than and Lesser-than
-operators:
-- A constraint using '\<' and '\<=' must be followed by one of '>' or '>=' (or no
-constraint).
-- A constraint using '>' and '>=' must be followed by one of '\<' or '\<=' (or no
-constraint).
+**comparators**:
+- A constraint using '\<' and '\<=' must be followed by one of '>' or '>=' 
+(or no constraint).
+- A constraint using '>' and '>=' must be followed by one of '\<' or '\<=' 
+(or no constraint). 
 
 Tools must report an error for such invalid ranges.
 
 ### Using version range specifiers
 
 The primary VERS use case is to test if a version is within a range. 
-A version is within a version range if it falls within in any of the intervals
+A version is within a version range if it falls within any of the intervals
 defined by a range. Otherwise, the version is outside of the version
 range.
 
@@ -212,14 +214,15 @@ Some important use cases derived from this include:
 
 For example, to define a set of versions that contains either version
 "1.2.3", or any versions greater than or equal to "2.0.0" but less than
-"5.0.0" using the "node-semver" version scheme used with the "npm"
-PURL **type**, the version range specifier will be:
+"5.0.0" using the "node-semver" version scheme for the "npm" PURL **type**, 
+the version range specifier will be:
 
     vers:npm/1.2.3|>=2.0.0|<5.0.0
 
-*[JMH/MJH: the preceding VERS example seems to interpret the 1st constraint as 
-"or" versus "and" for the second and third constraints. We need a clear 
-and complete description of the separators and their respective uses.]*
+[comment]: # (JMH/MJH: the preceding VERS example seems  to interpret the 
+separator between the 1st and 2nd constraints as "or" versus the separator 
+between the 2nd and 3rd constraints as "and". . We need a clear description 
+of the separator(s) and its/their respective uses.)   
 
 Other examples are:
 
