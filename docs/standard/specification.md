@@ -49,7 +49,7 @@ specifications at: - https://tools.ietf.org/html/rfc3986
 - The **version-scheme** is case insensitive. The canonical form is lowercase.
 - The **version-scheme** shall be followed by a slash '/'.
 
-A **version-scheme** defines:
+A **version-scheme** also defines:
 
 - the specific notation and conventions used for a version string encoded in 
 this scheme
@@ -84,7 +84,7 @@ pipe '|'. The pipe "|" has no special meaning other than being a separator.
 #### Comparator characters
 A **comparator** is composed of these ASCII characters: 
 - the Equals character: '=' (equals, '=')
-- the Not Equals character: '!=' (exclamation mark, '!')
+- the Not Equals character: '!' (exclamation mark, '!')
 - the Greater Than character: '>' (greater than, '>')
 - the Less Than character: '<' (less than, '<')
 - the Asterisk character: '\*' (asterisk, '*')
@@ -131,11 +131,8 @@ easy to read and understand by humans and straightforward to process
 with tools. The rules are designed to prevent the creation of empty or 
 impossible version ranges.
 
-*[JJMH: The 1st bullet example looks wrong -- the first expression starts with 
-'<' but the 2nd expression does not.]*
-
 - Spaces are not significant and are removed in a canonical form. For
-example '|<1.2.3|>=2.0|' and '| 1.2. 3 | > = 2 . 0 |' are equivalent.
+example '|<1.2.3|>=2.0|' and '|< 1 . 2 . 3 | > = 2 . 0 |' are equivalent.
 - A version range specifier contains only printable ASCII letters,
 digits and punctuation.
 - The VERS **scheme** and **version-scheme** are always lowercase as in
@@ -146,15 +143,12 @@ its own case sensitivity.
 **comparator** characters (i.e., '>', '<', '=', '!', '*', '|'), the version
 shall be quoted using the URL quoting rules. This should be rare in practice.
 
-The list of **version-constraint** strings for a range are signposts in the
-version timeline of a package. With a few simple validation rules, we can 
-avoid the creation of most empty or impossible version ranges. These rules
-are:
+The list of **version-constraints** strings for a range are like a set of signposts in the version timeline of a package. With a few simple validation rules, we can avoid the creation of most empty or impossible version ranges. These rules are:
 
 - Constraints are sorted by version. The canonical ordering is the
 version order. The ordering of **version-constraint** components
 is not significant but this sort order is needed when checking
-if a version is contained within in a range.
+if a version is contained within a range.
 - Versions are unique. Each version must be unique in a range
 and can occur only once in any **version-constraint** component of
 VERS, regardless of the **comparators**. Tools shall report an
@@ -187,7 +181,7 @@ Tools must report an error for such invalid ranges.
 ### Using version range specifiers
 
 The primary VERS use case is to test if a version is within a range. 
-A version is within a version range if falls in any of the intervals
+A version is within a version range if it falls within in any of the intervals
 defined by a range. Otherwise, the version is outside of the version
 range.
 
@@ -214,7 +208,6 @@ Some important use cases derived from this include:
   be used in tandem with PURL to provide an input to this dependencies
   resolution process.
 
-
 ### Examples
 
 For example, to define a set of versions that contains either version
@@ -225,14 +218,14 @@ PURL **type**, the version range specifier will be:
     vers:npm/1.2.3|>=2.0.0|<5.0.0
 
 *[JMH/MJH: the preceding VERS example seems to interpret the 1st constraint as 
-"or" versus "and" for the second and third constraints. 1.2.3 we need a clear 
+"or" versus "and" for the second and third constraints. We need a clear 
 and complete description of the separators and their respective uses.]*
 
 Other examples are:
 
 #### A single version in an "npm" package dependency:
 For a package dependency originally seen as a dependency on version "1.2.3" in
-a `package.json` manifest the version range specification is:
+a `package.json` manifest file the version range specification is:
 
     vers:npm/1.2.3
 

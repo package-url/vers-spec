@@ -239,8 +239,7 @@ it faces limitations when converting from other notations:
 Some existing notations such as those for npm, gem, python, or composer
 provide a syntactic shorthand such as:
 
-- a "pessimistic operator" using tilde, ~> or =\~ as in "\~1.3" or
-  "~>1.2.3"
+- a "pessimistic operator" using tilde: '\~>' or '=\~' as in "\~1.3" or "\~>1.2.3"
 - a caret ^ prefix as in "^ 1.2"
 - using a star in a version segment as in "1.2.*"
 - dash-separated ranges as in "1.2 - 1.4"

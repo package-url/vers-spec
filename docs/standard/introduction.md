@@ -16,8 +16,7 @@ range is a necessary, compact, and practical way to reference multiple versions 
 
 VErsion Range Specifier (VERS) introduces a standard URI-based syntax to 
 define package version ranges and the semantics (algorithm or procedure) to 
-interpret each version range notation. This standardization provides ensures 
-more accurate and consistent analysis of package version dependencies and the 
+interpret each version range notation. This standardization provides more accurate and consistent analysis of package version dependencies and the 
 impact of known vulnerabilities or bugs on a package. VERS was developed in 
 concert with the Package-URL (PURL) specification standardized with [ECMA-427](https://ecma-tc54.github.io/ECMA-427/).
 

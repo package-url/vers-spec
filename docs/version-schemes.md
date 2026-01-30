@@ -27,13 +27,13 @@ VERS **version-scheme**.
 | PURL type | Description   | Reference URL      |            
 | --------- | --------------| ------------------ |
 | alpm   | Arch Linux uses its own simplified notation for its PKGBUILD depends array and uses a modified RPM version comparison. | https://wiki.archlinux.org/title/PKGBUILD#Dependencies|
-| apk    | Alpine Linux use comparison operators similar to VERS.              | https://gitlab.alpinelinux.org/alpine/apk-tools/-/blob/master/src/version.c|
+| apk    | Alpine Linux uses comparison operators similar to VERS.              | https://gitlab.alpinelinux.org/alpine/apk-tools/-/blob/master/src/version.c|
 | cargo     | Cargo for Rust uses a version scheme that is similar to "node-semver". |  https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html |
 | composer  | Composer for PHP  | https://getcomposer.org/doc/articles/versions.md |
 | cpan      | Perl CPAN defines its own version range notation similar to VERS with two-segment versions. |  https://metacpan.org/pod/CPAN::Meta::Spec#VERSION-NUMBERS <br> https://perlmaven.com/how-to-compare-version-numbers-in-perl-and-for-cpan-modules  |
 | dart | The Dart pub versioning scheme is similar to "node-semver". Version resolution uses its own algorithm. | https://dart.dev/tools/pub/versioning |
 | deb       | Debian and Ubuntu use their own notation and are known for their use of "epochs" to disambiguate versions. They both use the comparators: '<<', '<=', '=', '>=' and '>>'| https://www.debian.org/doc/debian-policy/ch-relationships.html |
-| gem       | RubyGems strongly suggests using SemVer for versioning but does not enforce it. As a result some l popular packages do not use strict Semver. RubyGems uses their own notation for version ranges which is similar to the "node-semver" notation with some subtle differences. | https://guides.rubygems.org/patterns/#semantic-versioning |
+| gem       | RubyGems strongly suggests using SemVer for versioning but does not enforce it. As a result some popular packages do not use strict Semver. RubyGems uses their own notation for version ranges which is similar to the "node-semver" notation with some subtle differences. | https://guides.rubygems.org/patterns/#semantic-versioning |
 | golang    | Go modules use SemVer versions with a specific minimum version resolution algorithm.   | https://golang.org/ref/mod#versions|
 | hackage | The Haskell Package Versioning Policy provides a notation similar to VERS based on a modified SemVer with extra notations such as star and caret.   | https://pvp.haskell.org/  |
 | maven     | Apache Maven uses a [math interval notation](https://en.wikipedia.org/wiki/Interval_(mathematics)) with brackets. | http://maven.apache.org/enforcer/enforcer-rules/versionRanges.html  |

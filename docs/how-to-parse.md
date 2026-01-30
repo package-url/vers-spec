@@ -7,7 +7,7 @@ To parse a VERS string:
 - Remove all spaces and tabs.
 - Start from left, and split once on colon ':'.
 - The left hand side is the URI-scheme that shall be lowercase.
-    - Tools shall validate that the URI-scheme value is VERS.
+    - Tools shall validate that the URI-scheme value is 'vers'.
 - The right hand side is the specifier.
 - Split the specifier from left once on a slash '/'.
 - The left hand side is the **version-scheme** that shall be
@@ -61,14 +61,12 @@ These pairs of contiguous constraints with these **comparators** are valid:
 
 - '!=' followed by anything
 - '=', '<', or '<=' followed by '=', '!=', '>', or '>='
-- '\>', or '>=' followed by '!=', '<', or '<='
+- '>', or '>=' followed by '!=', '<', or '<='
 
-These pairs of contiguous constraints with these **comparators** are
-redundant and invalid (ignoring any '!=; because it they can show up
-anywhere):
+These pairs of contiguous constraints with these **comparators** are redundant and invalid (ignoring any instances of '!=' because they can show up anywhere):
 
 - '=', '<' or '<=' followed by '<' or '<=:' this is the same as '<' or '<='
-- '\>' or '>=' followed by '=', '>' or '>=:' this is the same as '>' or '>='
+- '>' or '>=' followed by '=', '>' or '>=:' this is the same as '>' or '>='
 
 A procedure to remove redundant constraints can be:
 
