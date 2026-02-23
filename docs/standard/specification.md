@@ -49,7 +49,7 @@ specifications at: - https://tools.ietf.org/html/rfc3986
 - The **version-scheme** is case insensitive. The canonical form is lowercase.
 - The **version-scheme** shall be followed by a slash '/'.
 
-A **version-scheme** also defines:
+A **version-scheme** defines:
 
 - the specific notation and conventions used for a version string encoded in 
 this scheme
@@ -58,7 +58,7 @@ outside a range
 - how a version-scheme-specific range notation can be transformed into VERS 
 notation
 
-A **version-scheme** defines:
+A **version-scheme** also defines:
 - how to compare two version strings using **comparators**
 - the structure (if any) of a **version** string such as "1.2.3". For
 example, the "semver" specification for version numbers defines a version as 
@@ -90,7 +90,7 @@ A **comparator** is composed of these ASCII characters:
 - the Asterisk character: '\*' (asterisk, '*')
 
 A **comparator** must be one of the following:
-- '=' is the Equality o**comparator**. This means a version must be equal to
+- '=' is the Equality **comparator**. This means a version must be equal to
 the provided version.
 - '!=' is the Inequality **comparator**. This means that a version must not be
 equal to the provided version and it must be excluded from the range.
