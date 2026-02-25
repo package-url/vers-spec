@@ -44,7 +44,7 @@ for the list of these specifications.
 - See [Tools](https://www.packageurl.org/#:~:text=PURL%20v1.0-,Software%20Tools) 
 for the list of these tools.
 
-If you want to add a tool or specification that supports VERS please create an issue in the [Package-URL website repostory](https://github.com/package-url/www.packageurl.org/issues). 
+If you want to add a tool or specification that supports VERS please create an issue in the [Package-URL website repository](https://github.com/package-url/www.packageurl.org/issues). 
 There are separate issue templates for 'Add a Tool' and 'Add a Specification" because the data fields are different.
 
 **NB** There is a "staging website" for Package-URL at: https://package-url.github.io/www.packageurl.org/ 
