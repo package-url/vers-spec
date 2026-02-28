@@ -38,9 +38,9 @@ The VERS specification consists of
 ## Adopters
 
 VERS (VErsion Range Specifier) has been adopted by other specifications and is supported by many tools. The details are available on the [Package-URL website](https://www.packageurl.org/).
-- See [Specifications](https://package-url.github.io/www.packageurl.org/docs/getting-started/specgrid) 
+- See [Specifications](https://www.packageurl.org/docs/getting-started/specgrid) 
 for the list of these specifications.
-- See [Tools](https://package-url.github.io/www.packageurl.org/docs/getting-started/toolgrid) 
+- See [Tools](https://www.packageurl.org/docs/getting-started/toolgrid) 
 for the list of these tools.
 
 If you want to add a tool or specification that supports VERS please create an issue in the [Package-URL website repostory](https://github.com/package-url/www.packageurl.org/issues). 
