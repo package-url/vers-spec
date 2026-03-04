@@ -105,7 +105,7 @@ than the provided version.
 - '>=' is the Greater-or-equal **comparator**. This includes all versions
 greater than or equal to the provided version. For example '>=1.2.3'
 means greater than or equal to "1.2.3".
-- The special asterisk '\*' **comparator** matches any version. It must be
+- The special Asterisk '\*' **comparator** matches any version. It must be
 used alone and exclusive of any other constraint and must not be followed
 by a version. For example, 'vers:deb/\*' represents all versions of a
 Debian package. This includes past, current and possible future versions.
@@ -143,7 +143,10 @@ its own case sensitivity.
 shall be quoted using the URL quoting rules. This should be rare in practice.
 
 The list of **version-constraints** strings for a range are like a set of 
-signposts in the version timeline of a package. With a few simple validation 
+signposts in the version timeline of a package. The separators do not mean 
+"and" or "or". They are separators in a sequence of **version-constraints**.
+
+With a few simple validation 
 rules, we can avoid the creation of most empty or impossible version ranges. 
 These rules are:
 
@@ -219,6 +222,14 @@ the version range specifier will be:
 
     vers:npm/1.2.3|>=2.0.0|<5.0.0
 
+This is an example of how to read a set of **version-constraints" in version 
+order from left to right to determine the versions that are included in a
+VERS notation. In this case you process in order:
+- Include a single version "1.2.3"
+- Include versions that are ">=2.0.0"
+- Stop including versions when you reach the constraint "<5.0.0"
+
+
 [comment]: # (JMH/MJH: the preceding VERS example seems  to interpret the 
 separator between the 1st and 2nd constraints as "or" versus the separator 
 between the 2nd and 3rd constraints as "and". . We need a clear description 
@@ -257,11 +268,8 @@ Apache TomEE 1.0.0-beta1 - 1.7.5.`
 
 #### Converting RubyGems custom syntax for dependencies:
 Note how the pessimistic version constraint is expanded for the RubyGems dependency
-expression: `'library', '~>2.2.0', '!=2.2.1'`:
+expression: `'library', '~>2.2.0', '!=2.2.1', '<2.3.0'`
 
 - The VERS notation is:
 
       vers:gem/>=2.2.0|!=2.2.1|<2.3.0
-
-*[JMH the dependency expression does not include the "<2.3.0" constraint in 
-the VERS notation.]*:
