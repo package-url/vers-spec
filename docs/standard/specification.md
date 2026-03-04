@@ -222,18 +222,12 @@ the version range specifier will be:
 
     vers:npm/1.2.3|>=2.0.0|<5.0.0
 
-This is an example of how to read a set of **version-constraints" in version 
+This is an example of how to read a set of **version-constraints** in version 
 order from left to right to determine the versions that are included in a
 VERS notation. In this case you process in order:
 - Include a single version "1.2.3"
 - Include versions that are ">=2.0.0"
 - Stop including versions when you reach the constraint "<5.0.0"
-
-
-[comment]: # (JMH/MJH: the preceding VERS example seems  to interpret the 
-separator between the 1st and 2nd constraints as "or" versus the separator 
-between the 2nd and 3rd constraints as "and". . We need a clear description 
-of the separator(s) and its/their respective uses.)   
 
 Other examples are:
 
