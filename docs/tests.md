@@ -1,3 +1,10 @@
+---
+id: tests
+title: VERS test overview
+sidebar_label: VERS test overview
+hide_table_of_contents: true
+---
+
 # VERS test overview
 
 ## Tests
