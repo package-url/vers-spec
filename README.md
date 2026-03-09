@@ -27,7 +27,7 @@ The VERS specification consists of a core syntax definition and semantics for th
 Documentation for the core VERS specification is available on the [Package-URL website](https://www.packageurl.org/docs/vers/specification),
 along with information about [how to parse and validate VERS notations](https://www.packageurl.org/docs/vers/how-to-parse) and 
 information about [VERS test cases](https://www.packageurl.org/docs/vers/tests).
-There is a [VERS Test JSON Schema](https://www.packageurl.org/docs/vers/vers-spec-schemas) and
+There is a [VERS Test JSON Schema](https://www.packageurl.org/docs/vers/schemas) and
 a collection of JSON test files in the `/tests` directory.
 
 ## Adopters
@@ -38,7 +38,7 @@ for the list of these specifications.
 - See [Tools](https://www.packageurl.org/docs/getting-started/toolgrid) 
 for the list of these tools.
 
-If you want to add a tool or specification that supports VERS please create an issue in the [Package-URL website repostory](https://github.com/package-url/www.packageurl.org/issues). 
+If you want to add a tool or specification that supports VERS please create an issue in the [Package-URL website repository](https://github.com/package-url/www.packageurl.org/issues). 
 There are separate issue templates for 'Add a Tool' and 'Add a Specification' because the data fields are different.
 
 **NB** The "production" website for the Package-URL project is at: https://www.packageurl.org/.
