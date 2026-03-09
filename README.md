@@ -22,11 +22,13 @@ as an international standard supports its adoption and consistent implementation
 By enabling a universally recognized and implementable specification, VERS aligns with global efforts to improve the security, reliability, and accountability of software supply chains. Its adoption ensures that organizations and developers can rely on a common way to specify and interpret package version ranges for managing package dependency resolution and software
 vulnerability analysis and mitigation.
 
-## PURL specification
+## VERS specification
 The VERS specification consists of a core syntax definition and semantics for the expression and parsing of **version-constraints**.
-The VERS specification is explained at: https://www.packageurl.org/docs/vers/vers-spec-specification.
-The specification also includes the [VERS Test JSON Schema](https://www.packageurl.org/docs/vers/vers-spec-schemas) and
-a collection of JSON test files in the `/tests directory`.
+Documentation for the core VERS specification is available on the [Package-URL website](https://www.packageurl.org/docs/vers/specification),
+along with information about [how to parse and validate VERS notations](https://www.packageurl.org/docs/vers/how-to-parse) and 
+information about [VERS test cases](https://www.packageurl.org/docs/vers/tests).
+There is a [VERS Test JSON Schema](https://www.packageurl.org/docs/vers/vers-spec-schemas) and
+a collection of JSON test files in the `/tests` directory.
 
 ## Adopters
 
