@@ -130,8 +130,12 @@ easy to read and understand by humans and straightforward to process
 with tools. The rules are designed to prevent the creation of empty or 
 impossible version ranges.
 
-- Spaces are not significant and are removed in a canonical form. For
-example '|<1.2.3|>=2.0|' and '|< 1 . 2 . 3 | > = 2 . 0 |' are equivalent.
+- A VERS string shall already be in canonical form.
+- Non-canonical (unnormalized) forms are invalid and tools shall report an
+error instead of accepting and normalizing them.
+- ASCII whitespace is not permitted in a VERS string. Tools shall report an
+error if any SPACE (0x20), TAB (0x09), LF (0x0A), CR (0x0D), or FF (0x0C)
+character is present.
 - A version range specifier contains only printable ASCII letters,
 digits and punctuation.
 - The VERS **scheme** and **version-scheme** are always lowercase as in
@@ -152,8 +156,8 @@ These rules are:
 
 - Constraints are sorted by version. The canonical ordering is the
 version order. The ordering of **version-constraints** components
-is not significant but this sort order is needed when checking
-if a version is contained within a range.
+is significant for validity: tools shall report an error for
+non-canonical ordering.
 - Versions are unique. Each version must be unique in a range
 and can occur only once in any **version-constraints** component of
 VERS, regardless of the **comparators**. Tools shall report an
