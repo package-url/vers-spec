@@ -41,7 +41,7 @@ specifications at: - https://tools.ietf.org/html/rfc3986
 - The **scheme** is a constant with the value "vers".
 - The **scheme** shall be followed by an unencoded colon ':'.
 
-### **Version-scheme**
+### Version-scheme
 - The **version-scheme** shall be composed only of ASCII letters and numbers,
   period '.', and dash '-'.
 - The **version-scheme** shall start with an ASCII letter.
@@ -70,7 +70,7 @@ PURL **type** for a given package ecosystem. It is, however, allowed to
 define a **version-scheme** that does not match an existing PURL **type**
 such as a scheme that applies to a single package or project.
 
-### **Version-constraints**
+### Version-constraints
 - The **version-constraints** component shall be preceded by an unencoded
 '/' slash separator when not empty.
 - Each instance of the **version-constraints** component is composed of either
