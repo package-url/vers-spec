@@ -4,7 +4,9 @@
 
 To parse a VERS string:
 
-- Remove all spaces and tabs.
+- Check that the VERS string is canonical.
+- Tools shall report an error if the VERS string contains any ASCII whitespace
+  character (including SPACE, TAB, and LF).
 - Start from left, and split once on colon ':'.
 - The left hand side is the URI-scheme that shall be lowercase.
     - Tools shall validate that the URI-scheme value is 'vers'.
@@ -19,13 +21,15 @@ To parse a VERS string:
 - If the string is equal to '\*', the **version-constraints** value is
  '*'. Parsing is done and no further processing is needed for this VERS.
   A tool should report an error if there are characters other than '\*'.
-- Strip leading and trailing pipes '|' from the constraints string.
+- Tools shall report an error if the constraints string has a leading or
+  trailing pipe '|'.
 - Split the constraints on pipe '|'. The result is a list of
-  **version-constraints** strings. Consecutive pipes shall be treated as one.
-  Leading and trailing pipes are ignored.
+  **version-constraints** strings. Tools shall report an error if consecutive
+  pipes are present.
 - For each **version-constraints** string:
     - Determine if the **version-constraints** string starts with one of the
-     two **comparators**: [what does this mean? 2 versus a list of 5]
+      two-character **comparators** ('>=', '<=', '!=') or one-character
+      **comparators** ('<', '>'):
         - If it starts with '>=', then the comparator is '>='.
         - If it starts with '<=', then the comparator is '<='.
         - If it starts with '!=', then the comparator is '!='.
@@ -51,7 +55,10 @@ Tools should optionally validate and simplify the list of
 **version-contraints** strings once parsing is complete by:
 
 - Sorting and validating the list of constraints
-- Simplifying the list of constraints
+
+Tools shall report an error if the parsed constraints are non-canonical,
+including non-canonical ordering, duplicate versions, or invalid comparator
+sequences. Tools should not auto-correct non-canonical input during parsing.
 
 ### Version-constraints simplification
 
