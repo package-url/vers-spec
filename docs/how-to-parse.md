@@ -4,9 +4,9 @@
 
 To parse a VERS string:
 
-- Check that the VERS string is already canonical.
+- Check that the VERS string is canonical.
 - Tools shall report an error if the VERS string contains any ASCII whitespace
-  character (SPACE, TAB, LF, CR, or FF).
+  character (including SPACE, TAB, and LF).
 - Start from left, and split once on colon ':'.
 - The left hand side is the URI-scheme that shall be lowercase.
     - Tools shall validate that the URI-scheme value is 'vers'.
@@ -58,9 +58,7 @@ Tools should optionally validate and simplify the list of
 
 Tools shall report an error if the parsed constraints are non-canonical,
 including non-canonical ordering, duplicate versions, or invalid comparator
-sequences.
-
-Tools should not auto-correct non-canonical input during parsing.
+sequences. Tools should not auto-correct non-canonical input during parsing.
 
 ### Version-constraints simplification
 
