@@ -41,7 +41,7 @@ specifications at: - https://tools.ietf.org/html/rfc3986
 - The **scheme** is a constant with the value "vers".
 - The **scheme** shall be followed by an unencoded colon ':'.
 
-### Version-scheme
+### **Version-scheme**
 - The **version-scheme** shall be composed only of ASCII letters and numbers,
   period '.', and dash '-'.
 - The **version-scheme** shall start with an ASCII letter.
@@ -70,7 +70,7 @@ PURL **type** for a given package ecosystem. It is, however, allowed to
 define a **version-scheme** that does not match an existing PURL **type**
 such as a scheme that applies to a single package or project.
 
-### Version-constraints
+### **Version-constraints**
 - The **version-constraints** component shall be preceded by an unencoded
 '/' slash separator when not empty.
 - Each instance of the **version-constraints** component is composed of either
@@ -130,14 +130,11 @@ easy to read and understand by humans and straightforward to process
 with tools. The rules are designed to prevent the creation of empty or 
 impossible version ranges.
 
-- A VERS string shall already be in canonical form.
-- Non-canonical (unnormalized) forms are invalid and tools shall report an
-error instead of accepting and normalizing them.
-- ASCII whitespace is not permitted in a VERS string. Tools shall report an
-error if any SPACE (0x20), TAB (0x09), LF (0x0A), CR (0x0D), or FF (0x0C)
-character is present.
+- A VERS string shall already be in canonical form. Non-canonical (unnormalized) forms are invalid and tools shall report an error instead of normalizing them automatically.
 - A version range specifier contains only printable ASCII letters,
 digits and punctuation.
+- ASCII whitespace is not permitted in a VERS string. Tools shall report an
+error if any Whitespace character, for example SPACE (0x20), TAB (0x09), or LF (0x0A), is used.
 - The VERS **scheme** and **version-scheme** are always lowercase as in
 'vers:npm'.
 - Versions are case-sensitive. A **version-scheme** may specify
