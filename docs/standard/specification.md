@@ -247,8 +247,7 @@ Apache TomEE 1.0.0-beta1 - 1.7.5.`
 
       vers:maven/>=1.0.0-beta1|<=1.7.5|>=7.0.0-M1|<=7.0.7|>=7.1.0|<=7.1.2|>=8.0.0-M1|<=8.0.1
   
-- An alternative is to use four VERS notations to cover the same range, using 
-one VERS   for each of the vulnerable "branches":
+- An alternative is to use four VERS notations to cover the same range using one VERS for each of the vulnerable "branches":
 
       vers:tomee/>=1.0.0-beta1|<=1.7.5
       vers:tomee/>=7.0.0-M1|<=7.0.7

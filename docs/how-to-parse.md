@@ -11,7 +11,7 @@ To parse a VERS string:
 - The right hand side is the specifier.
 - Split the specifier from left once on a slash '/'.
 - The left hand side is the **type** that shall be lowercase. Tools should 
-validate that the **type** is a known stype.
+   validate that the **type** is a known **type**.
 - The right hand side is a list of one or more constraints. Tools 
   validate that this **constraints** string is not empty
   ignoring spaces.
