@@ -35,15 +35,18 @@ permissive than base tests. They may correct some errors.
 There are nine VERS test types:
 - **build**: A test to build a canonical VERS string from decoded VERS 
 components.
-- **comparison**: A test to sort an input version string array using the applicable **version-scheme** rules.
+- **comparison**: A test to sort an input version string array using the 
+applicable VERS **type** rules.
 - **containment**: A test to determine whether a bare version string is 
 contained within the range of a VERS string.
 - **equality**: A test to check if two input versions strings are equal using 
-the applicable **version-scheme** rules.
-- **from_native**: A test to construct a canonical VERS string from a native ecosystem data source.
+the applicable VERS **type** rules.
+- **from_native**: A test to construct a canonical VERS string from a native 
+ecosystem data source.
 - **invert**: A test to invert a VERS string into a canonical VERS string.
-- **merge**: A test to merge an array of VERS strings into a canonical VERS string.
-- **parse**: A test to parse a VERS string into a decoded **version-scheme** 
-and a **version-constraints** list.
+- **merge**: A test to merge an array of VERS strings into a canonical VERS 
+string.
+- **parse**: A test to parse a VERS string into a decoded **type** 
+and a **constraints** list.
 - **roundtrip**: A test to parse a VERS input string and build a canonical 
 VERS output string.
