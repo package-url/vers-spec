@@ -27,8 +27,9 @@ Two key properties in the VERS test JSON Schema are:
 
 There are two VERS test groups:
 - **base**: Test group for base conformance tests. Base tests are pass/fail.
-- **advanced**: Test group for advanced tests. Advanced tests are more 
-permissive than base tests. They may correct some errors.
+- **advanced**: Test group for advanced tests. Advanced tests cover additional
+capabilities beyond base conformance, while still requiring canonical VERS
+input.
 
 ### Test types
 
