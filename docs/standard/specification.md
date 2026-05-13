@@ -3,7 +3,7 @@
 VERS stands for "VErsion Range Specifier. A VERS is an ASCII URI string composed of
 three components:
 
-    scheme:version-scheme/version-constraints|
+    scheme:type/constraints|
 
 Components are separated by a specific character for unambiguous parsing.
 
@@ -12,15 +12,14 @@ Components are separated by a specific character for unambiguous parsing.
 | Component           | Requirement | Description|
 | ------------------- | ----------- |:------------------------------------------------------ |
 | scheme              | Required    | The URL scheme with the constant value of "vers". |
-| version-scheme      | Required    | The version specification or "scheme" such as "semver", "npm", "deb", etc. |
-| version-constraints | Required    | Version constraints may be repeated as many times as needed to accurately reflect the intended range. The separator between version-constraints is a single pipe '\|'. |
+| type                | Required    | The version specification type such as "semver", "npm", "deb", etc. |
+| constraints         | Required    | Version constraints may be repeated as many times as needed to accurately reflect the intended range. The separator between version-constraints is a single pipe '\|'. |
 
 ## Separator characters
 This is how each of the Separator Characters is used:
-- ':' (colon) is the separator between **scheme** and **version-scheme**
-- '/' (slash) is the separator between **version-scheme** and 
-**version-constraints**
-- '|' (pipe) is the separator between **version-constraints**
+- ':' (colon) is the separator between **scheme** and **type**
+- '/' (slash) is the separator between **type** and **constraints**
+- '|' (pipe) is the separator between **constraints**
 
 **Example 1 (Informative): npm**
 
@@ -41,44 +40,44 @@ specifications at: - https://tools.ietf.org/html/rfc3986
 - The **scheme** is a constant with the value "vers".
 - The **scheme** shall be followed by an unencoded colon ':'.
 
-### Version-scheme
-- The **version-scheme** shall be composed only of ASCII letters and numbers,
+### Type
+- The **type** shall be composed only of ASCII letters and numbers,
   period '.', and dash '-'.
-- The **version-scheme** shall start with an ASCII letter.
-- The **version-scheme** shall not be percent-encoded.
-- The **version-scheme** is case insensitive. The canonical form is lowercase.
-- The **version-scheme** shall be followed by a slash '/'.
+- The **type** shall start with an ASCII letter.
+- The **type** shall not be percent-encoded.
+- The **type** is case insensitive. The canonical form is lowercase.
+- The **type** shall be followed by a slash '/'.
 
-A **version-scheme** defines:
+A **type** defines:
 
-- the specific notation and conventions used for a version string encoded in 
-this scheme
+- the specific notation and conventions used for a version string encoded 
+according to this type
 - how two versions are compared to determine if a version is inside or 
 outside a range
-- how a version-scheme-specific range notation can be transformed into VERS 
+- how a type-specific range notation can be transformed into VERS 
 notation
 
-A **version-scheme** also defines:
+A **type** also defines:
 - how to compare two version strings using **comparators**
 - the structure (if any) of a **version** string such as "1.2.3". For
 example, the "semver" specification for version numbers defines a version as 
 composed primarily of three dot-separated numeric segments named "major", 
 "minor" and "patch".
 
-By convention a **version-scheme** should be the same as the
+By convention a **type** should be the same as the
 PURL **type** for a given package ecosystem. It is, however, allowed to
-define a **version-scheme** that does not match an existing PURL **type**
+define a **type** that does not match an existing PURL **type**
 such as a scheme that applies to a single package or project.
 
-### Version-constraints
-- The **version-constraints** component shall be preceded by an unencoded
+### constraints
+- The **constraints** component shall be preceded by an unencoded
 '/' slash separator when not empty.
-- Each instance of the **version-constraints** component is composed of either
+- Each instance of the **constraints** component is composed of either
 a single **version** as in '1.2.3' or the combination of a **comparator** and
 a **version** as in '>=2.0.0'.
 - A **comparator** always precedes the **version** with no characters allowed
 between the **comparator** and the **version**
-- Multiple **version-constraints** strings shall be separated by an unencoded
+- Multiple **constraints** strings shall be separated by an unencoded
 pipe '|'. The pipe "|" has no special meaning other than being a separator.
 
 #### Comparator characters
@@ -113,15 +112,15 @@ Debian package. This includes past, current and possible future versions.
 #### Version strings
 A Version is an ASCII string.
 
-A single **version** in a **version-constraints** string means that a version 
+A single **version** in a **constraints** string means that a version 
 equal to this version satisfies the range specification. Equality is based on 
 the equality of two normalized version strings according to the applicable
-**version-scheme**. For most schemes, this is a simple string equality. A 
-**version-scheme** may, however, define normalization and other rules for 
+**type**. For most schemes, this is a simple string equality. A 
+**type** may, however, define normalization and other rules for 
 equality such as the "pypi" rules from PEP 440.
 
-A package version satisfies a set of **version-constraints** if it is 
-contained within any of the intervals defined by the **version-constraints**.
+A package version satisfies a set of **constraints** if it is 
+contained within any of the intervals defined by the **constraints**.
 
 ## Normalized, canonical representation and validation
 
@@ -135,28 +134,26 @@ impossible version ranges.
 digits and punctuation.
 - ASCII whitespace is not permitted in a VERS string. Tools shall report an
 error if any Whitespace character, for example SPACE (0x20), TAB (0x09), or LF (0x0A), is used.
-- The VERS **scheme** and **version-scheme** are always lowercase as in
+- The VERS **scheme** and **type** are always lowercase as in
 'vers:npm'.
-- Versions are case-sensitive. A **version-scheme** may specify
+- Versions are case-sensitive. A **type** may specify
 its own case sensitivity.
-- If a version in a **version-constraints** string contains **separator** or
+- If a version in a **constraints** string contains **separator** or
 **comparator** characters (i.e., '>', '<', '=', '!', '*', '|'), the version
 shall be quoted using the URL quoting rules. This should be rare in practice.
 
-The list of **version-constraints** strings for a range are like a set of 
+The list of **constraints** strings for a range are like a set of 
 signposts in the version timeline of a package. The separators do not mean 
-"and" or "or". They are separators in a sequence of **version-constraints**.
+"and" or "or". They are separators in a sequence of **constraints**.
 
-With a few simple validation 
-rules, we can avoid the creation of most empty or impossible version ranges. 
-These rules are:
+With a few simple validation rules, we can avoid the creation of most empty or impossible version ranges. These rules are:
 
 - Constraints are sorted by version. The canonical ordering is the
-version order. The ordering of **version-constraints** components
+version order. The ordering of **constraints** components
 is significant for validity: tools shall report an error for
 non-canonical ordering.
 - Versions are unique. Each version must be unique in a range
-and can occur only once in any **version-constraints** component of
+and can occur only once in any **constraints** component of
 VERS, regardless of the **comparators**. Tools shall report an
 error for duplicated versions.
 - There can be only one asterisk: if used, '\*' must occur only once and alone
@@ -210,8 +207,8 @@ Some important use cases derived from this include:
   the version range constraints of all of the dependencies. This
   usually requires deploying heuristics and algorithms (possibly
   as complex as SAT solvers) that are ecosystem- and tool-specific
-  and outside of the scope for this specification. VERS could
-  be used in tandem with PURL to provide an input to this dependencies
+  and outside of the scope of this specification. VERS could
+  be used in tandem with PURL to provide an input to this dependency
   resolution process.
 
 ### Examples
@@ -223,7 +220,7 @@ the version range specifier will be:
 
     vers:npm/1.2.3|>=2.0.0|<5.0.0
 
-This is an example of how to read a set of **version-constraints** in version 
+This is an example of how to read a set of **constraints** in version 
 order from left to right to determine the versions that are included in a
 VERS notation. In this case you process in order:
 - Include a single version "1.2.3"
@@ -251,8 +248,7 @@ Apache TomEE 1.0.0-beta1 - 1.7.5.`
 
       vers:maven/>=1.0.0-beta1|<=1.7.5|>=7.0.0-M1|<=7.0.7|>=7.1.0|<=7.1.2|>=8.0.0-M1|<=8.0.1
   
-- An alternative is to use four VERS notations to cover the same range, using one VERS
-  for each of the vulnerable "branches":
+- An alternative is to use four VERS notations to cover the same range using one VERS for each of the vulnerable "branches":
 
       vers:tomee/>=1.0.0-beta1|<=1.7.5
       vers:tomee/>=7.0.0-M1|<=7.0.7
@@ -262,8 +258,8 @@ Apache TomEE 1.0.0-beta1 - 1.7.5.`
   See also: https://repo1.maven.org/maven2/org/apache/tomee/apache-tomee/
 
 #### Converting RubyGems custom syntax for dependencies:
-Note how the pessimistic version constraint is expanded for the RubyGems dependency
-expression: `'library', '~>2.2.0', '!=2.2.1', '<2.3.0'`
+Note how the pessimistic version constraint is expanded for the RubyGems 
+dependency expression: `'library', '~>2.2.0', '!=2.2.1', '<2.3.0'`
 
 - The VERS notation is:
 
