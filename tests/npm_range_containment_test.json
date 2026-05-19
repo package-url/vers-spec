@@ -6,7 +6,7 @@
       "test_group": "advanced",
       "test_type": "containment",
       "input": {
-        "vers": "vers:nginx/*",
+        "vers": "vers:npm/*",
         "version": "1.0.0"
       },
       "expected_output": true
