@@ -59,6 +59,29 @@
       "input": "vers:npm/>=2.0.0|<1.0.0",
       "expected_failure": true,
       "expected_failure_reason": "non-canonical VERS: constraints are not sorted by version"
+    },
+    {
+      "description": "Parsing decodes canonical percent-encoding once for versions.",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "vers:npm/1.0%252F0",
+      "expected_output": {
+        "scheme": "npm",
+        "version_constraints": [
+          [
+            "=",
+            "1.0%2F0"
+          ]
+        ]
+      }
+    },
+    {
+      "description": "Parsing fails when version percent-encoding is invalid.",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "vers:npm/1.0%2G0",
+      "expected_failure": true,
+      "expected_failure_reason": "non-canonical VERS: invalid percent-encoding in version"
     }
   ]
 }
