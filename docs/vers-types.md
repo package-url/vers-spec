@@ -1,4 +1,4 @@
-# Version schemes
+# VERS types
 
 There is a very wide range of software version schemes. For the development of
 the VERS specification, we are focused on three categories of VERS **types**:
@@ -70,7 +70,7 @@ VERS **type**.
 
 ## Generic VERS types
 
-These are generic VERS **types**, to be used sparingly for special cases:
+There are generic VERS **types**, to be used sparingly for special cases:
 
 - **all**: a generic VERS **type** for a range containing all
 versions. 'vers:all/*' is the only valid VERS form for this **type**.
