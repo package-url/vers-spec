@@ -55,7 +55,8 @@ strings once parsing is complete by:
 
 Tools shall report an error if the parsed constraints are non-canonical,
 including non-canonical ordering, duplicate versions, or invalid comparator
-sequences. Tools should not auto-correct non-canonical input during parsing.
+sequences. Tools should not correct or normalize non-canonical input during 
+parsing.
 
 ### Constraints simplification
 
@@ -69,7 +70,7 @@ These pairs of contiguous constraints with these **comparators** are valid:
 - '>', or '>=' followed by '!=', '<', or '<='
 
 These pairs of contiguous constraints with these **comparators** are redundant
- and invalid (ignoring any instances of '!=' because they can show up anywhere):
+and invalid (ignoring any instances of '!=' because they can show up anywhere):
 
 - '=', '<' or '<=' followed by '<' or '<=:' this is the same as '<' or '<='
 - '>' or '>=' followed by '=', '>' or '>=:' this is the same as '>' or '>='
@@ -177,5 +178,5 @@ for an "npm" and the "deb" version for its Debian packaging, the way versions
 are compared for each **type** may be different. Tools should report an error 
 in this case.
 - All references to sorting or ordering of version constraints mean
-  sorting by version. And sorting by versions always implies using the VERS
-  **type**-specified version comparison and ordering.
+sorting by version. And sorting by versions always implies using the VERS
+**type**-specified version comparison and ordering.
