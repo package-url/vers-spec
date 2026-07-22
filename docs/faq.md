@@ -42,7 +42,10 @@ because they were designed for use in an API with larger JSON documents.
 
 ### Why not use the OSV Ranges?
 
-VERS and the OSSF OSV schema vulnerable ranges are equivalent and
+The OSSF OSV schema defines vulnerable ranges with version events using
+"introduced", "fixed" and "limit" fields and an optional enumeration of all
+versions in these ranges, except for "semver"-based versions.
+The VERS and the OSSF OSV schemas for vulnerable ranges are equivalent.
 VERS provides a compact range notation while OSV provides a more verbose
 JSON notation. See: https://ossf.github.io/osv-schema/
 
@@ -78,13 +81,8 @@ Version 5 of the CVE JSON data format defines version ranges with a
 starting version, a **versionType**, and an upper limit for the version
 range as lessThan, as lessThanOrEqual, or as an enumeration of versions.
 The **versionType** and the package **collectionURL** values are only
-indicative and left out of this specification. Both seem strictly
-equivalent to the PURL **type** on the one hand and the VERS
-**version-scheme** on the other hand.
-
-See:
-- https://github.com/CVEProject/cve-schema/blob/master/schema/v5.0/CVE_JSON_5.0_schema.json#L303
-- https://github.com/CVEProject/cve-schema/blob/master/schema/v5.0/CVE_JSON_5.0_schema.json#L123
+indicative and left out of this specification. Both seem equivalent to the 
+PURL **type** and the VERS **type**
 
 The semantics and expressiveness of each range are similar and VERS
 provides a compact notation rather than a more verbose JSON notation.
@@ -114,7 +112,6 @@ not be computable easily in many cases. The description of the
 The conversion to VERS range should be:
 
 - For version 1.0 and **lessThan**: '\*', the VERS equivalent is: '>=1.0'.
-
 - For version 1.0 and **lessThan**: '.\*', the VERS equivalent can be
   computed for "semver" versions as '>=1.0|<2' but this is not accurate
   because the versioning schemes have different rules. For instance,

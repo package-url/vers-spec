@@ -46,12 +46,10 @@ Expressing and resolving a version range is often a complex and error
 prone task because of the ambiguity and the use of enumerations of 
 impacted versions that may require frequent updates.
 
-This specfication for a common notation for version ranges emerged 
+This specification for a common notation for version ranges emerged 
 from the use of Package-URLs to reference vulnerable package version
 ranges in vulnerability databases like
-[VulnerableCode](https://github.com/nexB/vulnerablecode/).
-
-*[I think the URL ^ should be https://github.com/aboutcode-org/vulnerablecode]*
+[VulnerableCode](https://github.com/aboutcode-org/vulnerablecode/).
 
 ## Solution
 
