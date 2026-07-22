@@ -16,8 +16,8 @@ conform to the VERS specification for tool functions such as:
 - validate a VERS string
 - parse a VERS string to determine if a version is contained within a range
 
-The test files are available at: [`vers-spec/tests/`](https://github.com/package-url/vers-spec/tree/main/tests). Each test file is in JSON format with 
-a naming convention based on: `<version-scheme>_<range OR version>_<test-type>_test.json.`
+The test files are available at: [`vers-spec/tests/`](https://github.com/package-url/vers-spec/tree/main/tests). 
+Each test file is in JSON format with a naming convention based on: `<version-scheme>_<range OR version>_<test-type>_test.json.`
 
 Two key properties in the VERS test JSON Schema are:
 - Test groups
