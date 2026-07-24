@@ -1,4 +1,11 @@
-# VERS specification
+---
+id: specification
+title: Core Specification
+sidebar_label: Core Specification
+hide_table_of_contents: false
+---
+
+# Core specification
 
 VERS stands for "VErsion Range Specifier. A VERS is an ASCII URI string composed of
 three components:
@@ -31,7 +38,7 @@ This is how each of the Separator Characters is used:
 
 ## A VERS is a URI scheme
 
-A VERS is a valid URI scheme that conforms to URI definitions or 
+A VERS is a valid URI scheme that conforms to URI definitions or
 specifications at: - https://tools.ietf.org/html/rfc3986
 
 ## VERS components
@@ -50,19 +57,19 @@ specifications at: - https://tools.ietf.org/html/rfc3986
 
 A **type** defines:
 
-- the specific notation and conventions used for a version string encoded 
-according to this type
-- how two versions are compared to determine if a version is inside or 
-outside a range
-- how a type-specific range notation can be transformed into VERS 
-notation
+- the specific notation and conventions used for a version string encoded
+  according to this type
+- how two versions are compared to determine if a version is inside or
+  outside a range
+- how a type-specific range notation can be transformed into VERS
+  notation
 
 A **type** also defines:
 - how to compare two version strings using **comparators**
 - the structure (if any) of a **version** string such as "1.2.3". For
-example, the "semver" specification for version numbers defines a version as 
-composed primarily of three dot-separated numeric segments named "major", 
-"minor" and "patch".
+  example, the "semver" specification for version numbers defines a version as
+  composed primarily of three dot-separated numeric segments named "major",
+  "minor" and "patch".
 
 By convention a **type** should be the same as the
 PURL **type** for a given package ecosystem. It is, however, allowed to
@@ -71,17 +78,17 @@ such as a scheme that applies to a single package or project.
 
 ### constraints
 - The **constraints** component shall be preceded by an unencoded
-'/' slash separator when not empty.
+  '/' slash separator when not empty.
 - Each instance of the **constraints** component is composed of either
-a single **version** as in '1.2.3' or the combination of a **comparator** and
-a **version** as in '>=2.0.0'.
+  a single **version** as in '1.2.3' or the combination of a **comparator** and
+  a **version** as in '>=2.0.0'.
 - A **comparator** always precedes the **version** with no characters allowed
-between the **comparator** and the **version**
+  between the **comparator** and the **version**
 - Multiple **constraints** strings shall be separated by an unencoded
-pipe '|'. The pipe "|" has no special meaning other than being a separator.
+  pipe '|'. The pipe "|" has no special meaning other than being a separator.
 
 #### Comparator characters
-A **comparator** is composed of these ASCII characters: 
+A **comparator** is composed of these ASCII characters:
 - the Equals character: '=' (equals, '=')
 - the Not Equals character: '!' (exclamation mark, '!')
 - the Greater Than character: '>' (greater than, '>')
@@ -90,100 +97,106 @@ A **comparator** is composed of these ASCII characters:
 
 A **comparator** must be one of the following:
 - '=' is the Equality **comparator**. This means a version must be equal to
-the provided version.
+  the provided version.
 - '!=' is the Inequality **comparator**. This means that a version must not be
-equal to the provided version and it must be excluded from the range.
-For example: '!=1.2.3' means that version   "1.2.3" is excluded.
+  equal to the provided version and it must be excluded from the range.
+  For example: '!=1.2.3' means that version   "1.2.3" is excluded.
 - '<' is the Less-than **comparator**. This includes all versions less than
-the provided version. 
+  the provided version.
 - '<=': is the Less-or-equal **comparator**. This includes all versions less
-than or equal to the provided version. For example '<=1.2.3' means
-less than or equal to "1.2.3".
+  than or equal to the provided version. For example '<=1.2.3' means
+  less than or equal to "1.2.3".
 - '>' is the Greater-than **comparator**. This includes all versions greater
-than the provided version.
+  than the provided version.
 - '>=' is the Greater-or-equal **comparator**. This includes all versions
-greater than or equal to the provided version. For example '>=1.2.3'
-means greater than or equal to "1.2.3".
+  greater than or equal to the provided version. For example '>=1.2.3'
+  means greater than or equal to "1.2.3".
 - The special Asterisk '\*' **comparator** matches any version. It must be
-used alone and exclusive of any other constraint and must not be followed
-by a version. For example, 'vers:deb/\*' represents all versions of a
-Debian package. This includes past, current and possible future versions.
+  used alone and exclusive of any other constraint and must not be followed
+  by a version. For example, 'vers:deb/\*' represents all versions of a
+  Debian package. This includes past, current and possible future versions.
 
 #### Version strings
 A Version is an ASCII string.
 
-A single **version** in a **constraints** string means that a version 
-equal to this version satisfies the range specification. Equality is based on 
+A single **version** in a **constraints** string means that a version
+equal to this version satisfies the range specification. Equality is based on
 the equality of two normalized version strings according to the applicable
-**type**. For most schemes, this is a simple string equality. A 
-**type** may, however, define normalization and other rules for 
+**type**. For most schemes, this is a simple string equality. A
+**type** may, however, define normalization and other rules for
 equality such as the "pypi" rules from PEP 440.
 
-A package version satisfies a set of **constraints** if it is 
+A package version satisfies a set of **constraints** if it is
 contained within any of the intervals defined by the **constraints**.
 
 ## Normalized, canonical representation and validation
 
 VERS construction and validation rules are designed such that a VERS is
 easy to read and understand by humans and straightforward to process
-with tools. The rules are designed to prevent the creation of empty or 
+with tools. The rules are designed to prevent the creation of empty or
 impossible version ranges.
 
-- A VERS string shall already be in canonical form. Non-canonical (unnormalized) forms are invalid and tools shall report an error instead of normalizing them automatically.
+- A VERS string shall already be in canonical form. Non-canonical
+  (unnormalized) forms are invalid and tools shall report an error instead of
+  normalizing them automatically.
 - A version range specifier contains only printable ASCII letters,
-digits and punctuation.
+  digits and punctuation.
 - ASCII whitespace is not permitted in a VERS string. Tools shall report an
-error if any Whitespace character, for example SPACE (0x20), TAB (0x09), or LF (0x0A), is used.
+  error if any Whitespace character, for example SPACE (0x20), TAB (0x09), or
+  LF (0x0A), is used.
 - The VERS **scheme** and **type** are always lowercase as in
-'vers:npm'.
+  'vers:npm'.
 - Versions are case-sensitive. A **type** may specify
-its own case sensitivity.
+  its own case sensitivity.
 - If a version in a **constraints** string contains **separator** or
-**comparator** characters (i.e., '>', '<', '=', '!', '*', '|'), the version
-shall be quoted using the URL quoting rules. This should be rare in practice.
+  **comparator** characters (i.e., '>', '<', '=', '!', '*', '|'), the version
+  shall be quoted using the URL quoting rules. This should be rare in
+  practice.
 
-The list of **constraints** strings for a range are like a set of 
-signposts in the version timeline of a package. The separators do not mean 
+The list of **constraints** strings for a range are like a set of
+signposts in the version timeline of a package. The separators do not mean
 "and" or "or". They are separators in a sequence of **constraints**.
 
-With a few simple validation rules, we can avoid the creation of most empty or impossible version ranges. These rules are:
+With a few simple validation rules, we can avoid the creation of most empty or
+impossible version ranges. These rules are:
 
 - Constraints are sorted by version. The canonical ordering is the
-version order. The ordering of **constraints** components
-is significant for validity: tools shall report an error for
-non-canonical ordering.
+  version order. The ordering of **constraints** components
+  is significant for validity: tools shall report an error for
+  non-canonical ordering.
 - Versions are unique. Each version must be unique in a range
-and can occur only once in any **constraints** component of
-VERS, regardless of the **comparators**. Tools shall report an
-error for duplicated versions.
+  and can occur only once in any **constraints** component of
+  VERS, regardless of the **comparators**. Tools shall report an
+  error for duplicated versions.
 - There can be only one asterisk: if used, '\*' must occur only once and alone
-in a range, without any other constraint or version.
+  in a range, without any other constraint or version.
 
 Starting from a de-duplicated and sorted list of constraints, these
 extra rules apply to the **comparators** of any two contiguous constraints:
 
 - A constraint using the '!=' **comparator** can be followed by a constraint
-using any **comparator** (any of '=', '!=', '>', '>=', '<', '<=') or no
-constraint.
+  using any **comparator** (any of '=', '!=', '>', '>=', '<', '<=') or no
+  constraint.
 
 Ignoring all constraints with the '!=' **comparator**:
 
-- A constraint using the '=' **comparator** must be followed only by a constraint 
-with one of   '=', '>', or '>=' as the **comparator** or no constraint.
+- A constraint using the '=' **comparator** must be followed only by a
+  constraint with one of   '=', '>', or '>=' as the **comparator** or no
+  constraint.
 
 Ignoring all constraints with a '=' or '!=' **comparator**, the sequence
 of constraints must be an alternation of Greater-than and Lesser-than
 **comparators**:
-- A constraint using '\<' and '\<=' must be followed by one of '>' or '>=' 
-(or no constraint).
-- A constraint using '>' and '>=' must be followed by one of '\<' or '\<=' 
-(or no constraint). 
+- A constraint using '\<' and '\<=' must be followed by one of '>' or '>='
+  (or no constraint).
+- A constraint using '>' and '>=' must be followed by one of '\<' or '\<='
+  (or no constraint).
 
 Tools must report an error for such invalid ranges.
 
 ### Using version range specifiers
 
-The primary VERS use case is to test if a version is within a range. 
+The primary VERS use case is to test if a version is within a range.
 A version is within a version range if it falls within any of the intervals
 defined by a range. Otherwise, the version is outside of the version
 range.
@@ -197,7 +210,7 @@ Some important use cases derived from this include:
   outside the range. For example, given a vulnerability and the VERS
   describing the vulnerable versions of a package, this process is
   used to determine if an existing package version is vulnerable.
-  
+
 - **Select one of several versions that are within a range.**
 
   In this case, with the input of several versions that are within a
@@ -215,12 +228,12 @@ Some important use cases derived from this include:
 
 For example, to define a set of versions that contains either version
 "1.2.3", or any versions greater than or equal to "2.0.0" but less than
-"5.0.0" using the "node-semver" version scheme for the "npm" PURL **type**, 
+"5.0.0" using the "node-semver" version scheme for the "npm" PURL **type**,
 the version range specifier will be:
 
     vers:npm/1.2.3|>=2.0.0|<5.0.0
 
-This is an example of how to read a set of **constraints** in version 
+This is an example of how to read a set of **constraints** in version
 order from left to right to determine the versions that are included in a
 VERS notation. In this case you process in order:
 - Include a single version "1.2.3"
@@ -239,15 +252,15 @@ a `package.json` manifest file the version range specification is:
     vers:pypi/0.0.0|0.0.1|0.0.2|0.0.3|1.0|2.0pre1
 
 #### A complex statement about a vulnerability in a "maven" package:
-For a "maven" package vulnerability that affects multiple branches, 
-each with its own fixed version: `affects Apache TomEE 8.0.0-M1 - 8.0.1, 
-Apache TomEE 7.1.0 - 7.1.2, Apache TomEE 7.0.0-M1 - 7.0.7, 
+For a "maven" package vulnerability that affects multiple branches,
+each with its own fixed version: `affects Apache TomEE 8.0.0-M1 - 8.0.1,
+Apache TomEE 7.1.0 - 7.1.2, Apache TomEE 7.0.0-M1 - 7.0.7,
 Apache TomEE 1.0.0-beta1 - 1.7.5.`
 
 - A normalized VERS notation is:
 
       vers:maven/>=1.0.0-beta1|<=1.7.5|>=7.0.0-M1|<=7.0.7|>=7.1.0|<=7.1.2|>=8.0.0-M1|<=8.0.1
-  
+
 - An alternative is to use four VERS notations to cover the same range using one VERS for each of the vulnerable "branches":
 
       vers:tomee/>=1.0.0-beta1|<=1.7.5
@@ -258,7 +271,7 @@ Apache TomEE 1.0.0-beta1 - 1.7.5.`
   See also: https://repo1.maven.org/maven2/org/apache/tomee/apache-tomee/
 
 #### Converting RubyGems custom syntax for dependencies:
-Note how the pessimistic version constraint is expanded for the RubyGems 
+Note how the pessimistic version constraint is expanded for the RubyGems
 dependency expression: `'library', '~>2.2.0', '!=2.2.1', '<2.3.0'`
 
 - The VERS notation is:
