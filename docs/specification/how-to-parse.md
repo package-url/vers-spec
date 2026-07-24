@@ -16,7 +16,7 @@ To parse a VERS string:
    validate that the **type** is a known **type**.
 - The right hand side is a list of one or more constraints. Tools 
   validate that this **constraints** string is not empty
-  ignoring spaces.
+  after splitting.
 - If the string is equal to '\*', the **constraints** value is
  '*'. Parsing is done and no further processing is needed for this VERS.
   A tool should report an error if there are characters other than '\*'.
@@ -40,8 +40,11 @@ To parse a VERS string:
       (which implies an equality comparator of '=')
     - Tools should validate and report an error if the version is
       empty.
-    - If the version contains a percent '%' character, apply URL
-      quoting rules to unquote this string.
+    - If the version contains a percent '%' character, tools shall validate
+      that each '%' starts a valid percent-encoded triplet.
+    - Tools shall apply percent-decoding exactly once to the version string.
+      Tools shall report an error for invalid or non-canonical
+      percent-encoded sequences.
     - Append the parsed **constraints** strings to the constraints list.
 
 Finally:
