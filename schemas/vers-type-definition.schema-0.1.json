@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/2020-12/schema#",
+  "$id": "https://packageurl.org/schemas/vers-type-definition.schema-0.1.json",
+  "title": "VErsion Range Specifier (VERS) Type Definition",
+  "description": "Schema to define the structure of a VErsion Range Specifier (VERS) type.",
+  "type": "object",
+  "additionalProperties": false,
+  "definitions": {
+    "vers_component_definition": {
+      "title": "VERS component definition",
+      "description": "VERS component definition properties that apply to most VERS components",
+      "type": "object",
+      "properties": {
+        "permitted_characters": {
+          "title": "Permitted characters in this VERS component",
+          "description": "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification.",
+          "type": "string",
+          "format": "regex"
+        },
+        "note": {
+          "title": "Note",
+          "description": "Extra note text.",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "$id",
+    "type",
+    "constraints",
+    "description",
+    "examples"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "Contains the URL of the JSON schema for VERS type definition.",
+      "const": "https://packageurl.org/schemas/vers-type-definition.schema-0.1.json",
+      "format": "uri"
+    },
+    "$id": {
+      "title": "VERS type definition id",
+      "description": "The unique identifier URI for this PURL type definition.",
+      "type": "string",
+      "pattern": "^https:\\/\\/packageurl\\.org/types/[a-z0-9-]+-definition\\.json$"
+    },
+    "type": {
+      "title": "VERS type",
+      "description": "The type string for this VERS type.",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-\\.]+$",
+      "examples": [
+        "maven",
+        "npm",
+        "pypi"
+      ]
+    },
+    "type_name": {
+      "title": "Type name",
+      "description": "The name for this VERS type.",
+      "type": "string",
+      "examples": [
+        "Apache Maven math interval notation",
+        "npm node-semver range notation"
+      ]
+    },
+    "description": {
+      "title": "Description",
+      "description": "The description of this VERS type.",
+      "type": "string"
+    },
+     "properties": {
+        "note": {
+          "title": "Note",
+          "description": "Extra note text.",
+          "type": "string"
+        }
+      }
+    },
+    "constraints_definition": {
+      "title": "Constraints definition",
+      "description": "VERS constraints as two-tuple array of (comparator, version string).",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 2,
+      "maxItems": 2,
+      "items":  [
+        {
+          "title": "VERS comparator",
+          "description": "A VERS version comparator.",
+          "type": "string",
+          "enum": [
+            "",
+            "*",
+            "=",
+            "!=",
+            ">=",
+            ">",
+            "<=",
+            "<"
+            ]
+    },
+        {
+          "title": "Version",
+          "description": "A version string.",
+          "type": "string",
+          "examples": [
+            "1.2.3",
+            "54.a-RELEASE"
+            ]
+    },   
+    "examples": {
+      "title": "VERS examples",
+      "description": "Example of valid, canonical VERS notations for this VERS type.",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^pkg:[a-z][a-z0-9-\\.]+/.*$"
+      }
+    },
+    "note": {
+      "title": "Note",
+      "description": "Note about this VERS type.",
+      "type": "string"
+    },
+    "reference_urls": {
+      "title": "Reference URLs",
+      "description": "Optional list of informational reference URLs about this VERS type.",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    }
+  }
+}
