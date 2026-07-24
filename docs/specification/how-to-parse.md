@@ -1,3 +1,10 @@
+---
+id: how-to-parse
+title: How to parse and validate VERS
+sidebar_label: How to parse and validate VERS
+hide_table_of_contents: false
+---
+
 # How to parse and validate VERS
 
 ## Parsing and validating VERS notation
@@ -12,13 +19,13 @@ To parse a VERS string:
     - Tools shall validate that the URI-scheme value is 'vers'.
 - The right hand side is the specifier.
 - Split the specifier from left once on a slash '/'.
-- The left hand side is the **type** that shall be lowercase. Tools should 
-   validate that the **type** is a known **type**.
-- The right hand side is a list of one or more constraints. Tools 
+- The left hand side is the **type** that shall be lowercase. Tools should
+  validate that the **type** is a known **type**.
+- The right hand side is a list of one or more constraints. Tools
   validate that this **constraints** string is not empty
   ignoring spaces.
 - If the string is equal to '\*', the **constraints** value is
- '*'. Parsing is done and no further processing is needed for this VERS.
+  '*'. Parsing is done and no further processing is needed for this VERS.
   A tool should report an error if there are characters other than '\*'.
 - Tools shall report an error if the constraints string has a leading or
   trailing pipe '|'.
@@ -48,20 +55,20 @@ Finally:
 
 - The results are the **type** and the list of **constraints** strings.
 
-Tools should optionally validate and simplify the list of **contraints** 
+Tools should optionally validate and simplify the list of **contraints**
 strings once parsing is complete by:
 
 - Sorting and validating the list of constraints
 
 Tools shall report an error if the parsed constraints are non-canonical,
 including non-canonical ordering, duplicate versions, or invalid comparator
-sequences. Tools should not correct or normalize non-canonical input during 
+sequences. Tools should not correct or normalize non-canonical input during
 parsing.
 
 ### Constraints simplification
 
-Tools can simplify a list of **constraints** strings using the following 
- approach.
+Tools can simplify a list of **constraints** strings using the following
+approach.
 
 These pairs of contiguous constraints with these **comparators** are valid:
 
@@ -172,11 +179,11 @@ To check if a "tested version" is contained within a version range:
 
 ### Notes and caveats
 
-- Comparing versions from VERS notations with a different **type** is an 
-error. Even though there may be some similarities between the "semver" version
-for an "npm" and the "deb" version for its Debian packaging, the way versions 
-are compared for each **type** may be different. Tools should report an error 
-in this case.
+- Comparing versions from VERS notations with a different **type** is an
+  error. Even though there may be some similarities between the "semver" version
+  for an "npm" and the "deb" version for its Debian packaging, the way versions
+  are compared for each **type** may be different. Tools should report an error
+  in this case.
 - All references to sorting or ordering of version constraints mean
-sorting by version. And sorting by versions always implies using the VERS
-**type**-specified version comparison and ordering.
+  sorting by version. And sorting by versions always implies using the VERS
+  **type**-specified version comparison and ordering.
