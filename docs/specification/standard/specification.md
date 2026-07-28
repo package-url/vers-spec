@@ -147,10 +147,10 @@ impossible version ranges.
 - The VERS **scheme** and **type** are always lowercase as in
   'vers:npm'.
 - Versions are case-sensitive. A **type** may specify
-its own case sensitivity.
+  its own case sensitivity.
 - For the 'datetime' **type**, canonical VERS uses uppercase 'T' and 'Z' as
-specified by RFC3339 section 5.6. Lowercase 't' and 'z' are permitted by
-RFC3339 but are non-canonical in VERS.
+  specified by RFC3339 section 5.6. Lowercase 't' and 'z' are permitted by
+  RFC3339 but are non-canonical in VERS.
 - If a version in a **constraints** string contains **separator** or
 **comparator** characters (i.e., '>', '<', '=', '!', '*', '|'), the version
 shall be quoted using the URL quoting rules. This should be rare in practice.
