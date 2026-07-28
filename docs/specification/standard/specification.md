@@ -152,8 +152,8 @@ impossible version ranges.
   specified by RFC3339 section 5.6. Lowercase 't' and 'z' are permitted by
   RFC3339 but are non-canonical in VERS.
 - If a version in a **constraints** string contains **separator** or
-**comparator** characters (i.e., '>', '<', '=', '!', '*', '|'), the version
-shall be quoted using the URL quoting rules. This should be rare in practice.
+  **comparator** characters (i.e., '>', '<', '=', '!', '*', '|'), the version
+  shall be quoted using the URL quoting rules. This should be rare in practice.
 - Reserved URI characters that are allowed as data in the VERS path component
   for a given **type** do not need percent-encoding. For example, the colon ':'
   used inside RFC3339 'datetime' versions is data and shall remain unencoded.
