@@ -148,11 +148,16 @@ impossible version ranges.
   'vers:npm'.
 - Versions are case-sensitive. A **type** may specify
 its own case sensitivity.
-- If a version in a **constraints** string contains any of these characters:
-  '>', '<', '=', '!', '*', '|', '%', these characters shall be
-  percent-encoded using URI percent-encoding rules.
-- Percent-encoding in versions shall be canonical. Tools shall report an error
-  for invalid or non-canonical percent-encoded sequences.
+- For the 'datetime' **type**, canonical VERS uses uppercase 'T' and 'Z' as
+specified by RFC3339 section 5.6. Lowercase 't' and 'z' are permitted by
+RFC3339 but are non-canonical in VERS.
+- If a version in a **constraints** string contains **separator** or
+**comparator** characters (i.e., '>', '<', '=', '!', '*', '|'), the version
+shall be quoted using the URL quoting rules. This should be rare in practice.
+- Reserved URI characters that are allowed as data in the VERS path component
+for a given **type** do not need percent-encoding. For example, the colon ':'
+used inside RFC3339 'datetime' versions is data and shall remain unencoded.
+- When percent-encoding is used in versions, it shall be valid as defined in RFC 3986, Section 2.1.
 
 The list of **constraints** strings for a range are like a set of
 signposts in the version timeline of a package. The separators do not mean

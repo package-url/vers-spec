@@ -52,7 +52,11 @@ cases:
   versions. 'vers:all/*' is the only valid VERS form for this **type**.
 - **datetime**: a generic VERS **type** that uses a timestamp for comparison.
   The timestamp must adhere to RFC3339, section 5.6. See
-  https://www.rfc-editor.org/rfc/rfc3339#section-5.6.
+  https://www.rfc-editor.org/rfc/rfc3339#section-5.6. In canonical VERS,
+  datetime values use an uppercase 'T' date/time separator and an uppercase
+  'Z' UTC designator. Lowercase 't' and 'z' are permitted by RFC3339, but are
+  non-canonical for VERS. The colon ':' characters used within the time and
+  UTC offset are part of the datetime version string and shall not be percent-encoded.
 - **generic**: a generic VERS **type** using a comparison algorithm which
   will be specified later, likely based on a split on any wholly alpha or
   wholly numeric segments and dealing with digit and string
