@@ -82,6 +82,38 @@
       "input": "vers:npm/1.0%2G0",
       "expected_failure": true,
       "expected_failure_reason": "non-canonical VERS: invalid percent-encoding in version"
+    },
+    {
+      "description": "Parsing fails for datetime when lowercase t and z are used.",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "vers:datetime/2024-01-01t00:00:00z",
+      "expected_failure": true,
+      "expected_failure_reason": "non-canonical VERS: datetime must use uppercase T and Z"
+    },
+    {
+      "description": "Parsing fails for datetime when time colons are percent-encoded.",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "vers:datetime/2024-01-01T00%3A00%3A00Z",
+      "expected_failure": true,
+      "expected_failure_reason": "non-canonical VERS: datetime time colons must be unencoded"
+    },
+    {
+      "description": "Parsing fails for datetime when percent-encoding is invalid.",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "vers:datetime/2024-01-01T00:00:00%ZZ",
+      "expected_failure": true,
+      "expected_failure_reason": "non-canonical VERS: invalid percent-encoding in version"
+    },
+    {
+      "description": "Parsing fails for datetime when percent-encoded triplets use non-canonical hex case.",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "vers:datetime/2024-01-01T00%3a00%3a00Z",
+      "expected_failure": true,
+      "expected_failure_reason": "non-canonical VERS: percent-encoding in version is not canonical"
     }
   ]
 }
