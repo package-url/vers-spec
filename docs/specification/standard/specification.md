@@ -147,11 +147,12 @@ impossible version ranges.
 - The VERS **scheme** and **type** are always lowercase as in
   'vers:npm'.
 - Versions are case-sensitive. A **type** may specify
-  its own case sensitivity.
-- If a version in a **constraints** string contains **separator** or
-  **comparator** characters (i.e., '>', '<', '=', '!', '*', '|'), the version
-  shall be quoted using the URL quoting rules. This should be rare in
-  practice.
+its own case sensitivity.
+- If a version in a **constraints** string contains any of these characters:
+  '>', '<', '=', '!', '*', '|', '%', these characters shall be
+  percent-encoded using URI percent-encoding rules.
+- Percent-encoding in versions shall be canonical. Tools shall report an error
+  for invalid or non-canonical percent-encoded sequences.
 
 The list of **constraints** strings for a range are like a set of
 signposts in the version timeline of a package. The separators do not mean
