@@ -80,8 +80,8 @@ such as a scheme that applies to a single package or project.
 - The **constraints** component shall be preceded by an unencoded
   '/' slash separator when not empty.
 - Each instance of the **constraints** component is composed of either
-  a single **version** as in '1.2.3' or the combination of a **comparator** and
-  a **version** as in '>=2.0.0'.
+  a single **version** as in '1.2.3' or the combination of a **comparator** 
+  and a **version** as in '>=2.0.0'.
 - A **comparator** always precedes the **version** with no characters allowed
   between the **comparator** and the **version**
 - Multiple **constraints** strings shall be separated by an unencoded
@@ -95,11 +95,11 @@ A **comparator** is composed of these ASCII characters:
 - the Less Than character: '<' (less than, '<')
 - the Asterisk character: '\*' (asterisk, '*')
 
-A **comparator** must be one of the following:
-- '=' is the Equality **comparator**. This means a version must be equal to
+A **comparator** shall be one of the following:
+- '=' is the Equality **comparator**. This means a version shall be equal to
   the provided version.
-- '!=' is the Inequality **comparator**. This means that a version must not be
-  equal to the provided version and it must be excluded from the range.
+- '!=' is the Inequality **comparator**. This means that a version shall not 
+  be equal to the provided version and it shall be excluded from the range.
   For example: '!=1.2.3' means that version   "1.2.3" is excluded.
 - '<' is the Less-than **comparator**. This includes all versions less than
   the provided version.
@@ -111,8 +111,8 @@ A **comparator** must be one of the following:
 - '>=' is the Greater-or-equal **comparator**. This includes all versions
   greater than or equal to the provided version. For example '>=1.2.3'
   means greater than or equal to "1.2.3".
-- The special Asterisk '\*' **comparator** matches any version. It must be
-  used alone and exclusive of any other constraint and must not be followed
+- The special Asterisk '\*' **comparator** matches any version. It shall be
+  used alone and exclusive of any other constraint and shall not be followed
   by a version. For example, 'vers:deb/\*' represents all versions of a
   Debian package. This includes past, current and possible future versions.
 
@@ -147,7 +147,7 @@ impossible version ranges.
 - The VERS **scheme** and **type** are always lowercase as in
   'vers:npm'.
 - Versions are case-sensitive. A **type** may specify
-its own case sensitivity.
+  its own case sensitivity.
 - If a version in a **constraints** string contains any of these characters:
   '>', '<', '=', '!', '*', '|', '%', these characters shall be
   percent-encoded using URI percent-encoding rules.
@@ -165,12 +165,12 @@ impossible version ranges. These rules are:
   version order. The ordering of **constraints** components
   is significant for validity: tools shall report an error for
   non-canonical ordering.
-- Versions are unique. Each version must be unique in a range
+- Versions are unique. Each version shall be unique in a range
   and can occur only once in any **constraints** component of
   VERS, regardless of the **comparators**. Tools shall report an
   error for duplicated versions.
-- There can be only one asterisk: if used, '\*' must occur only once and alone
-  in a range, without any other constraint or version.
+- There can be only one asterisk: if used, '\*' shall occur only once and 
+  alone in a range, without any other constraint or version.
 
 Starting from a de-duplicated and sorted list of constraints, these
 extra rules apply to the **comparators** of any two contiguous constraints:
@@ -181,19 +181,19 @@ extra rules apply to the **comparators** of any two contiguous constraints:
 
 Ignoring all constraints with the '!=' **comparator**:
 
-- A constraint using the '=' **comparator** must be followed only by a
+- A constraint using the '=' **comparator** shall be followed only by a
   constraint with one of   '=', '>', or '>=' as the **comparator** or no
   constraint.
 
 Ignoring all constraints with a '=' or '!=' **comparator**, the sequence
-of constraints must be an alternation of Greater-than and Lesser-than
+of constraints shall be an alternation of Greater-than and Lesser-than
 **comparators**:
-- A constraint using '\<' and '\<=' must be followed by one of '>' or '>='
+- A constraint using '\<' and '\<=' shall be followed by one of '>' or '>='
   (or no constraint).
-- A constraint using '>' and '>=' must be followed by one of '\<' or '\<='
+- A constraint using '>' and '>=' shall be followed by one of '\<' or '\<='
   (or no constraint).
 
-Tools must report an error for such invalid ranges.
+Tools shall report an error for such invalid ranges.
 
 ### Using version range specifiers
 
@@ -262,7 +262,8 @@ Apache TomEE 1.0.0-beta1 - 1.7.5.`
 
       vers:maven/>=1.0.0-beta1|<=1.7.5|>=7.0.0-M1|<=7.0.7|>=7.1.0|<=7.1.2|>=8.0.0-M1|<=8.0.1
 
-- An alternative is to use four VERS notations to cover the same range using one VERS for each of the vulnerable "branches":
+- An alternative is to use four VERS notations to cover the same range using 
+  one VERS for each of the vulnerable "branches":
 
       vers:tomee/>=1.0.0-beta1|<=1.7.5
       vers:tomee/>=7.0.0-M1|<=7.0.7
