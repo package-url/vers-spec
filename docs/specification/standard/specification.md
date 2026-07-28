@@ -155,8 +155,8 @@ RFC3339 but are non-canonical in VERS.
 **comparator** characters (i.e., '>', '<', '=', '!', '*', '|'), the version
 shall be quoted using the URL quoting rules. This should be rare in practice.
 - Reserved URI characters that are allowed as data in the VERS path component
-for a given **type** do not need percent-encoding. For example, the colon ':'
-used inside RFC3339 'datetime' versions is data and shall remain unencoded.
+  for a given **type** do not need percent-encoding. For example, the colon ':'
+  used inside RFC3339 'datetime' versions is data and shall remain unencoded.
 - When percent-encoding is used in versions, it shall be valid as defined in RFC 3986, Section 2.1.
 
 The list of **constraints** strings for a range are like a set of
