@@ -149,10 +149,10 @@ impossible version ranges.
 - Versions are case-sensitive. A **type** may specify
 its own case sensitivity.
 - If a version in a **constraints** string contains any of these characters:
-    '>', '<', '=', '!', '*', '|', '%', these characters shall be
-    percent-encoded using URI percent-encoding rules.
+  '>', '<', '=', '!', '*', '|', '%', these characters shall be
+  percent-encoded using URI percent-encoding rules.
 - Percent-encoding in versions shall be canonical. Tools shall report an error
-    for invalid or non-canonical percent-encoded sequences.
+  for invalid or non-canonical percent-encoded sequences.
 
 The list of **constraints** strings for a range are like a set of
 signposts in the version timeline of a package. The separators do not mean
