@@ -1,5 +1,5 @@
 ---
-id: tests
+id: test-overview
 title: VERS test overview
 sidebar_label: VERS test overview
 hide_table_of_contents: true
