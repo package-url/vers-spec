@@ -1,5 +1,5 @@
 ---
-id: types
+id: vers-types
 title: VERS types
 sidebar_label: VERS types
 hide_table_of_contents: false
