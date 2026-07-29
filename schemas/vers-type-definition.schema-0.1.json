@@ -28,7 +28,8 @@
   "required": [
     "$id",
     "type",
-    "constraints",
+    "type_name",
+    "constraints_definition",
     "description",
     "examples"
   ],
@@ -85,7 +86,7 @@
       "uniqueItems": true,
       "minItems": 2,
       "maxItems": 2,
-      "items":  [
+      "items": [
         {
           "title": "VERS comparator",
           "description": "A VERS version comparator.",
@@ -99,9 +100,7 @@
             ">",
             "<=",
             "<"
-            ]
-    },
-        {
+            ],
           "title": "Version",
           "description": "A version string.",
           "type": "string",
@@ -109,7 +108,15 @@
             "1.2.3",
             "54.a-RELEASE"
             ]
-    },   
+          }
+        ] 
+       }, 
+         "allOf": [
+        {
+         "$ref": "#/definitions/ver_component_definition"
+        }
+      ]
+    },
     "examples": {
       "title": "VERS examples",
       "description": "Example of valid, canonical VERS notations for this VERS type.",
@@ -118,7 +125,7 @@
       "minItems": 1,
       "items": {
         "type": "string",
-        "pattern": "^pkg:[a-z][a-z0-9-\\.]+/.*$"
+        "pattern": "^vers:[a-z][a-z0-9-\\.]+/.*$"
       }
     },
     "note": {
