@@ -83,12 +83,8 @@
       "title": "Constraints definition",
       "description": "VERS constraints as two-tuple array of (comparator, version string).",
       "type": "array",
-      "uniqueItems": true,
-      "minItems": 2,
-      "maxItems": 2,
-      "items": [
-        {
-          "title": "VERS comparator",
+      "prefixItems": [
+          {"title": "VERS comparator",
           "description": "A VERS version comparator.",
           "type": "string",
           "enum": [
@@ -100,17 +96,17 @@
             ">",
             "<=",
             "<"
-            ],
-          "title": "Version",
+           ]
+         }, 
+          {"title": "Version",
           "description": "A version string.",
           "type": "string",
           "examples": [
             "1.2.3",
             "54.a-RELEASE"
-            ]
-          }
-        ] 
-       }, 
+          ]
+         }
+       ],
          "allOf": [
         {
          "$ref": "#/definitions/ver_component_definition"
