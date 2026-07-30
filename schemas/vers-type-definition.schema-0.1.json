@@ -71,48 +71,6 @@
       "description": "The description of this VERS type.",
       "type": "string"
     },
-     "properties": {
-        "note": {
-          "title": "Note",
-          "description": "Extra note text.",
-          "type": "string"
-        }
-      }
-    },
-    "constraints_definition": {
-      "title": "Constraints definition",
-      "description": "VERS constraints as two-tuple array of (comparator, version string).",
-      "type": "array",
-      "prefixItems": [
-          {"title": "VERS comparator",
-          "description": "A VERS version comparator.",
-          "type": "string",
-          "enum": [
-            "",
-            "*",
-            "=",
-            "!=",
-            ">=",
-            ">",
-            "<=",
-            "<"
-           ]
-         }, 
-          {"title": "Version",
-          "description": "A version string.",
-          "type": "string",
-          "examples": [
-            "1.2.3",
-            "54.a-RELEASE"
-          ]
-         }
-       ],
-         "allOf": [
-        {
-         "$ref": "#/definitions/ver_component_definition"
-        }
-      ]
-    },
     "examples": {
       "title": "VERS examples",
       "description": "Example of valid, canonical VERS notations for this VERS type.",
@@ -124,20 +82,63 @@
         "pattern": "^vers:[a-z][a-z0-9-\\.]+/.*$"
       }
     },
-    "note": {
-      "title": "Note",
-      "description": "Note about this VERS type.",
-      "type": "string"
-    },
-    "reference_urls": {
-      "title": "Reference URLs",
-      "description": "Optional list of informational reference URLs about this VERS type.",
-      "type": "array",
-      "uniqueItems": true,
-      "items": {
-        "type": "string",
-        "format": "uri"
+    "properties": {
+      "note": {
+        "title": "Note",
+        "description": "Extra note text.",
+        "type": "string"
       }
+    }
+  },
+  "constraints_definition": {
+    "title": "Constraints definition",
+    "description": "VERS constraints as two-tuple array of (comparator, version string).",
+    "type": "array",
+    "prefixItems": [
+      {
+        "title": "VERS comparator",
+        "description": "A VERS version comparator.",
+        "type": "string",
+        "enum": [
+          "",
+          "*",
+          "=",
+          "!=",
+          ">=",
+          ">",
+          "<=",
+          "<"
+        ]
+      },
+      {
+        "title": "Version",
+        "description": "A version string.",
+        "type": "string",
+        "examples": [
+          "1.2.3",
+          "54.a-RELEASE"
+        ]
+      }
+    ],
+    "allOf": [
+      {
+        "$ref": "#/definitions/ver_component_definition"
+      }
+    ]
+  },
+  "note": {
+    "title": "Note",
+    "description": "Note about this VERS type.",
+    "type": "string"
+  },
+  "reference_urls": {
+    "title": "Reference URLs",
+    "description": "Optional list of informational reference URLs about this VERS type.",
+    "type": "array",
+    "uniqueItems": true,
+    "items": {
+      "type": "string",
+      "format": "uri"
     }
   }
 }
