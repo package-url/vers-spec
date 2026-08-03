@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/2020-12/schema#",
+  "$schema": "https://json-schema.org/2020-12/schema#",
   "$id": "https://packageurl.org/schemas/vers-type-definition.schema-0.1.json",
   "title": "VErsion Range Specifier (VERS) Type Definition",
   "description": "Schema to define the structure of a VErsion Range Specifier (VERS) type.",
