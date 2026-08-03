@@ -274,7 +274,7 @@
             "properties": {
               "test_type": {
                 "const": "roundtrip"
-              }
+              },
               "expected_failure": {
                 "const": false
               }
