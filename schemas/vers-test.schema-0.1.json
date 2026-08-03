@@ -10,7 +10,6 @@
       "title": "VERS version constraint",
       "description": "A VERS version constraint as two-tuple array of (comparator, version string).",
       "type": "array",
-      "additionalProperties": false,
       "minItems": 2,
       "maxItems": 2,
       "items": [
@@ -163,7 +162,7 @@
                 "description": "An object with a data source and native version range data to use as conversion test from native data.",
                 "type": "object",
                 "required": [
-                  "scheme",
+                  "data_source",
                   "native_range"
                 ],
                 "properties": {
@@ -192,7 +191,7 @@
               },
               "expected_output": {
                 "title": "Expected canonical VERS",
-                "description": "A canonical VERS string to use as a test ouput.",
+                "description": "A canonical VERS string to use as a test output.",
                 "type": "string"
               }
             },
@@ -260,7 +259,7 @@
               },
               "expected_output": {
                 "title": "Expected canonical VERS",
-                "description": "A canonical VERS string to use as a test ouput.",
+                "description": "A canonical VERS string to use as a test output.",
                 "type": "string"
               }
             },
@@ -276,9 +275,13 @@
               "test_type": {
                 "const": "roundtrip"
               }
+              "expected_failure": {
+                "const": false
+              }
             },
             "required": [
-              "test_type"
+              "test_type",
+              "expected_failure"
             ]
           },
           "then": {
@@ -290,7 +293,7 @@
               },
               "expected_output": {
                 "title": "Expected canonical VERS",
-                "description": "A canonical VERS string to use as a test ouput.",
+                "description": "A canonical VERS string to use as a test output.",
                 "type": "string"
               }
             },
@@ -329,7 +332,7 @@
               },
               "expected_output": {
                 "title": "Expected canonical VERS",
-                "description": "An expected canonical merged VERS string to use as a test ouput.",
+                "description": "An expected canonical merged VERS string to use as a test output.",
                 "type": "string"
               }
             },
@@ -411,7 +414,7 @@
                 "description": "A VERS scheme and a list of version strings to use as sorting test input.",
                 "type": "object",
                 "required": [
-                  "scheme",
+                  "input_scheme",
                   "versions"
                 ],
                 "properties": {
@@ -433,7 +436,7 @@
               },
               "expected_output": {
                 "title": "Expected sorted list of bare versions",
-                "description": "An expected sorted list of version strings to use as a test ouput.",
+                "description": "An expected sorted list of version strings to use as a test output.",
                 "type": "array",
                 "minItems": 2,
                 "items": {
@@ -469,7 +472,7 @@
                 "description": "A VERS scheme and a two-tuple of version strings to compare.",
                 "type": "object",
                 "required": [
-                  "scheme",
+                  "input_scheme",
                   "versions"
                 ],
                 "properties": {
@@ -492,7 +495,7 @@
               },
               "expected_output": {
                 "title": "True if two bare versions are expected to be equal",
-                "description": "A true boolean if two bare versions are expected to be equal to use as a test ouput.",
+                "description": "A true boolean if two bare versions are expected to be equal to use as a test output.",
                 "type": "boolean"
               }
             },
@@ -567,7 +570,7 @@
     "$schema": {
       "title": "JSON schema",
       "description": "Contains the URL of the JSON schema for Version Range Specifier tests.",
-      "constant": "https://packageurl.org/schemas/vers-test.schema-1.0.json",
+      "const": "https://packageurl.org/schemas/vers-test.schema-0.1.json",
       "format": "uri"
     },
     "tests": {
