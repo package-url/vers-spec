@@ -42,12 +42,12 @@
     },
     "vers_components": {
       "title": "VERS decoded components",
-      "description": "Individual decoded VERS scheme and constraints to use as a test input or expected output.",
+      "description": "Individual decoded VERS type and constraints to use as a test input or expected output.",
       "type": "object",
       "properties": {
         "type": {
           "title": "VERS type",
-          "description": "A VERS type aka versioning scheme.",
+          "description": "A VERS type (aka versioning scheme.)",
           "type": "string",
           "examples": [
             "maven",
@@ -163,13 +163,13 @@
                 "description": "An object with a data source and native version range data to use in a conversion test from native data.",
                 "type": "object",
                 "required": [
-                  "scheme",
+                  "type",
                   "native_range"
                 ],
                 "properties": {
                   "data_source": {
                     "title": "Data source for test input",
-                    "description": "A string (like a scheme or else) or URL that identifies the source of the data for this test input.",
+                    "description": "A string (like a VERS type) or URL that identifies the source of the data for this test input.",
                     "type": "string",
                     "examples": [
                       "https://github.com/npm/node-semver#ranges",
@@ -408,16 +408,16 @@
             "properties": {
               "input": {
                 "title": "Input for version comparison",
-                "description": "A VERS scheme and a list of version strings to use as sorting test input.",
+                "description": "A VERS type and a list of version strings to use as sorting test input.",
                 "type": "object",
                 "required": [
-                  "scheme",
+                  "type",
                   "versions"
                 ],
                 "properties": {
-                  "input_scheme": {
-                    "title": "VERS scheme",
-                    "description": "A versioning scheme.",
+                  "input_type": {
+                    "title": "VERS type",
+                    "description": "VERS type (aka versioning scheme).",
                     "type": "string"
                   },
                   "versions": {
@@ -466,16 +466,16 @@
             "properties": {
               "input": {
                 "title": "Input for version equality",
-                "description": "A VERS scheme and a two-tuple of version strings to compare.",
+                "description": "A VERS type and a two-tuple of version strings to compare.",
                 "type": "object",
                 "required": [
-                  "scheme",
+                  "type",
                   "versions"
                 ],
                 "properties": {
-                  "input_scheme": {
-                    "title": "VERS scheme",
-                    "description": "A versioning scheme.",
+                  "input_type": {
+                    "title": "VERS type",
+                    "description": "A VERS type (aka versioning scheme.)",
                     "type": "string"
                   },
                   "versions": {
