@@ -1,0 +1,112 @@
+{
+  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.1.json",
+  "tests": [
+    {
+      "description": "Identical RFC3339 timestamps are equal.",
+      "test_group": "base",
+      "test_type": "equality",
+      "input": {
+        "input_scheme": "datetime",
+        "versions": [
+          "2024-01-01T00:00:00Z",
+          "2024-01-01T00:00:00Z"
+        ]
+      },
+      "expected_output": true
+    },
+    {
+      "description": "Different RFC3339 offsets representing the same instant are equal.",
+      "test_group": "base",
+      "test_type": "equality",
+      "input": {
+        "input_scheme": "datetime",
+        "versions": [
+          "2024-01-01T00:00:00Z",
+          "2023-12-31T19:00:00-05:00"
+        ]
+      },
+      "expected_output": true
+    },
+    {
+      "description": "Fractional seconds do not change equality when they represent the same instant.",
+      "test_group": "base",
+      "test_type": "equality",
+      "input": {
+        "input_scheme": "datetime",
+        "versions": [
+          "2024-01-01T00:00:00Z",
+          "2024-01-01T00:00:00.000Z"
+        ]
+      },
+      "expected_output": true
+    },
+    {
+      "description": "Earlier UTC timestamp sorts before a later UTC timestamp.",
+      "test_group": "base",
+      "test_type": "comparison",
+      "input": {
+        "input_scheme": "datetime",
+        "versions": [
+          "2024-01-01T00:00:01Z",
+          "2024-01-01T00:00:00Z"
+        ]
+      },
+      "expected_output": [
+        "2024-01-01T00:00:00Z",
+        "2024-01-01T00:00:01Z"
+      ]
+    },
+    {
+      "description": "Ordering is based on the normalized instant, not lexical string order.",
+      "test_group": "base",
+      "test_type": "comparison",
+      "input": {
+        "input_scheme": "datetime",
+        "versions": [
+          "2024-01-01T00:00:00+02:00",
+          "2023-12-31T23:00:00Z"
+        ]
+      },
+      "expected_output": [
+        "2024-01-01T00:00:00+02:00",
+        "2023-12-31T23:00:00Z"
+      ]
+    },
+    {
+      "description": "Equal wall-clock times with different offsets sort by their UTC instant.",
+      "test_group": "base",
+      "test_type": "comparison",
+      "input": {
+        "input_scheme": "datetime",
+        "versions": [
+          "2024-01-01T12:00:00Z",
+          "2024-01-01T12:00:00-05:00",
+          "2024-01-01T12:00:00+02:00"
+        ]
+      },
+      "expected_output": [
+        "2024-01-01T12:00:00+02:00",
+        "2024-01-01T12:00:00Z",
+        "2024-01-01T12:00:00-05:00"
+      ]
+    },
+    {
+      "description": "Fractional seconds are ordered numerically within the same second.",
+      "test_group": "base",
+      "test_type": "comparison",
+      "input": {
+        "input_scheme": "datetime",
+        "versions": [
+          "2024-01-01T00:00:00.900Z",
+          "2024-01-01T00:00:00.123Z",
+          "2024-01-01T00:00:00.090Z"
+        ]
+      },
+      "expected_output": [
+        "2024-01-01T00:00:00.090Z",
+        "2024-01-01T00:00:00.123Z",
+        "2024-01-01T00:00:00.900Z"
+      ]
+    }
+  ]
+}
