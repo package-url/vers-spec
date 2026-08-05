@@ -1,0 +1,582 @@
+{
+  "$schema": "https://json-schema.org/2020-12/schema#",
+  "$id": "https://packageurl.org/schemas/vers-test.schema-0.2.json",
+  "title": "VERS test definition",
+  "description": "Schema for Version Range Specifier (VERS) test case definitions.",
+  "type": "object",
+  "additionalProperties": false,
+  "definitions": {
+    "constraint": {
+      "title": "VERS constraint",
+      "description": "A VERS constraint is a two-tuple array of (comparator, version string).",
+      "type": "array",
+      "prefixItems": [
+        {
+          "title": "VERS comparator",
+          "description": "A VERS version comparator.",
+          "type": "string",
+          "enum": [
+            "",
+            "*",
+            "=",
+            "!=",
+            ">=",
+            ">",
+            "<=",
+            "<"
+          ]
+        },
+        {
+          "title": "Version",
+          "description": "A version string.",
+          "type": "string",
+          "examples": [
+            "1.2.3",
+            "54.a-RELEASE"
+          ]
+        }
+      ]
+    },
+    "vers_components": {
+      "title": "VERS decoded components",
+      "description": "Individual decoded VERS type and constraints to use as a test input or expected output.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "VERS type",
+          "description": "A VERS type (aka versioning scheme.)",
+          "type": "string",
+          "examples": [
+            "maven",
+            "npm",
+            "pypi",
+            "semver"
+          ]
+        },
+        "constraints": {
+          "title": "VERS constraints list",
+          "description": "A list of version constraints as two-tuples of (comparator, version).",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/constraint"
+          }
+        }
+      }
+    },
+    "vers_test": {
+      "title": "VERS test",
+      "description": "A VERS test with input and expected output.",
+      "type": "object",
+      "required": [
+        "description",
+        "test_group",
+        "test_type",
+        "input"
+      ],
+      "properties": {
+        "description": {
+          "title": "Test description",
+          "description": "A description for this test.",
+          "type": "string"
+        },
+        "test_group": {
+          "title": "Test group",
+          "description": "The conformance group of this test case.",
+          "type": "string",
+          "enum": [
+            "required",
+            "recommended"
+          ],
+          "meta:enum": {
+            "required": "Test group for test cases required for conformance with the VERS standard - ECMA-nnn",
+            "recommended": "Test group for test cases recommended to identify common problems in VERS data and how to remediate or normalize them in order to pass 'required' tests."
+          }
+        },
+        "test_type": {
+          "title": "Test type",
+          "description": "The functional type of this test case.",
+          "type": "string",
+          "enum": [
+            "build",
+            "comparison",
+            "containment",
+            "equality",
+            "from_native",
+            "invert",
+            "merge",
+            "parse",
+            "validate"
+          ],
+          "meta:enum": {
+            "build": "A test case to build a canonical VERS string from decoded components.",
+            "comparison": "A test case to sort an input version string array using the applicable VERS type rules.",
+            "containment": "A test case to determine if a bare version string is contained within the range of a VERS string.",
+            "equality": "A test case to check if two input version strings are equal using the applicable VERS type rules.",
+            "from_native": "A test case to construct a canonical VERS string from a native ecosystem data source.",
+            "invert": "A test case to invert a VERS string into a canonical VERS string",
+            "merge": "A test case to merge an array of VERS strings into a canonical VERS string.",
+            "parse": "A test case to parse a VERS string into a decoded VERS type and a constraints list",
+            "validate": "A test case to validate that an input VERS is in canonical form."                  
+          }
+        },
+        "expected_failure": {
+          "title": "Expected failure",
+          "description": "true if this test input is expected to fail to be processed.",
+          "type": "boolean",
+          "default": false
+        },
+        "expected_message": {
+          "title": "Expected test message",
+          "description": "The reason why this test is is expected to fail if expected_failure is true, or another message about the test result .",
+          "default": null,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "from_native"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input for conversion from native version range to VERS",
+                "description": "An object with a data source and native version range data to use in a conversion test from native data.",
+                "type": "object",
+                "required": [
+                  "type",
+                  "native_range"
+                ],
+                "properties": {
+                  "data_source": {
+                    "title": "Data source for test input",
+                    "description": "A string (like a VERS type) or URL that identifies the source of the data for this test input.",
+                    "type": "string",
+                    "examples": [
+                      "https://github.com/npm/node-semver#ranges",
+                      "https://gitlab.com/gitlab-org/advisories-community/-/tree/main/packagist",
+                      "https://gitlab.com/gitlab-org/advisories-community/-/tree/main/go",
+                      "https://git.alpinelinux.org/apk-tools/tree/test/unit/version.data",
+                      "https://github.com/rpm-software-management/rpm/blob/master/tests/rpmvercmp.at"
+                    ]
+                  },
+                  "native_range": {
+                    "title": "Input native version range",
+                    "description": "A native version range data that can be any of a string, array or object.",
+                    "type": [
+                      "string",
+                      "object",
+                      "array"
+                    ]
+                  }
+                }
+              },
+              "expected_output": {
+                "title": "Expected canonical VERS",
+                "description": "A canonical VERS string to use as a test output.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "parse"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input test VERS",
+                "description": "A VERS string to use as a test input (canonical or not).",
+                "type": "string"
+              },
+              "expected_output": {
+                "title": "Expected output decoded VERS components",
+                "description": "Test output to use as an object of decoded VERS components.",
+                "$ref": "#/definitions/vers_components"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "build"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input decoded VERS components",
+                "description": "Test input as an object of decoded VERS components.",
+                "$ref": "#/definitions/vers_components"
+              },
+              "expected_output": {
+                "title": "Expected canonical VERS",
+                "description": "A canonical VERS string to use as a test output.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "roundtrip"
+              }
+            },
+            "required": [
+              "test_type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input test VERS",
+                "description": "A VERS string to use as a test input (canonical or not).",
+                "type": "string"
+              },
+              "expected_output": {
+                "title": "Expected canonical VERS",
+                "description": "A canonical VERS string to use as a test output.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "merge"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input list of VERS strings",
+                "description": "Test input as a list of VERS strings.",
+                "type": "array",
+                "uniqueItems": true,
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "expected_output": {
+                "title": "Expected canonical VERS",
+                "description": "An expected canonical merged VERS string to use as a test output.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "containment"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input for version containment",
+                "description": "A version and a VERS string to use as a containment test input.",
+                "type": "object",
+                "required": [
+                  "version",
+                  "vers"
+                ],
+                "properties": {
+                  "version": {
+                    "title": "Input test version",
+                    "description": "A version string to test for containment in the input VERS.",
+                    "type": "string"
+                  },
+                  "vers": {
+                    "title": "Input test VERS",
+                    "description": "A canonical VERS string used to test its containment of the input version.",
+                    "type": "string"
+                  }
+                }
+              },
+              "expected_output": {
+                "title": "True if the version is expected to be contained in the input VERS",
+                "description": "A true boolean if the version is contained in the input VERS - otherwise false.",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "comparison"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input for version comparison",
+                "description": "A VERS type and a list of version strings to use as sorting test input.",
+                "type": "object",
+                "required": [
+                  "input_type",
+                  "versions"
+                ],
+                "properties": {
+                  "input_type": {
+                    "title": "VERS type to use as an input for a comparison test.",
+                    "description": "VERS type (aka versioning scheme).",
+                    "type": "string"
+                  },
+                  "versions": {
+                    "title": "Input list of bare versions",
+                    "description": "Test input as a list of bare versions strings.",
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "expected_output": {
+                "title": "Expected sorted list of bare versions",
+                "description": "An expected sorted list of version strings to use as a test output.",
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "equality"
+              },
+              "expected_failure": {
+                "const": false
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input for version equality",
+                "description": "A VERS type and a two-tuple of version strings to compare.",
+                "type": "object",
+                "required": [
+                  "input_type",
+                  "versions"
+                ],
+                "properties": {
+                  "input_type": {
+                    "title": "VERS type",
+                    "description": "VERS type to use as an input for an equality test.",
+                    "type": "string"
+                  },
+                  "versions": {
+                    "title": "Input tuple of two bare versions",
+                    "description": "Test input as a tuple of two bare versions strings.",
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "expected_output": {
+                "title": "True if two bare versions are expected to be equal",
+                "description": "A true boolean if two bare versions are expected to be equal to use as a test output.",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "input",
+              "expected_output"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "parse"
+              },
+              "expected_failure": {
+                "const": true
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input test VERS",
+                "description": "A VERS string to use as a test input (canonical or not).",
+                "type": "string"
+              }
+            },
+            "required": [
+              "input",
+              "expected_failure_reason"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test_type": {
+                "const": "build"
+              },
+              "expected_failure": {
+                "const": true
+              }
+            },
+            "required": [
+              "test_type",
+              "expected_failure"
+            ]
+          },
+          "then": {
+            "properties": {
+              "input": {
+                "title": "Input VERS components",
+                "description": "Test input as an object of decoded VERS components.",
+                "$ref": "#/definitions/vers_components"
+              }
+            },
+            "required": [
+              "input",
+              "expected_failure_reason"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "Contains the URL of the JSON schema for Version Range Specifier tests.",
+      "constant": "https://packageurl.org/schemas/vers-test.schema-0.2.json",
+      "format": "uri"
+    },
+    "tests": {
+      "title": "Test suite",
+      "description": "A list of Version Range Specifier tests.",
+      "additionalItems": false,
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/vers_test"
+      }
+    }
+  }
+}
