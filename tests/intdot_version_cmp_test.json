@@ -1,0 +1,137 @@
+{
+  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.2.json",
+  "tests": [
+    {
+      "description": "Identical intdot versions are equal.",
+      "test_group": "required",
+      "test_type": "equality",
+      "input": {
+        "input_type": "intdot",
+        "versions": [
+          "1.2.3",
+          "1.2.3"
+        ]
+      },
+      "expected_output": true
+    },
+    {
+      "description": "Leading zeros are ignored for equality.",
+      "test_group": "required",
+      "test_type": "equality",
+      "input": {
+        "input_type": "intdot",
+        "versions": [
+          "01.002.0003",
+          "1.2.3"
+        ]
+      },
+      "expected_output": true
+    },
+    {
+      "description": "Comparison is numeric per dot-separated segment, not lexicographic.",
+      "test_group": "required",
+      "test_type": "comparison",
+      "input": {
+        "input_type": "intdot",
+        "versions": [
+          "1.10",
+          "1.2"
+        ]
+      },
+      "expected_output": [
+        "1.2",
+        "1.10"
+      ]
+    },
+    {
+      "description": "An additional non-zero segment sorts after its prefix version.",
+      "test_group": "required",
+      "test_type": "comparison",
+      "input": {
+        "input_type": "intdot",
+        "versions": [
+          "1.2",
+          "1.2.1"
+        ]
+      },
+      "expected_output": [
+        "1.2",
+        "1.2.1"
+      ]
+    },
+    {
+      "description": "Mixed leading-zero forms sort by normalized numeric segments.",
+      "test_group": "required",
+      "test_type": "comparison",
+      "input": {
+        "input_type": "intdot",
+        "versions": [
+          "1.0002.10",
+          "1.2.2",
+          "1.02.0010"
+        ]
+      },
+      "expected_output": [
+        "1.2.2",
+        "1.0002.10",
+        "1.02.0010"
+      ]
+    },
+    {
+      "description": "A containment range includes values inside its lower and upper bounds.",
+      "test_group": "required",
+      "test_type": "containment",
+      "input": {
+        "version": "1.5.0",
+        "vers": "vers:intdot/>=1.2|<2.0"
+      },
+      "expected_output": true
+    },
+    {
+      "description": "A containment range excludes values at or above an exclusive upper bound.",
+      "test_group": "required",
+      "test_type": "containment",
+      "input": {
+        "version": "2.0",
+        "vers": "vers:intdot/>=1.2|<2.0"
+      },
+      "expected_output": false
+    },
+    {
+      "description": "Comparison ignores any suffix after the first non-digit and non-dot character.",
+      "test_group": "required",
+      "test_type": "comparison",
+      "input": {
+        "input_type": "intdot",
+        "versions": [
+          "1.2beta",
+          "1.10alpha",
+          "1.2rc1"
+        ]
+      },
+      "expected_output": [
+        "1.2beta",
+        "1.2rc1",
+        "1.10alpha"
+      ]
+    },
+    {
+      "description": "When multiple versions normalize to the same intdot value after truncation, ordering remains deterministic.",
+      "test_group": "recommended",
+      "test_type": "comparison",
+      "input": {
+        "input_type": "intdot",
+        "versions": [
+          "1.2rc1",
+          "1.2",
+          "1.2beta"
+        ]
+      },
+      "expected_output": [
+        "1.2",
+        "1.2beta",
+        "1.2rc1"
+      ]
+    }
+  ]
+}
