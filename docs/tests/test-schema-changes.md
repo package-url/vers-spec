@@ -22,7 +22,7 @@ This change removes the ambiguity of the **test group** names from the v0.1
 VERS test schema by using names that map to Ecma conformance terminology.
 
 ### Test messages
-**Change**: Renamed **expected_failure_reason** to **expected message**
+**Change**: Renamed **expected_failure_reason** to **expected_message**
 
 The terminology of the v0.1 VERS test schema did not provide a
 way to provide a test case message for the use case:

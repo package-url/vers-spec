@@ -52,7 +52,7 @@ Some key terminology for VERS tests is:
 | VERS component  | One of the 3 components of a VERS string  |
 | VERS data       | Summary term for a VERS string or an object composed of VERS components |
 | VERS Standard   | Refers to the VERS Core Specification                    |
-| VERS tool       | A software program that includes functionality for |
+| VERS tool       | A software program that implements one or more VERS functions such as building or parsing a VERS notation or determining whether a version is contained within VERS **constraints** |
 | VERS type registration | Means that there is a VERS type definition file (JSON) in the `vers-spec` repository |
 | test case       | Is a single test example within a *test file*         |
 | test file       | Is a set of *test cases*                              |

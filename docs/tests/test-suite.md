@@ -44,7 +44,7 @@ and purpose.
 ### test_group
 There are two VERS **test groups**:
 - 'required': A test case to demonstrate conformance with the VERS
-specification.
+  specification.
 - 'recommended': A test case that is recommended to identify common problems
   in VERS data and how to remediate or normalize them in order to pass the
   'required' tests. The use of 'recommended' test cases is always optional.
@@ -64,7 +64,7 @@ There are nine VERS **test types**:
   contained within the range of a VERS string.
 - 'equality': A test case to check if two input version strings are equal
   using the applicable VERS type rules.
-- 'from_name': A test case to construct a canonical VERS string from a native
+- 'from_native': A test case to construct a canonical VERS string from a native
   ecosystem data source.
 - 'invert': A test case to invert a VERS string into a canonical VERS string.
 - 'merge': A test case to merge an array of VERS strings into a canonical VERS
