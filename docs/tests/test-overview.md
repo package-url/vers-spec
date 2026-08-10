@@ -1,53 +1,60 @@
 ---
 id: test-overview
 title: VERS test overview
-sidebar_label: VERS test overview
+sidebar_label: Test overview
 hide_table_of_contents: true
 ---
 
 # VERS test overview
 
-## Tests
+The Version Range Specifier (VERS) specification provides test files to
+support language-neutral testing of VERS implementations. The objectives for
+the VERS test suite is to:
+- Enable tools to demonstrate conformance with the VERS specification as
+  defined in the [VERS Core Specification](https://packageurl.org/docs/vers/specification)
+  or in registered VERS **type** definitions.
+- Help tools identify and fix common problems in VERS data.
 
-The VErsion Range Specifier (VERS) specification provides a JSON Schema and
-test files to support language-neutral testing of VERS implementations. The
-objectives for the VERS test schema and test files are to enable tools to
-conform to the VERS specification for tool functions such as:
-- validate a VERS string
-- parse a VERS string to determine if a version is contained within a range
+The structure of test cases used in VERS test files is defined in a JSON
+schema that is available at: https://packageurl.org/schemas/vers-test.schema-0.2.json.
 
-The test files are available at: [`vers-spec/tests/`](https://github.com/package-url/vers-spec/tree/main/tests).
-Each test file is in JSON format with a naming convention based on: `<version-scheme>_<range OR version>_<test-type>_test.json.`
+## Conformance
+Since the primary goal for the VERS test suite is to help VERS tools achieve
+and demonstrate conformance with the VERS specification, it is important to
+state what we mean by conformance. Conformance for VERS is defined in the
+VERS specification files at: https://github.com/package-url/vers-spec/tree/main/docs/specification/standard.
 
-Two key properties in the VERS test JSON Schema are:
-- Test groups
-- Test types
+A  summary is: "A conforming implementation of Version Range Specifier (VERS)
+shall fully implement and support all elements defined within this Standard,
+including the syntax, components, and semantic requirements for constructing
+and interpreting valid VERS notations."
 
-### Test groups
+Other VERS documentation such as "How to parse and validate VERS" is important
+but not part of the VERS Standard for conformance purposes.
 
-There are two VERS test groups:
-- **base**: Test group for base conformance tests. Base tests are pass/fail.
-- **advanced**: Test group for advanced tests. Advanced tests cover additional
-  capabilities beyond base conformance, while still requiring canonical VERS
-  input.
+Some common words have a very specific meaning for Ecma conformance:
+- "canonical form" means a VERS string or a set of VERS components in the
+  format that matches the Standard for a string or components respectively
+- "normalization" means the process of structuring, standardizing, or
+  converting data to conform to a standard format - i.e. canonical form.
+- "shall" indicates a requirement (Ecma & ISO definition)
+- "should" indicates a recommendation (Ecma & ISO definition)
 
-### Test types
+The VERS Standard requires that:
+- A VERS string is in canonical form or
+- Each VERS component in a set (object) conforms to the VERS Standard.
 
-There are nine VERS test types:
-- **build**: A test to build a canonical VERS string from decoded VERS
-  components.
-- **comparison**: A test to sort an input version string array using the
-  applicable VERS **type** rules.
-- **containment**: A test to determine whether a bare version string is
-  contained within the range of a VERS string.
-- **equality**: A test to check if two input versions strings are equal using
-  the applicable VERS **type** rules.
-- **from_native**: A test to construct a canonical VERS string from a native
-  ecosystem data source.
-- **invert**: A test to invert a VERS string into a canonical VERS string.
-- **merge**: A test to merge an array of VERS strings into a canonical VERS
-  string.
-- **parse**: A test to parse a VERS string into a decoded **type**
-  and a **constraints** list.
-- **roundtrip**: A test to parse a VERS input string and build a canonical
-  VERS output string.
+## Terminology
+Some key terminology for VERS tests is:
+
+| Term            | Definition                                              |
+|-----------------|---------------------------------------------------------|
+| VERS component  | One of the 3 components of a VERS string  |
+| VERS data       | Summary term for a VERS string or an object composed of VERS components |
+| VERS Standard   | Refers to the VERS Core Specification                    |
+| VERS tool       | A software program that implements one or more VERS functions such as building or parsing a VERS notation or determining whether a version is contained within VERS **constraints** |
+| VERS type registration | Means that there is a VERS type definition file (JSON) in the `vers-spec` repository |
+| test case       | Is a single test example within a *test file*         |
+| test file       | Is a set of *test cases*                              |
+| test suite      | Is the entire set of current VERS *test files*        |
+
