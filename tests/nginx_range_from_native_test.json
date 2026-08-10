@@ -1,9 +1,9 @@
 {
-  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.2.json",
   "tests": [
     {
       "description": "Construct VERS range from native Nginx range.",
-      "test_group": "advanced",
+      "test_group": "recommended",
       "test_type": "from_native",
       "input": {
         "native_range": "0.8.40+",
@@ -13,7 +13,7 @@
     },
     {
       "description": "Construct VERS range from native Nginx range.",
-      "test_group": "advanced",
+      "test_group": "recommended",
       "test_type": "from_native",
       "input": {
         "native_range": "0.7.52-0.8.39",
@@ -23,7 +23,7 @@
     },
     {
       "description": "Construct VERS range from native Nginx range.",
-      "test_group": "advanced",
+      "test_group": "recommended",
       "test_type": "from_native",
       "input": {
         "native_range": "0.9.10",
@@ -33,7 +33,7 @@
     },
     {
       "description": "Construct VERS range from native Nginx range.",
-      "test_group": "advanced",
+      "test_group": "recommended",
       "test_type": "from_native",
       "input": {
         "native_range": "1.5.0+, 1.4.1+",

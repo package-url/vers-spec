@@ -1,9 +1,9 @@
 {
-  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.2.json",
   "tests": [
     {
       "description": "Construct VERS range from native RubyGems range.",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "from_native",
       "input": {
         "native_range": "~>2.0.8",

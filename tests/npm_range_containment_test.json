@@ -1,9 +1,9 @@
 {
-  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.2.json",
   "tests": [
     {
       "description": "Test version containment for npm range with `*` operator.",
-      "test_group": "advanced",
+      "test_group": "recommended",
       "test_type": "containment",
       "input": {
         "vers": "vers:npm/*",
