@@ -1,12 +1,12 @@
 ---
 id: test-schema-changes
 title: VERS test schema v0.2 changes
-sidebar_label: Test schema v0.2 changes
+sidebar_label: Test schema changes
 hide_table_of_contents: true
 ---
 
-# VERF test schema v0.2 changes
-The VERStest schema was updated to: https://packageurl.org/schemas/vers-test.schema-0.2.json
+# VERS test schema v0.2 changes
+The VERS test schema was updated to: https://packageurl.org/schemas/vers-test.schema-0.2.json
 on August 4, 2026. This update includes an automated update to all of the VERS
 test suite files at: `vers-spec/tests/`. See a summary of the changes below.
 
