@@ -9,7 +9,7 @@ hide_table_of_contents: true
 
 The Version Range Specifier (VERS) specification provides test files to
 support language-neutral testing of VERS implementations. The objectives for
-the VERS test suite is to:
+the VERS test suite are to:
 - Enable tools to demonstrate conformance with the VERS specification as
   defined in the [VERS Core Specification](https://packageurl.org/docs/vers/specification)
   or in registered VERS **type** definitions.
