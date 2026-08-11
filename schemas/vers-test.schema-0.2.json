@@ -271,7 +271,7 @@
           "if": {
             "properties": {
               "test_type": {
-                "const": "roundtrip"
+                "const": "validate"
               }
             },
             "required": [
