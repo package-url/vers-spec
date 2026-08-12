@@ -524,7 +524,7 @@
             },
             "required": [
               "input",
-              "expected_failure_reason"
+              "expected_message"
             ]
           }
         },
@@ -553,7 +553,7 @@
             },
             "required": [
               "input",
-              "expected_failure_reason"
+              "expected_message"
             ]
           }
         }
