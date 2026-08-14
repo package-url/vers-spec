@@ -5,46 +5,25 @@
   "description": "Schema to define the structure of a VErsion Range Specifier (VERS) type.",
   "type": "object",
   "additionalProperties": false,
-  "definitions": {
-    "vers_component_definition": {
-      "title": "VERS component definition",
-      "description": "VERS component definition properties that apply to most VERS components",
-      "type": "object",
-      "properties": {
-        "permitted_characters": {
-          "title": "Permitted characters in this VERS component",
-          "description": "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification.",
-          "type": "string",
-          "format": "regex"
-        },
-        "note": {
-          "title": "Note",
-          "description": "Extra note text.",
-          "type": "string"
-        }
-      }
-    }
-  },
   "required": [
     "$id",
     "type",
     "type_name",
-    "constraints_definition",
     "description",
-    "examples"
+    "vers_examples"
   ],
   "properties": {
     "$schema": {
       "title": "JSON schema",
-      "description": "Contains the URL of the JSON schema for VERS type definition.",
+      "description": "URL of the JSON schema for VERS type definition.",
       "const": "https://packageurl.org/schemas/vers-type-definition.schema-0.1.json",
       "format": "uri"
     },
     "$id": {
       "title": "VERS type definition id",
-      "description": "The unique identifier URI for this PURL type definition.",
+      "description": "The unique identifier URI for this VERS type definition.",
       "type": "string",
-      "pattern": "^https:\\/\\/packageurl\\.org/types/[a-z0-9-]+-definition\\.json$"
+      "pattern": "^https:\\/\\/packageurl\\.org/vers-types/[a-z0-9-]+-definition\\.json$"
     },
     "type": {
       "title": "VERS type",
@@ -52,28 +31,33 @@
       "type": "string",
       "pattern": "^[a-z][a-z0-9-\\.]+$",
       "examples": [
+        "semver",
         "maven",
-        "npm",
-        "pypi"
+        "pypi",
+        "npm"
       ]
     },
     "type_name": {
       "title": "Type name",
-      "description": "The name for this VERS type.",
+      "description": "The name of this VERS type.",
       "type": "string",
       "examples": [
-        "Apache Maven math interval notation",
-        "npm node-semver range notation"
+        "Apache Maven Dependency Version Requirement",
+        "npm version range"
       ]
     },
     "description": {
       "title": "Description",
       "description": "The description of this VERS type.",
-      "type": "string"
+      "type": "string",
+      "examples": [
+        "Apache Maven dependency version requirement notation as used in a Maven POM.",
+        "npm dependencies version range notation as used in a package.json."
+      ]
     },
-    "examples": {
+    "vers_examples": {
       "title": "VERS examples",
-      "description": "Example of valid, canonical VERS notations for this VERS type.",
+      "description": "Examples of valid, canonical VERS ranges for this VERS type.",
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,
@@ -82,63 +66,89 @@
         "pattern": "^vers:[a-z][a-z0-9-\\.]+/.*$"
       }
     },
-    "properties": {
-      "note": {
-        "title": "Note",
-        "description": "Extra note text.",
-        "type": "string"
-      }
-    }
-  },
-  "constraints_definition": {
-    "title": "Constraints definition",
-    "description": "VERS constraints as two-tuple array of (comparator, version string).",
-    "type": "array",
-    "prefixItems": [
-      {
-        "title": "VERS comparator",
-        "description": "A VERS version comparator.",
-        "type": "string",
-        "enum": [
-          "",
-          "*",
-          "=",
-          "!=",
-          ">=",
-          ">",
-          "<=",
-          "<"
-        ]
-      },
-      {
-        "title": "Version",
-        "description": "A version string.",
-        "type": "string",
-        "examples": [
-          "1.2.3",
-          "54.a-RELEASE"
-        ]
-      }
-    ],
-    "allOf": [
-      {
-        "$ref": "#/definitions/vers_component_definition"
-      }
-    ]
-  },
-  "note": {
-    "title": "Note",
-    "description": "Note about this VERS type.",
-    "type": "string"
-  },
-  "reference_urls": {
-    "title": "Reference URLs",
-    "description": "Optional list of informational reference URLs about this VERS type.",
-    "type": "array",
-    "uniqueItems": true,
-    "items": {
+    "native_syntax_description": {
+      "title": "Native Syntax Description",
+      "description": "Optional description of the native syntax or notation for the version range described by this VERS type.",
       "type": "string",
-      "format": "uri"
+      "examples": [
+        "npm dependencies are specified in an object mapping a package name to a version range, a string which has one or more space-separated descriptors."
+      ]
+    },
+    "native_syntax_elements": {
+      "title": "Native Version Range Syntax Elements",
+      "description": "Optional array of descriptions for syntax elements of the native version range described by this VERS type.",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "examples": [
+        [
+          "The superior character means a version must be bigger than the version in that contraint. Example: > 2.0.0",
+          "Each range constraint is separated by a space.",
+          "The tilde character means that a version should be at least equal to the version in that contraint. Example: ~2.0.0",
+          "The equal character means that a version should be equal to the version in that contraint. Example: =2.0.0-ALPHA2",
+          "The range boundaries are decribed using mathematical notation with [] and ().",
+          "Each range constraint is separated by a comma, and spaces are not significant."
+        ]
+      ]
+    },
+    "native_range_examples": {
+      "title": "Native Version Range Examples",
+      "description": "Optional examples of valid, native version ranges for this VERS type.",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "examples": [
+        [
+          "<1.0.0 || >=2.3.1 <2.4.5 || >=2.5.2 <3.0.0",
+          "(,1.0],[1.2,)"
+        ]
+      ]
+    },
+    "native_version_examples": {
+      "title": "Native Version Examples",
+      "description": "Optional examples of valid, native versions for this VERS type.",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "examples": [
+        [
+          "1.0.0",
+          "1.0.0-foo.0.0"
+        ]
+      ]
+    },
+    "version_comparison_procedure": {
+      "title": "Version Comparison Procedure",
+      "description": "Optional procedure describing how to compare two versions for this VERS type.",
+      "type": "string",
+      "examples": [
+        "Split the version string on punctuations, and letters, yield components. Compare each component strings from left to right using their lexicographic order."
+      ]
+    },
+    "note": {
+      "title": "Note",
+      "description": "Note about this VERS type.",
+      "type": "string"
+    },
+    "reference_urls": {
+      "title": "Reference URLs",
+      "description": "Optional list of informational reference URLs about this VERS type.",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
     }
   }
 }
