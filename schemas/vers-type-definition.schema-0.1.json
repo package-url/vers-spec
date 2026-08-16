@@ -243,14 +243,14 @@
         },
         "normalization_rules": {
           "title": "Normalization rules",
-          "description": "List of rules to normalize versions for this VERS type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically. If provided, these must be applied to create a canonical VERS for this type.",
+          "description": "List of rules to normalize versions for this VERS type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. If provided, tools should apply these rules programmatically to create a canonical VERS for this type.",
           "type": "array",
           "uniqueItems": true,
           "items": {
             "type": "string"
           },
           "examples": [
-            "Replace underscore wit a dash.",
+            "Replace underscore with a dash.",
             "Lowercase",
             "Ignore trailing string after a + when doing comparison"
           ]
@@ -289,7 +289,7 @@
         },
         "reference_urls": {
           "title": "Reference URLs",
-          "description": "List of informational reference URLs about this VERS type, such as specifications, reference code and related pointers.",
+          "description": "List of informational reference URLs about the version definitions for a VERS type, such as specifications, reference code and related pointers.",
           "type": "array",
           "uniqueItems": true,
           "minItems": 1,
