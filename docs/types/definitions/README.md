@@ -1,5 +1,3 @@
-
-
 This directory contains **human-readable documentation** generated from the
 **reference machine-readable JSON VERS type definitions** found in `types/`.
 
