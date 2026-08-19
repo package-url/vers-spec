@@ -1,9 +1,9 @@
 {
-  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.2.json",
   "tests": [
     {
       "description": "Canonical parse succeeds for an already normalized VERS.",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "vers:npm/>=1.0.0|<2.0.0",
       "expected_output": {
@@ -22,47 +22,47 @@
     },
     {
       "description": "Parsing fails when ASCII whitespace is present.",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "vers:npm/>=1.0.0| <2.0.0",
       "expected_failure": true,
-      "expected_failure_reason": "non-canonical VERS: whitespace is not permitted"
+      "expected_message": "non-canonical VERS: whitespace is not permitted"
     },
     {
       "description": "Parsing fails when constraints start with a pipe.",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "vers:npm/|>=1.0.0|<2.0.0",
       "expected_failure": true,
-      "expected_failure_reason": "non-canonical VERS: leading pipe is not permitted"
+      "expected_message": "non-canonical VERS: leading pipe is not permitted"
     },
     {
       "description": "Parsing fails when constraints end with a pipe.",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "vers:npm/>=1.0.0|<2.0.0|",
       "expected_failure": true,
-      "expected_failure_reason": "non-canonical VERS: trailing pipe is not permitted"
+      "expected_message": "non-canonical VERS: trailing pipe is not permitted"
     },
     {
       "description": "Parsing fails when constraints contain consecutive pipes.",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "vers:npm/>=1.0.0||<2.0.0",
       "expected_failure": true,
-      "expected_failure_reason": "non-canonical VERS: consecutive pipes are not permitted"
+      "expected_message": "non-canonical VERS: consecutive pipes are not permitted"
     },
     {
       "description": "Parsing fails when constraints are not in canonical order.",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "vers:npm/>=2.0.0|<1.0.0",
       "expected_failure": true,
-      "expected_failure_reason": "non-canonical VERS: constraints are not sorted by version"
+      "expected_message": "non-canonical VERS: constraints are not sorted by version"
     },
     {
       "description": "Parsing decodes canonical percent-encoding once for versions.",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "vers:npm/1.0%252F0",
       "expected_output": {
@@ -77,43 +77,43 @@
     },
     {
       "description": "Parsing fails when version percent-encoding is invalid.",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "vers:npm/1.0%2G0",
       "expected_failure": true,
-      "expected_failure_reason": "non-canonical VERS: invalid percent-encoding in version"
+      "expected_message": "non-canonical VERS: invalid percent-encoding in version"
     },
     {
       "description": "Parsing fails for datetime when lowercase t and z are used.",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "vers:datetime/2024-01-01t00:00:00z",
       "expected_failure": true,
-      "expected_failure_reason": "non-canonical VERS: datetime must use uppercase T and Z"
+      "expected_message": "non-canonical VERS: datetime must use uppercase T and Z"
     },
     {
       "description": "Parsing fails for datetime when time colons are percent-encoded.",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "vers:datetime/2024-01-01T00%3A00%3A00Z",
       "expected_failure": true,
-      "expected_failure_reason": "non-canonical VERS: datetime time colons must be unencoded"
+      "expected_message": "non-canonical VERS: datetime time colons must be unencoded"
     },
     {
       "description": "Parsing fails for datetime when percent-encoding is invalid.",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "vers:datetime/2024-01-01T00:00:00%ZZ",
       "expected_failure": true,
-      "expected_failure_reason": "non-canonical VERS: invalid percent-encoding in version"
+      "expected_message": "non-canonical VERS: invalid percent-encoding in version"
     },
     {
       "description": "Parsing fails for datetime when percent-encoded triplets use non-canonical hex case.",
-      "test_group": "base",
+      "test_group": "required",
       "test_type": "parse",
       "input": "vers:datetime/2024-01-01T00%3a00%3a00Z",
       "expected_failure": true,
-      "expected_failure_reason": "non-canonical VERS: percent-encoding in version is not canonical"
+      "expected_message": "non-canonical VERS: percent-encoding in version is not canonical"
     }
   ]
 }

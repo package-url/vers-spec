@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/2020-12/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
   "$id": "https://packageurl.org/schemas/vers-test.schema-0.2.json",
   "title": "VERS test definition",
   "description": "Schema for Version Range Specifier (VERS) test case definitions.",
@@ -118,7 +118,7 @@
             "invert": "A test case to invert a VERS string into a canonical VERS string",
             "merge": "A test case to merge an array of VERS strings into a canonical VERS string.",
             "parse": "A test case to parse a VERS string into a decoded VERS type and a constraints list",
-            "validate": "A test case to validate that an input VERS is in canonical form."                  
+            "validate": "A test case to validate that an input VERS is in canonical form."
           }
         },
         "expected_failure": {
@@ -271,7 +271,7 @@
           "if": {
             "properties": {
               "test_type": {
-                "const": "roundtrip"
+                "const": "validate"
               }
             },
             "required": [
@@ -524,7 +524,7 @@
             },
             "required": [
               "input",
-              "expected_failure_reason"
+              "expected_message"
             ]
           }
         },
@@ -553,7 +553,7 @@
             },
             "required": [
               "input",
-              "expected_failure_reason"
+              "expected_message"
             ]
           }
         }

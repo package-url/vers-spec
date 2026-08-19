@@ -1,9 +1,9 @@
 {
-  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/vers-test.schema-0.2.json",
   "tests": [
     {
       "description": "Construct VERS range from native NuGet range.",
-      "test_group": "advanced",
+      "test_group": "recommended",
       "test_type": "from_native",
       "input": {
         "native_range": "[1.0.0, 2.0.0)",
