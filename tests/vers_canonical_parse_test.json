@@ -76,6 +76,51 @@
       }
     },
     {
+      "description": "Parsing accepts percent-encoded SPACE in a version.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:lexicographic/1%202",
+      "expected_output": {
+        "scheme": "lexicographic",
+        "version_constraints": [
+          [
+            "=",
+            "1 2"
+          ]
+        ]
+      }
+    },
+    {
+      "description": "Parsing accepts percent-encoded TAB in a version.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:lexicographic/1%092",
+      "expected_output": {
+        "scheme": "lexicographic",
+        "version_constraints": [
+          [
+            "=",
+            "1\t2"
+          ]
+        ]
+      }
+    },
+    {
+      "description": "Recommended normalization percent-encodes SPACE in a version.",
+      "test_group": "recommended",
+      "test_type": "parse",
+      "input": "vers:lexicographic/1 2",
+      "expected_output": {
+        "scheme": "lexicographic",
+        "version_constraints": [
+          [
+            "=",
+            "1 2"
+          ]
+        ]
+      }
+    },
+    {
       "description": "Parsing fails when version percent-encoding is invalid.",
       "test_group": "required",
       "test_type": "parse",
