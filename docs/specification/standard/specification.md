@@ -126,6 +126,9 @@ the equality of two normalized version strings according to the applicable
 **type** may, however, define normalization and other rules for
 equality such as the "pypi" rules from PEP 440.
 
+The equality comparator shall be implicit only and represented by a single
+**version** without any leading comparator character.
+
 A package version satisfies a set of **constraints** if it is
 contained within any of the intervals defined by the **constraints**.
 
