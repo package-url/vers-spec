@@ -74,7 +74,7 @@
       ]
     },
     "native_and_vers_examples": {
-      "title": "Examples of Native Version Range and their VERS equivalent",
+      "title": "Examples of Native Version Ranges and their VERS equivalents.",
       "description": "Optional list of examples of valid, native version ranges mapped to their corresponding canonical VERS syntax.",
       "type": "array",
       "uniqueItems": true,
@@ -173,7 +173,7 @@
         },
         "comparison_procedure": {
           "title": "Version Comparison Procedure",
-          "description": "List of steps describing in plain text the procedure to compare two versions for this VERS type. Comparison also enables sorting constraints for canonical VERS.",
+          "description": "List of steps describing in plain text the procedure to compare two versions for this VERS type. Comparison also enables sorting constraints to build a canonical VERS.",
           "type": "array",
           "uniqueItems": true,
           "items": {
@@ -204,7 +204,7 @@
           ]
         },
         "reference_urls": {
-          "title": "Reference URLs",
+          "title": "Reference URLs for version definitions.",
           "description": "List of informational reference URLs about the version definitions for a VERS type, such as specifications, reference code and related pointers.",
           "type": "array",
           "uniqueItems": true,
