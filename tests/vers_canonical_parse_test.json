@@ -81,8 +81,8 @@
       "test_type": "parse",
       "input": "vers:lexicographic/1%202",
       "expected_output": {
-        "scheme": "lexicographic",
-        "version_constraints": [
+        "type": "lexicographic",
+        "constraints": [
           [
             "=",
             "1 2"
@@ -96,8 +96,8 @@
       "test_type": "parse",
       "input": "vers:lexicographic/1%092",
       "expected_output": {
-        "scheme": "lexicographic",
-        "version_constraints": [
+        "type": "lexicographic",
+        "constraints": [
           [
             "=",
             "1\t2"
@@ -111,8 +111,8 @@
       "test_type": "parse",
       "input": "vers:lexicographic/1 2",
       "expected_output": {
-        "scheme": "lexicographic",
-        "version_constraints": [
+        "type": "lexicographic",
+        "constraints": [
           [
             "=",
             "1 2"
