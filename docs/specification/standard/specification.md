@@ -144,6 +144,9 @@ impossible version ranges.
 - ASCII whitespace is not permitted in a VERS string. Tools shall report an
   error if any Whitespace character, for example SPACE (0x20), TAB (0x09), or
   LF (0x0A), is used.
+- ASCII whitespace in a **version** shall be percent-encoded using URI
+  percent-encoding rules. For example, SPACE shall be encoded as '%20' and
+  TAB shall be encoded as '%09'.
 - The VERS **scheme** and **type** are always lowercase as in
   'vers:npm'.
 - Versions are case-sensitive. A **type** may specify
