@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "$id": "https://packageurl.org/schemas/vers-type-definition.schema-0.1.json",
+  "title": "VErsion Range Specifier (VERS) Type Definition",
+  "description": "Schema to define the structure of a VErsion Range Specifier (VERS) type.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$id",
+    "type",
+    "type_name",
+    "description",
+    "vers_examples"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "URL of the JSON schema for VERS type definition.",
+      "const": "https://packageurl.org/schemas/vers-type-definition.schema-0.1.json",
+      "format": "uri"
+    },
+    "$id": {
+      "title": "VERS type definition id",
+      "description": "The unique identifier URI for this VERS type definition.",
+      "type": "string",
+      "pattern": "^https:\\/\\/packageurl\\.org/vers-types/[a-z0-9-]+-definition\\.json$"
+    },
+    "type": {
+      "title": "VERS type",
+      "description": "The type string for this VERS type.",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-\\.]+$",
+      "examples": [
+        "semver",
+        "maven",
+        "pypi",
+        "npm"
+      ]
+    },
+    "type_name": {
+      "title": "Type name",
+      "description": "The name of this VERS type.",
+      "type": "string",
+      "examples": [
+        "Apache Maven Dependency Version Requirement",
+        "npm version range"
+      ]
+    },
+    "description": {
+      "title": "Description",
+      "description": "The description of this VERS type.",
+      "type": "string",
+      "examples": [
+        "Apache Maven dependency version requirement as defined in a Maven POM.",
+        "npm dependencies version range as defined in a package.json.",
+        "RubyGems version requirement restrictions using restriction operators."
+      ]
+    },
+    "vers_examples": {
+      "title": "VERS examples",
+      "description": "Examples of valid, canonical VERS ranges for this VERS type.",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^vers:[a-z][a-z0-9-\\.]+/.*$"
+      },
+      "examples": [
+        [
+          "vers:npm/1.223",
+          "vers:semver/<1.2.2|>2.0.0|=7.0.0"
+        ]
+      ]
+    },
+    "native_and_vers_examples": {
+      "title": "Examples of Native Version Ranges and their VERS equivalents.",
+      "description": "Optional list of examples of valid, native version ranges mapped to their corresponding canonical VERS syntax.",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "native_range",
+          "vers_range"
+        ],
+        "properties": {
+          "native_range": {
+            "title": "Native Range",
+            "description": "Native range for this VERS type.",
+            "type": "string"
+          },
+          "vers_range": {
+            "title": "Corresponding VERS Range",
+            "description": "Corresponding VERS range.",
+            "type": "string"
+          },
+          "note": {
+            "title": "Note",
+            "description": "Optional note about this example.",
+            "type": "string"
+          }
+        }
+      },
+      "examples": [
+        {
+          "native_range": "1.0-ALPHA2 || ~2.0.0",
+          "vers_range": "vers:foo/1.0-ALPHA2|>=2.0.0",
+          "example": "~2.0.0",
+          "note": "The tilde character means that a version should be at least equal to the version."
+        }
+      ]
+    },
+    "note": {
+      "title": "Note",
+      "description": "Note about this VERS type.",
+      "type": "string"
+    },
+    "reference_urls": {
+      "title": "Reference URLs",
+      "description": "List of informational reference URLs about this VERS type, such as specifications, reference code and related pointers.",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "examples": [
+        "https://maven.apache.org/pom.html#dependency-version-requirement-specification",
+        "https://github.com/npm/node-semver",
+        "https://docs.npmjs.com/cli/v12/configuring-npm/package-json#dependencies",
+        "https://github.com/ruby/ruby/blob/d1c079751b80352d347452c8d134ffb177838adb/lib/rubygems/requirement.rb#L6"
+      ]
+    },
+    "version_definition": {
+      "title": "Version Definition",
+      "description": "Optional definition object for the versions supported by this VERS type.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_sensitive",
+        "examples"
+      ],
+      "properties": {
+        "permitted_characters": {
+          "title": "Permitted characters in versions of this VERS type.",
+          "description": "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for versions of this VERS type.",
+          "type": "string",
+          "format": "regex"
+        },
+        "case_sensitive": {
+          "title": "Case sensitive",
+          "description": "true if versions of this VERS type are case sensitive.",
+          "type": "boolean",
+          "default": true
+        },
+        "normalization_rules": {
+          "title": "Normalization rules",
+          "description": "List of rules to normalize versions for this VERS type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. If provided, tools should apply these rules programmatically to create a canonical VERS for this type.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          },
+          "examples": [
+            "Replace underscore with a dash.",
+            "Lowercase",
+            "Ignore trailing string after a + when doing comparison"
+          ]
+        },
+        "comparison_procedure": {
+          "title": "Version Comparison Procedure",
+          "description": "List of steps describing in plain text the procedure to compare two versions for this VERS type. Comparison also enables sorting constraints to build a canonical VERS.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          },
+          "examples": [
+            "Split the version string on punctuations, and letters, yielding parts.",
+            "Ignore trailing string after a + when doing comparison.",
+            "Compare each part strings from left to right using their lexicographic order.",
+            "If any part contains letters (currently only a-z are supported) then that version is considered prerelease.",
+            "Versions with a prerelease part in the Nth part sort less than versions with N-1 parts."
+          ]
+        },
+        "examples": {
+          "title": "Version Examples",
+          "description": "Examples of valid, native versions for this VERS type.",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "examples": [
+            [
+              "1.0.0",
+              "1.0.0-foo.0.0"
+            ]
+          ]
+        },
+        "reference_urls": {
+          "title": "Reference URLs for version definitions.",
+          "description": "List of informational reference URLs about the version definitions for a VERS type, such as specifications, reference code and related pointers.",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "examples": [
+            "https://maven.apache.org/pom.html#maven-coordinates",
+            "https://github.com/ruby/ruby/blob/d1c079751b80352d347452c8d134ffb177838adb/lib/rubygems/version.rb"
+          ]
+        },
+        "note": {
+          "title": "Note",
+          "description": "Extra note text.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
