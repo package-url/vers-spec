@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "$id": "https://packageurl.org/schemas/vers-type-definition.schema-0.2.json",
+  "title": "VErsion Range Specifier (VERS) Type Definition",
+  "description": "Schema to define the structure of a VErsion Range Specifier (VERS) type.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$id",
+    "type",
+    "type_name",
+    "description",
+    "vers_examples"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "URL of the JSON schema for VERS type definition.",
+      "const": "https://packageurl.org/schemas/vers-type-definition.schema-0.2.json",
+      "format": "uri"
+    },
+    "$id": {
+      "title": "VERS type definition id",
+      "description": "The unique identifier URI for this VERS type definition.",
+      "type": "string",
+      "pattern": "^https:\\/\\/packageurl\\.org/vers-types/[a-z0-9-]+-definition\\.json$"
+    },
+    "type": {
+      "title": "VERS type",
+      "description": "The type string for this VERS type.",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-\\.]+$",
+      "examples": [
+        "semver",
+        "maven",
+        "pypi",
+        "npm"
+      ]
+    },
+    "type_name": {
+      "title": "Type name",
+      "description": "The name of this VERS type.",
+      "type": "string",
+      "examples": [
+        "Apache Maven Dependency Version Requirement",
+        "npm version range"
+      ]
+    },
+    "description": {
+      "title": "Description",
+      "description": "The description of this VERS type.",
+      "type": "string",
+      "examples": [
+        "Apache Maven dependency version requirement as defined in a Maven POM.",
+        "npm dependencies version range as defined in a package.json.",
+        "RubyGems version requirement restrictions using restriction operators."
+      ]
+    },
+    "vers_examples": {
+      "title": "VERS examples",
+      "description": "Examples of valid VERS ranges for this VERS type.",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^vers:[a-z][a-z0-9-\\.]+/.*$"
+      },
+      "examples": [
+        [
+          "vers:npm/1.223",
+          "vers:semver/<1.2.2|>2.0.0|=7.0.0"
+        ]
+      ]
+    },
+    "native_and_vers_equivalent_examples": {
+      "title": "Examples of native version ranges and their VERS equivalents.",
+      "description": "Optional list of examples of valid, native version ranges mapped to their corresponding canonical VERS syntax.",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "native_range",
+          "vers_range"
+        ],
+        "properties": {
+          "native_range": {
+            "title": "Native Range",
+            "description": "Native range for this VERS type.",
+            "type": "string"
+          },
+          "vers_range": {
+            "title": "Corresponding VERS Range",
+            "description": "Corresponding VERS range.",
+            "type": "string"
+          },
+          "note": {
+            "title": "Note",
+            "description": "Optional note about this example.",
+            "type": "string"
+          }
+        }
+      },
+      "examples": [
+        {
+          "native_range": "1.0-ALPHA2 || ~2.0.0",
+          "vers_range": "vers:foo/1.0-ALPHA2|>=2.0.0",
+          "example": "~2.0.0",
+          "note": "The tilde character means that a version should be at least equal to the version."
+        }
+      ]
+    },
+    "note": {
+      "title": "Note",
+      "description": "Note about this VERS type.",
+      "type": "string"
+    },
+    "reference_urls": {
+      "title": "Reference URLs",
+      "description": "List of informational reference URLs about this VERS type, such as specifications, reference code and related pointers.",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "examples": [
+        "https://maven.apache.org/pom.html#dependency-version-requirement-specification",
+        "https://github.com/npm/node-semver",
+        "https://docs.npmjs.com/cli/v12/configuring-npm/package-json#dependencies",
+        "https://github.com/ruby/ruby/blob/d1c079751b80352d347452c8d134ffb177838adb/lib/rubygems/requirement.rb#L6"
+      ]
+    }
+  }
+}
