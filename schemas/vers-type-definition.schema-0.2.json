@@ -75,7 +75,7 @@
     },
     "native_and_vers_equivalent_examples": {
       "title": "Examples of native version ranges and their VERS equivalents.",
-      "description": "Optional list of examples of valid, native version ranges mapped to their corresponding canonical VERS syntax.",
+      "description": "Optional list of examples of valid, native version ranges mapped to their corresponding VERS syntax.",
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,
