@@ -1,0 +1,12 @@
+{
+  "$schema": "https://packageurl.org/schemas/vers-type-definition.schema-0.1.json",
+  "$id": "https://packageurl.org/vers-types/pypi-definition.json",
+  "type": "pypi",
+  "type_name": "pypi versioning",
+  "description": "pypi versioning version ranges.",
+  "vers_examples": [
+    "vers:pypi/>=1.0,<2.0",
+    "vers:pypi/0.0.0|0.0.1|0.0.2|0.0.3|0.0.4|0.0.5|0.0.6",
+    "vers:pypi/!=0.0.1|>0.1"
+  ]
+}

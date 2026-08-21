@@ -1,28 +1,10 @@
 #!/usr/bin/env python
-
 import json
 from pathlib import Path
 
 """
-Generate Markdown documents, one for each PURL type definition JSON document.
+Generate Markdown documents, one for each VERS type definition JSON document.
 """
-
-
-def generate_purl_syntax(definition) -> str:
-    """
-    Return a PURL syntax template generated dynamically from a definition object, using required,
-    optional, and prohibited component definitions.
-    """
-
-    namespace = definition.get("namespace_definition", {}).get("requirement", "optional")
-    if namespace in ["required", "optional"]:
-        namespace = "/<namespace>"
-    else:
-        namespace = ""
-
-    purl_syntax = f"pkg:{definition['type']}{namespace}/<name>@<version>?<qualifiers>#<subpath>"
-
-    return purl_syntax
 
 
 def get_yes_no(value):
@@ -32,99 +14,79 @@ def get_yes_no(value):
 
 def generate_documentation(definition) -> str:
     """
-    Return a documentation for a PURL type definition.
+    Return documentation for a VERS type definition.
     """
     lines = []
-    lines.append("<!--  NOTE: Auto-generated from the JSON PURL type definition.")
+    lines.append("<!--  NOTE: Auto-generated from the JSON VERS type definition.")
     lines.append("Do not manually edit this file. Edit the JSON type definition instead. -->")
     lines.append("")
-
-    lines.append(f"# PURL Type Definition: {definition['type']}")
+    lines.append(f"# VERS Type Definition: {definition['type']}")
     lines.append("")
     lines.append(f"- **Type Name:** {definition['type_name']}")
     lines.append(f"- **Description:** {definition['description']}")
     lines.append(f"- **Schema ID:** `{definition['$id']}`")
     lines.append("")
 
-    # Generate PURL Syntax
-    purl_syntax = generate_purl_syntax(definition)
-    lines.append("## PURL Syntax")
+    # VERS Examples
+    lines.append("## VERS Examples")
     lines.append("")
-    lines.append("The structure of a PURL for this package type is:")
-    lines.append("")
-    lines.append(f"    {purl_syntax}")
-    lines.append("")
-
-    # Repository comes 1st
-    lines.append("## Repository Information")
-    lines.append("")
-    repository = definition["repository"]
-    use_repository = repository["use_repository"]
-    lines.append(f"- **Use Repository:** {get_yes_no(use_repository)}")
-    if default_repository_url := repository.get("default_repository_url"):
-        lines.append(f"- **Default Repository URL:** {default_repository_url}")
-    if note := repository.get("note"):
-        lines.append(f"- **Note:** {note}")
-    lines.append("")
-
-    # PURL Components (Each gets its own section)
-    for key in [
-        "namespace_definition",
-        "name_definition",
-        "version_definition",
-        "subpath_definition",
-    ]:
-        component = definition.get(key)
-        if not component:
-            continue
-
-        component_label = (" ".join(key.split("_"))).capitalize()
-        lines.append(f"## {component_label}")
-        lines.append("")
-
-        if req := component.get("requirement"):
-            # only for namespace
-            lines.append(f"- **Requirement:** {req.capitalize()}")
-
-        if permitted_characters := component.get("permitted_characters"):
-            lines.append(f"- **Permitted Characters:** `{permitted_characters}`")
-
-        if case_sensitive := component.get("case_sensitive"):
-            lines.append(f"- **Case Sensitive:** {get_yes_no(case_sensitive)}")
-
-        if normalization_rules := component.get("normalization_rules"):
-            lines.append(f"- **Normalization rules:**")
-            for rule in normalization_rules:
-                lines.append(f"  - {rule}")
-
-        if native_name := component.get("native_name"):
-            lines.append(f"- **Native Label:** {native_name}")
-
-        if note := component.get("note"):
-            lines.append(f"- **Note:** `{note}`")
-
-        lines.append("")
-
-    if qualifiers := definition.get("qualifiers_definition"):
-        lines.append("## Qualifiers Definition")
-        lines.append("")
-        lines.append("| Key  | Requirement | Native name | Default Value | Description |")
-        lines.append("|------|-------------|-------------|---------------|-------------|")
-        for qualifier in qualifiers:
-            key = qualifier["key"]
-            req = qualifier.get("requirement", "optional").capitalize()
-            native = qualifier.get("native_name", "")
-            default = qualifier.get("default_value", "")
-            description = qualifier.get("description", "")
-            lines.append(f"| {key} | {req} | {native} | {default} | {description} |")
-        lines.append("")
-
-    lines.append("## Examples")
-    lines.append("")
-    for example in definition["examples"]:
+    for example in definition["vers_examples"]:
         lines.append(f"- `{example}`")
     lines.append("")
 
+    # Native <-> VERS example mappings (optional)
+    if native_examples := definition.get("native_and_vers_examples"):
+        lines.append("## Native Range to VERS Examples")
+        lines.append("")
+        lines.append("| Native Range | VERS Range | Note |")
+        lines.append("|--------------|------------|------|")
+        for ex in native_examples:
+            native_range = ex["native_range"]
+            vers_range = ex["vers_range"]
+            note = ex.get("note", "")
+            lines.append(f"| `{native_range}` | `{vers_range}` | {note} |")
+        lines.append("")
+
+    # Version definition (optional)
+    if version_def := definition.get("version_definition"):
+        lines.append("## Version Definition")
+        lines.append("")
+        case_sensitive = version_def.get("case_sensitive", True)
+        lines.append(f"- **Case Sensitive:** {get_yes_no(case_sensitive)}")
+        if permitted_characters := version_def.get("permitted_characters"):
+            lines.append(f"- **Permitted Characters:** `{permitted_characters}`")
+        if note := version_def.get("note"):
+            lines.append(f"- **Note:** {note}")
+        lines.append("")
+
+        if normalization_rules := version_def.get("normalization_rules"):
+            lines.append("### Normalization Rules")
+            lines.append("")
+            for rule in normalization_rules:
+                lines.append(f"- {rule}")
+            lines.append("")
+
+        if comparison_procedure := version_def.get("comparison_procedure"):
+            lines.append("### Comparison Procedure")
+            lines.append("")
+            for step in comparison_procedure:
+                lines.append(f"- {step}")
+            lines.append("")
+
+        lines.append("### Version Examples")
+        lines.append("")
+        for example in version_def["examples"]:
+            lines.append(f"- `{example}`")
+        lines.append("")
+
+        if version_reference_urls := version_def.get("reference_urls"):
+            lines.append("### Version Definition Reference URLs")
+            lines.append("")
+            for url in version_reference_urls:
+                lines.append(f"- `{url}`")
+            lines.append("")
+
+    # Top-level reference URLs (optional)
     if reference_urls := definition.get("reference_urls"):
         lines.append("## Reference URLs")
         lines.append("")
@@ -132,6 +94,7 @@ def generate_documentation(definition) -> str:
             lines.append(f"- `{url}`")
         lines.append("")
 
+    # Top-level note (optional)
     if note := definition.get("note"):
         lines.append("## Note")
         lines.append("")
@@ -151,17 +114,17 @@ if __name__ == "__main__":
 
     types = []
     types_dir = Path("types")
-
     for filepath in types_dir.glob(selected_types):
         data = json.loads(filepath.read_text())
-        ptype = data["type"]
-        types.append(ptype)
+        vtype = data["type"]
+        types.append(vtype)
         md = generate_documentation(data)
-        mddoc = Path("docs/types/definitions") / f"{ptype}-definition.md"
+        mddoc = Path("docs/types/definitions") / f"{vtype}-definition.md"
+        mddoc.parent.mkdir(parents=True, exist_ok=True)
         mddoc.write_text(md, newline="\n")
-        print(f"PURL Type Documentation generated for {mddoc}")
+        print(f"VERS Type Documentation generated for {mddoc}")
 
-    idxdoc = Path("purl-types-index.json")
+    idxdoc = Path("vers-types-index.json")
     idx = json.dumps(sorted(types), indent=2) + "\n"
     idxdoc.write_text(idx, newline="\n")
-    print(f"PURL Types Index generated at {idxdoc}")
+    print(f"VERS Types Index generated at {idxdoc}")

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://packageurl.org/schemas/vers-type-definition.schema-0.1.json",
+  "$id": "https://packageurl.org/vers-types/semver-definition.json",
+  "type": "semver",
+  "type_name": "Semantic Versioning",
+  "description": "Semantic Versioning version ranges.",
+  "vers_examples": [
+    "vers:semver/>=1.0.0|<2.0.0",
+    "vers:semver/>=2.0.0",
+    "vers:semver/^1.2.3"
+  ]
+}
