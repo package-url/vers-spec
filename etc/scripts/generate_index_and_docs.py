@@ -47,45 +47,6 @@ def generate_documentation(definition) -> str:
             lines.append(f"| `{native_range}` | `{vers_range}` | {note} |")
         lines.append("")
 
-    # Version definition (optional)
-    if version_def := definition.get("version_definition"):
-        lines.append("## Version Definition")
-        lines.append("")
-        case_sensitive = version_def.get("case_sensitive", True)
-        lines.append(f"- **Case Sensitive:** {get_yes_no(case_sensitive)}")
-        if permitted_characters := version_def.get("permitted_characters"):
-            lines.append(f"- **Permitted Characters:** `{permitted_characters}`")
-        if note := version_def.get("note"):
-            lines.append(f"- **Note:** {note}")
-        lines.append("")
-
-        if normalization_rules := version_def.get("normalization_rules"):
-            lines.append("### Normalization Rules")
-            lines.append("")
-            for rule in normalization_rules:
-                lines.append(f"- {rule}")
-            lines.append("")
-
-        if comparison_procedure := version_def.get("comparison_procedure"):
-            lines.append("### Comparison Procedure")
-            lines.append("")
-            for step in comparison_procedure:
-                lines.append(f"- {step}")
-            lines.append("")
-
-        lines.append("### Version Examples")
-        lines.append("")
-        for example in version_def["examples"]:
-            lines.append(f"- `{example}`")
-        lines.append("")
-
-        if version_reference_urls := version_def.get("reference_urls"):
-            lines.append("### Version Definition Reference URLs")
-            lines.append("")
-            for url in version_reference_urls:
-                lines.append(f"- `{url}`")
-            lines.append("")
-
     # Top-level reference URLs (optional)
     if reference_urls := definition.get("reference_urls"):
         lines.append("## Reference URLs")

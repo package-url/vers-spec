@@ -35,7 +35,7 @@ checkjson:
 	@${ACTIVATE} check-jsonschema --check-metaschema --verbose schemas/*.json
 	@echo "-> Validate JSON data files against the schemas"
 #	@${ACTIVATE} check-jsonschema --schemafile schemas/vers-test.schema.json --verbose tests/*/*-test.json
-	@${ACTIVATE} check-jsonschema --schemafile schemas/vers-type-definition.schema-0.1.json --verbose types/*-definition.json
+	@${ACTIVATE} check-jsonschema --schemafile schemas/vers-type-definition.schema-0.2.json --verbose types/*-definition.json
 
 checkcode:
 	@echo "-> Run Ruff linter validation (pycodestyle, bandit, isort, and more)"

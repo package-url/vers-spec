@@ -1,5 +1,5 @@
 {
-  "$schema": "https://packageurl.org/schemas/vers-type-definition.schema-0.1.json",
+  "$schema": "https://packageurl.org/schemas/vers-type-definition.schema-0.2.json",
   "$id": "https://packageurl.org/vers-types/npm-definition.json",
   "type": "npm",
   "type_name": "npm versioning",
