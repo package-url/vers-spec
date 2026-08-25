@@ -7,11 +7,6 @@ Generate Markdown documents, one for each VERS type definition JSON document.
 """
 
 
-def get_yes_no(value):
-    """Return a human-readable yes/no from a boolean value"""
-    return "Yes" if value else "No"
-
-
 def generate_documentation(definition) -> str:
     """
     Return documentation for a VERS type definition.
@@ -35,15 +30,15 @@ def generate_documentation(definition) -> str:
     lines.append("")
 
     # Native <-> VERS example mappings (optional)
-    if native_examples := definition.get("native_and_vers_examples"):
+    if native_examples := definition.get("native_and_vers_equivalent_examples"):
         lines.append("## Native Range to VERS Examples")
         lines.append("")
         lines.append("| Native Range | VERS Range | Note |")
         lines.append("|--------------|------------|------|")
         for ex in native_examples:
-            native_range = ex["native_range"]
-            vers_range = ex["vers_range"]
-            note = ex.get("note", "")
+            native_range = ex["native_range"].replace("|", "\\|")
+            vers_range = ex["vers_range"].replace("|", "\\|")
+            note = ex.get("note", "").replace("|", "\\|")
             lines.append(f"| `{native_range}` | `{vers_range}` | {note} |")
         lines.append("")
 

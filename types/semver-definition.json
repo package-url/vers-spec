@@ -7,6 +7,20 @@
   "vers_examples": [
     "vers:semver/>=1.0.0|<2.0.0",
     "vers:semver/>=2.0.0",
-    "vers:semver/^1.2.3"
+    "vers:semver/^1.2.3",
+    "vers:semver/<1.2.2|>2.0.0|=7.0.0"
+  ],
+  "native_and_vers_equivalent_examples": [
+    {
+      "native_range": "?",
+      "vers_range": "vers:semver/?"
+    },
+    {
+      "native_range": "??",
+      "vers_range": "vers:semver/??"
+    }
+  ],
+  "reference_urls": [
+    "https://semver.org/spec/v2.0.0.html"
   ]
 }

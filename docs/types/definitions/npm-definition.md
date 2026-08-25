@@ -9,6 +9,27 @@ Do not manually edit this file. Edit the JSON type definition instead. -->
 
 ## VERS Examples
 
-- `vers:npm/>=1.0.0|<2.0.0`
-- `vers:npm/>=1.10.4|<1.11.0|>=1.16.0`
-- `vers:npm/<1.10.4|>=1.11.0|<1.16.0`
+- `vers:npm/>=1.2.0|<1.3.0`
+- `vers:npm/>=1.1.0|<=2.1.0`
+- `vers:npm/>=0.0.2-beta|<0.0.3`
+- `vers:npm/<1.4.1|>=2.0.0|<2.17.2`
+- `vers:npm/>=2.0.0-alpha8|<=2.0.0-rc2|>=2.0.0|<=2.13.0`
+- `vers:npm/>=2.2.6|<2.47.0|>2.51.0|<=2.67.0`
+- `vers:npm/>=1.7.0|<1.7.16|>=1.8.0|<1.8.8|>=2.0.0|<2.0.8|>=3.0.0-beta.1|<3.0.0-beta.7`
+
+## Native Range to VERS Examples
+
+| Native Range | VERS Range | Note |
+|--------------|------------|------|
+| `^1.1.7 \|\| >= 2.0.1` | `vers:npm/>=1.1.7\|<2.0.0\|>=2.0.1` |  |
+| `~1.6.5 \|\| >=1.7.2` | `vers:npm/>=1.6.5\|<1.7.0\|>=1.7.2` |  |
+| `*` | `vers:npm/*` |  |
+| `2.1.4` | `vers:npm/2.1.4` |  |
+| `>=2.0.0 <=4.0.4` | `vers:npm/>=2.0.0\|<=4.0.4` |  |
+| `>= 2.2.x` | `vers:npm/>=2.2.0\|<2.3.0` |  |
+| `2.0.x \|\| 2.1.x` | `vers:npm/>=2.0.0\|<2.1.0\|>=2.1.0\|<2.2.0` |  |
+| `=3.0.0-rc.1` | `vers:npm/3.0.0-rc.1` |  |
+
+## Reference URLs
+
+- `https://github.com/npm/node-semver#ranges`
