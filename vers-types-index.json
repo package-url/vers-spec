@@ -1,7 +1,4 @@
 [
-  "alpm",
-  "demo",
   "npm",
-  "pypi",
-  "semver"
+  "pypi"
 ]
