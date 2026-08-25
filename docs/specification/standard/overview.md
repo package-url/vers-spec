@@ -2,7 +2,7 @@
 
 This Clause contains a non-normative overview of the VERS specification.
 
-The Version Range Specifier (VERS) specification defines a lightweight and
+The Version Range Specifier (VERS) Standard defines a lightweight and
 compact URI-based syntax for specifying software package version ranges. VERS
 provides a practical alternative to enumerating all versions for common use
 cases like identifying package versions impacted by a vulnerability or
@@ -10,7 +10,7 @@ analyzing package dependencies. VERS also defines the semantics (algorithm or
 procedure) to interpret each VERS notation.
 
 This Standard focuses on the core aspects of VERS, including its syntax,
-required components, optional attributes, and conformance requirements.VERS
+required components, optional attributes, and conformance requirements. VERS
 is complementary to the Package-URL (PURL) specification standardized as
 ECMA-427.
 
