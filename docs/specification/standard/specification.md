@@ -97,7 +97,8 @@ A **comparator** is composed of these ASCII characters:
 
 A **comparator** shall be one of the following:
 - '=' is the Equality **comparator**. This means a version shall be equal to
-  the provided version.
+  the provided version. The Equality **comparator** shall only used implicitly, 
+  for example 'vers:npm/1.2.3' means that the version is equal to "1.2.3".
 - '!=' is the Inequality **comparator**. This means that a version shall not 
   be equal to the provided version and it shall be excluded from the range.
   For example: '!=1.2.3' means that version   "1.2.3" is excluded.
