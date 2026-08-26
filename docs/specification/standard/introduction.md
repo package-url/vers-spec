@@ -18,7 +18,7 @@ vulnerable package version ranges means that these ranges may be ambiguous
 or hard to compute and may be replaced by complete enumerations of all
 impacted versions. Expressing and resolving a version range is often a complex
 and error prone task because of the ambiguity and the use of enumerations of
-impacted versions is an appproach that may require frequent updates. A version
+impacted versions is an approach that may require frequent updates. A version
 range is a necessary, compact, and practical way to reference multiple
 versions rather than listing all versions.
 

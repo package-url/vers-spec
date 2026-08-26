@@ -1,0 +1,66 @@
+name: Check and generate VERS Type Docs and Index
+
+on:
+  push:
+    paths:
+      - "types/**.json"      # any .json file in types/, any depth
+      - "schemas/**.json"    # any .json file in schemas/, any depth
+    branches:
+      - main
+  workflow_dispatch:         # manual trigger: runs the full job (check, generate docs, and open a PR if changes exist)
+# All permissions should be specified at the job level
+permissions: {}
+
+# Prevents two runs from racing if multiple qualifying pushes land close
+# together (e.g. two PRs merged back to back).
+concurrency:
+  group: generate-index-and-docs-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate-index-and-docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write        # to push the new branch this job creates
+      pull-requests: write   # to open the PR
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Set up Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: make conf
+
+      - name: Validate code and data formats
+        run: make check
+
+      - name: Generate index and docs
+        run: make gendocs
+
+      - name: Commit to a new branch and open a PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet -- docs/types/definitions/ vers-types-index.json; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          branch="bot/generate-docs-${{ github.run_id }}"
+          git checkout -b "$branch"
+          git add docs/types/definitions/ vers-types-index.json
+          git commit -s -m "Generate updated VERS type documentation"
+          git push origin "$branch"
+
+          gh pr create --base main --head "$branch" \
+            --title "Generate updated VERS type documentation" \
+            --body "Automated regeneration triggered by ${{ github.event_name }}."

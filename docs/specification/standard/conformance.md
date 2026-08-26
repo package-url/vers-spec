@@ -1,8 +1,8 @@
 # Conformance
 
-A conforming implementation of Version Range Specifier (VERS) shall fully
-implement and support all elements defined within this Standard, including the
-syntax, components, and semantic requirements for constructing and
+A conforming implementation of Version Range Specifier (VERS) Standard shall
+fully implement and support all elements defined within this Standard,
+including the syntax, components, and semantic requirements for constructing and
 interpreting valid VERS notations.
 
 A conforming implementation of VERS shall adhere to the syntax defined in this
