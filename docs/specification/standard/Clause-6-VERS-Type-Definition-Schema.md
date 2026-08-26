@@ -92,17 +92,6 @@ The definition of native and VERS range equivalents for a VERS type. This inform
 | vers_range             | String   | Required        | The VERS range that corresponds to the native range example. |
 | note                   | String   | Optional        | Extra note text.                                             |
 
-
-
-**Location:** /examples
-**Property:** examples (Required)
-**Type:** array (of String)
-**Pattern Constraint:** ^pkg:\[a-z\]\[a-z0-9-\\.\]+/.\*\$
-
-Example of valid, canonical PURLs for this package type. Each item of this array shall be a string.
-
-_All items shall be unique._
-
 **6.6 Note**
 
 **Location:** /note
