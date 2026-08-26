@@ -141,12 +141,15 @@ impossible version ranges.
   normalizing them automatically.
 - A version range specifier contains only printable ASCII letters,
   digits and punctuation.
-- ASCII whitespace is not permitted in a VERS string. Tools shall report an
-  error if any Whitespace character, for example SPACE (0x20), TAB (0x09), or
-  LF (0x0A), is used.
-- ASCII whitespace in a **version** shall be percent-encoded using URI
-  percent-encoding rules. For example, SPACE shall be encoded as '%20' and
-  TAB shall be encoded as '%09'.
+- Literal ASCII whitespace is not permitted anywhere in a VERS string. Tools
+  shall report an error if any ASCII whitespace character, for example SPACE
+  (0x20), TAB (0x09), or LF (0x0A), occurs in the VERS string.
+- ASCII whitespace that is part of a **version** shall be represented by its
+  URI percent-encoded form. For example, SPACE shall be encoded as '%20' and
+  TAB shall be encoded as '%09'. Percent-encoding is applied to the literal
+  version data: a literal '%' in a version shall be encoded as '%25', while
+  the '%' that starts an existing percent-encoded triplet shall not be
+  encoded again.
 - The VERS **scheme** and **type** are always lowercase as in
   'vers:npm'.
 - Versions are case-sensitive. A **type** may specify
