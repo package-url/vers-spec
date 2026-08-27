@@ -1,4 +1,4 @@
-# Scope
+# 1 Scope
 This Standard defines the Version Range Specifier (VERS) syntax for specifying
 a software version range notation as a compact alternative to enumerating a
 list of software versions. The primary use cases for VERS are identifying
