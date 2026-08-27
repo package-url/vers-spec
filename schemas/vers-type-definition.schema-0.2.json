@@ -120,7 +120,7 @@
     },
     "reference_urls": {
       "title": "Reference URLs",
-      "description": "List of informational reference URLs about this VERS type, such as specifications, reference code and related pointers.",
+      "description": "List of informational reference URLs about this VERS type, such as specifications or reference code.",
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,
