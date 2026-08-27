@@ -74,8 +74,8 @@
       ]
     },
     "native_and_vers_equivalent_examples": {
-      "title": "Examples of native version ranges and their VERS equivalents.",
-      "description": "Optional list of examples of valid, native version ranges mapped to their corresponding VERS syntax.",
+      "title": "Examples of native version ranges and their VERS constraints equivalents.",
+      "description": "Optional list of examples of valid, native version ranges mapped to the corresponding VERS constraints syntax.",
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,
@@ -89,12 +89,12 @@
         "properties": {
           "native_range": {
             "title": "Native Range",
-            "description": "Native range for this VERS type.",
+            "description": "Native version range for this VERS type.",
             "type": "string"
           },
-          "vers_range": {
-            "title": "Corresponding VERS Range",
-            "description": "Corresponding VERS range.",
+          "vers_constraints": {
+            "title": "Corresponding VERS constraints expression",
+            "description": "Corresponding VERS constraints for the native version range.",
             "type": "string"
           },
           "note": {
@@ -107,7 +107,7 @@
       "examples": [
         {
           "native_range": "1.0-ALPHA2 || ~2.0.0",
-          "vers_range": "vers:foo/1.0-ALPHA2|>=2.0.0",
+          "vers_constraints": "1.0-ALPHA2|>=2.0.0",
           "example": "~2.0.0",
           "note": "The tilde character means that a version should be at least equal to the version."
         }
