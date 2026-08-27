@@ -110,7 +110,7 @@ A **comparator** shall be one of the following:
   Debian package. This includes past, current and possible future versions.
 
 #### Version strings
-A Version is an ASCII string.
+A **version** is an ASCII string.
 
 A single **version** in a **constraints** string means that a version
 equal to this version satisfies the range specification. Equality is based on
