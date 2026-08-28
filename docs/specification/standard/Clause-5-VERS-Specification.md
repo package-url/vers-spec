@@ -1,7 +1,7 @@
 # VERS specification
 
-VERS stands for "VErsion Range Specifier. A VERS is an ASCII URI string composed of
-three components:
+VERS stands for "VErsion Range Specifier. A VERS is an ASCII URI string
+composed of three components:
 
     scheme:type/constraints|
 
@@ -13,7 +13,7 @@ Components are separated by a specific character for unambiguous parsing.
 | ------------------- | ----------- |:------------------------------------------------------ |
 | scheme              | Required    | The URL scheme with the constant value of "vers". |
 | type                | Required    | The version specification type such as "semver", "npm", "deb", etc. |
-| constraints         | Required    | Version constraints may be repeated as many times as needed to accurately reflect the intended range. The separator between version-constraints is a single pipe '\|'. |
+| constraints         | Required    | Version constraints may be repeated as many times as needed to accurately reflect the intended range. The separator between constraints is a single pipe '\|'. |
 
 ## Separator characters
 This is how each of the Separator Characters is used:
@@ -45,16 +45,16 @@ specifications at: - https://tools.ietf.org/html/rfc3986
   period '.', and dash '-'.
 - The **type** shall start with an ASCII letter.
 - The **type** shall not be percent-encoded.
-- The **type** is case insensitive. The canonical form is lowercase.
+- The **type** is case insensitive and lowercase.
 - The **type** shall be followed by a slash '/'.
 
 A **type** defines:
 
 - the specific notation and conventions used for a version string encoded
-  according to this type
+  according to this **type**
 - how two versions are compared to determine if a version is inside or
   outside a range
-- how a type-specific range notation can be transformed into VERS
+- how a **type**-specific range notation can be transformed into VERS
   notation
 
 A **type** also defines:
@@ -65,8 +65,8 @@ A **type** also defines:
   "minor" and "patch".
 
 By convention a **type** should be the same as the
-PURL **type** for a given package ecosystem. It is, however, allowed to
-define a **type** that does not match an existing PURL **type**
+PURL **type** for a given package or software ecosystem. It is, however,
+allowed to define a **type** that does not match an existing PURL **type**
 such as a scheme that applies to a single package or project.
 
 ### constraints
@@ -76,7 +76,7 @@ such as a scheme that applies to a single package or project.
   a single **version** as in '1.2.3' or the combination of a **comparator**
   and a **version** as in '>=2.0.0'.
 - A **comparator** always precedes the **version** with no characters allowed
-  between the **comparator** and the **version**
+  between the **comparator** and the **version**.
 - Multiple **constraints** strings shall be separated by an unencoded
   pipe '|'. The pipe "|" has no special meaning other than being a separator.
 
@@ -89,8 +89,10 @@ A **comparator** is composed of these ASCII characters:
 - the Asterisk character: '\*' (asterisk, '*')
 
 A **comparator** shall be one of the following:
-- '=' is the Equality **comparator**. This means a version shall be equal to
-  the provided version.
+- '=' is the Equality **comparator**. This means that a version shall be equal
+  to the provided version. The Equality **comparator** shall only be used
+  implicitly. For example `vers:npm/1.2.3` means that the version is equal to
+  "1.2.3"
 - '!=' is the Inequality **comparator**. This means that a version shall not
   be equal to the provided version and it shall be excluded from the range.
   For example: '!=1.2.3' means that version   "1.2.3" is excluded.
@@ -114,15 +116,19 @@ A **version** is an ASCII string.
 
 A single **version** in a **constraints** string means that a version
 equal to this version satisfies the range specification. Equality is based on
-the equality of two normalized version strings according to the applicable
+the equality of two normalised version strings according to the applicable
 **type**. For most schemes, this is a simple string equality. A
-**type** may, however, define normalization and other rules for
+**type** may, however, define normalisation and other rules for
 equality such as the "pypi" rules from PEP 440.
+
+The equality comparator shall be implicit only and represented by a single
+**version** without any leading comparator character. If a **constraints**
+string starts with '=', tools shall report an error.
 
 A package version satisfies a set of **constraints** if it is
 contained within any of the intervals defined by the **constraints**.
 
-## Normalized, canonical representation and validation
+## Version construction, parsing and validation rules
 
 VERS construction and validation rules are designed such that a VERS is
 easy to read and understand by humans and straightforward to process
@@ -130,8 +136,8 @@ with tools. The rules are designed to prevent the creation of empty or
 impossible version ranges.
 
 - A VERS string shall already be in canonical form. Non-canonical
-  (unnormalized) forms are invalid and tools shall report an error instead of
-  normalizing them automatically.
+  forms are invalid and tools shall report an error instead of
+  normalising them automatically.
 - A version range specifier contains only printable ASCII letters,
   digits and punctuation.
 - ASCII whitespace is not permitted in a VERS string. Tools shall report an
@@ -144,8 +150,8 @@ impossible version ranges.
 - If a version in a **constraints** string contains any of these characters:
   '>', '<', '=', '!', '*', '|', '%', these characters shall be
   percent-encoded using URI percent-encoding rules.
-- Percent-encoding in versions shall be canonical. Tools shall report an error
-  for invalid or non-canonical percent-encoded sequences.
+- Tools shall report an error for invalid or non-canonical percent-encoded
+  sequences.
 
 The list of **constraints** strings for a range are like a set of
 signposts in the version timeline of a package. The separators do not mean
@@ -190,7 +196,7 @@ Tools shall report an error for such invalid ranges.
 
 ### Using version range specifiers
 
-The primary VERS use case is to test if a version is within a range.
+A primary VERS use case is to test if a version is within a range.
 A version is within a version range if it falls within any of the intervals
 defined by a range. Otherwise, the version is outside of the version
 range.
@@ -199,7 +205,7 @@ Some important use cases derived from this include:
 
 - **Resolve a version range specifier to a list of specific versions.**
 
-  In this case, the input is one or more known versions of
+  In this use case, the input is one or more known versions of
   a package. Each version is then tested to check if it lies inside or
   outside the range. For example, given a vulnerability and the VERS
   describing the vulnerable versions of a package, this process is
@@ -207,7 +213,7 @@ Some important use cases derived from this include:
 
 - **Select one of several versions that are within a range.**
 
-  In this case, with the input of several versions that are within a
+  In this use case, with the input of several versions that are within a
   range and several packages that express package dependencies
   qualified by a version range, a package management tool will
   determine and select the set of package versions that satisfy
@@ -251,7 +257,7 @@ each with its own fixed version: `affects Apache TomEE 8.0.0-M1 - 8.0.1,
 Apache TomEE 7.1.0 - 7.1.2, Apache TomEE 7.0.0-M1 - 7.0.7,
 Apache TomEE 1.0.0-beta1 - 1.7.5.`
 
-- A normalized VERS notation is:
+- A normalised VERS notation is:
 
       vers:maven/>=1.0.0-beta1|<=1.7.5|>=7.0.0-M1|<=7.0.7|>=7.1.0|<=7.1.2|>=8.0.0-M1|<=8.0.1
 

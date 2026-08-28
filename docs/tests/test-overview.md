@@ -35,7 +35,7 @@ but not part of the VERS Standard for conformance purposes.
 Some common words have a very specific meaning for Ecma conformance:
 - "canonical form" means a VERS string or a set of VERS components in the
   format that matches the Standard for a string or components respectively
-- "normalization" means the process of structuring, standardizing, or
+- "normalisation" means the process of structuring, standardizing, or
   converting data to conform to a standard format - i.e. canonical form.
 - "shall" indicates a requirement (Ecma & ISO definition)
 - "should" indicates a recommendation (Ecma & ISO definition)

@@ -19,9 +19,9 @@ for:
   versions.
 
 Version ranges can be replaced by a list enumerating all versions of
-interest for a package, but such a list cannot cover versions that do 
-not exist when you create the list for an open version range such as 
-"v2.0 or later". A version range is a necessary, compact, and practical 
+interest for a package, but such a list cannot cover versions that do
+not exist when you create the list for an open version range such as
+"v2.0 or later". A version range is a necessary, compact, and practical
 way to reference multiple versions rather than listing all versions.
 
 ## Problem
@@ -40,25 +40,25 @@ advisories, the lack of a portable and compact notation for vulnerable
 package version ranges means that these ranges may be ambiguous
 or hard to compute and may be replaced by complete enumerations of
 all impacted versions, such as in the [NVD CPE Match
-feed](https://nvd.nist.gov/vuln/data-feeds#cpeMatch). 
+feed](https://nvd.nist.gov/vuln/data-feeds#cpeMatch).
 
-Expressing and resolving a version range is often a complex and error 
-prone task because of the ambiguity and the use of enumerations of 
+Expressing and resolving a version range is often a complex and error
+prone task because of the ambiguity and the use of enumerations of
 impacted versions that may require frequent updates.
 
-This specification for a common notation for version ranges emerged 
+This specification for a common notation for version ranges emerged
 from the use of Package-URLs to reference vulnerable package version
 ranges in vulnerability databases like
 [VulnerableCode](https://github.com/aboutcode-org/vulnerablecode/).
 
 ## Solution
 
-A solution to the many version range notation systems is to design 
+A solution to the many version range notation systems is to design
 a new simplified notation to unify them with:
 
 - A mostly universal and minimalist, compact notation to express
   version ranges from many different package types and ecosystems.
-- Package type-specific definitions to normalize existing range
+- Package type-specific definitions to normalise existing range
   expressions in this common notation.
 - The designation of which algorithm or procedure to use when
   comparing two versions so that it is possible to resolve whether

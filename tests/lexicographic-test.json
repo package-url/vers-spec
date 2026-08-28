@@ -34,7 +34,7 @@
       ]
     },
     {
-      "description": "Composed vs decomposed (no normalization): 'é' vs 'é' (e + combining acute)",
+      "description": "Composed vs decomposed (no normalisation): 'é' vs 'é' (e + combining acute)",
       "test_group": "required",
       "test_type": "comparison",
       "input": {
@@ -98,7 +98,7 @@
       ]
     },
     {
-      "description": "German sharp s vs 'ss' (no normalization)",
+      "description": "German sharp s vs 'ss' (no normalisation)",
       "test_group": "required",
       "test_type": "comparison",
       "input": {
