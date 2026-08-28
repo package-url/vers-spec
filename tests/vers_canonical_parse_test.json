@@ -61,6 +61,37 @@
       "expected_message": "non-canonical VERS: constraints are not sorted by version"
     },
     {
+      "description": "Parsing assigns the implicit equality comparator to a bare version.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:npm/1.0.0",
+      "expected_output": {
+        "scheme": "npm",
+        "version_constraints": [
+          [
+            "=",
+            "1.0.0"
+          ]
+        ]
+      }
+    },
+    {
+      "description": "Parsing fails when explicit equality comparator '=' is used.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:npm/=1.0.0",
+      "expected_failure": true,
+      "expected_message": "non-canonical VERS: explicit equality comparator is not permitted"
+    },
+    {
+      "description": "Parsing fails when double equality prefix '==' is used.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:npm/==1.0.0",
+      "expected_failure": true,
+      "expected_message": "non-canonical VERS: explicit equality comparator is not permitted"
+    },
+    {
       "description": "Parsing decodes canonical percent-encoding once for versions.",
       "test_group": "required",
       "test_type": "parse",

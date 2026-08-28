@@ -43,6 +43,9 @@ To parse a VERS string:
         - If it starts with '>', then the comparator is '>'.
         - Remove the comparator from **constraints** string
           start. The remaining string is the version.
+    - Otherwise, if the **constraints** string starts with '=', tools shall
+      report an error: the equality comparator is implicit and shall be
+      represented by a bare version without a leading '='.
     - Otherwise the version is the full **constraints** string
       (which implies an equality comparator of '=')
     - Tools should validate and report an error if the version is
