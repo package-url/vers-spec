@@ -135,9 +135,7 @@ easy to read and understand by humans and straightforward to process
 with tools. The rules are designed to prevent the creation of empty or
 impossible version ranges.
 
-- A VERS string shall already be in canonical form. Non-canonical
-  forms are invalid and tools shall report an error instead of
-  normalising them automatically.
+- Tools shall report an error for an invalid VERS string.
 - A version range specifier contains only printable ASCII letters,
   digits and punctuation.
 - ASCII whitespace is not permitted in a VERS string. Tools shall report an
@@ -150,8 +148,7 @@ impossible version ranges.
 - If a version in a **constraints** string contains any of these characters:
   '>', '<', '=', '!', '*', '|', '%', these characters shall be
   percent-encoded using URI percent-encoding rules.
-- Tools shall report an error for invalid or non-canonical percent-encoded
-  sequences.
+- Tools shall report an error for invalid percent-encoded sequences.
 
 The list of **constraints** strings for a range are like a set of
 signposts in the version timeline of a package. The separators do not mean
@@ -160,10 +157,9 @@ signposts in the version timeline of a package. The separators do not mean
 With a few simple validation rules, we can avoid the creation of most empty or
 impossible version ranges. These rules are:
 
-- Constraints are sorted by version. The canonical ordering is the
-  version order. The ordering of **constraints** components
-  is significant for validity: tools shall report an error for
-  non-canonical ordering.
+- Constraints shall be sorted by version order. The ordering of
+  **constraints** components is significant for validity: tools shall report
+  an error for invalid ordering.
 - Versions are unique. Each version shall be unique in a range
   and can occur only once in any **constraints** component of
   VERS, regardless of the **comparators**. Tools shall report an
