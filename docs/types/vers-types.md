@@ -68,7 +68,7 @@ cases:
   version should stop at the first character that is not a digit or a dot.
 - **lexicographic**: a general VERS **type** that compares versions based on
   lexicographic order, interpreted as UTF-8. Strings should be compared
-  byte-wise as unsigned bytes without normalization. UTF-8 encoding is defined
+  byte-wise as unsigned bytes without normalisation. UTF-8 encoding is defined
   in https://datatracker.ietf.org/doc/html/rfc3629.
 - **none**: a general VERS **type** for a range containing no versions.
   'vers:none/*' is the only valid VERS form for this scheme.

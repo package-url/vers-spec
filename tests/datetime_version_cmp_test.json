@@ -57,7 +57,7 @@
       ]
     },
     {
-      "description": "Ordering is based on the normalized instant, not lexical string order.",
+      "description": "Ordering is based on the normalised instant, not lexical string order.",
       "test_group": "required",
       "test_type": "comparison",
       "input": {

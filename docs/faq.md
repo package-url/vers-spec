@@ -11,7 +11,7 @@ inclusion of these additional comparators is a result of the history and
 evolution of a specific package ecosystem to address specific needs.
 
 In practice, the unified and reduced set of comparators and syntax
-defined for VERS has been designed such that all of the notations 
+defined for VERS has been designed such that all of the notations
 can be converted to a VERS notation and back from a VERS notation
 to the original notation.
 
@@ -21,7 +21,7 @@ reciprocally.
 
 There are likely a few rare cases where round tripping from and to
 VERS may not be possible. In any case round tripping to and from a
-VERS notation should produce equivalent results even if the results 
+VERS notation should produce equivalent results even if the results
 do not exactly match the original strings.
 
 Another issue with existing version range notations is that they are
@@ -35,7 +35,7 @@ satisfying these constraints would be vulnerable. It may not be possible
 to express this with a notation designed exclusively for dependent
 version resolution.
 
-Finally, one of the goals of the VERS specification is to provide a 
+Finally, one of the goals of the VERS specification is to provide a
 compact complement to PURL for version ranges. Some existing and closely
 related notations designed for vulnerable ranges are verbose
 because they were designed for use in an API with larger JSON documents.
@@ -69,7 +69,7 @@ for these comparators:
   range notation that can include their upper limit and would need
   two constraints.
 
-Another high-level difference between VERS and OSV is the identifiers 
+Another high-level difference between VERS and OSV is the identifiers
 used to qualify a range package "ecosystem" value that resembles
 closely the PURL package **type** used in VERS. VERS will
 provide a strict mapping between the OSV ecosystem and the VERS
@@ -81,7 +81,7 @@ Version 5 of the CVE JSON data format defines version ranges with a
 starting version, a **versionType**, and an upper limit for the version
 range as lessThan, as lessThanOrEqual, or as an enumeration of versions.
 The **versionType** and the package **collectionURL** values are only
-indicative and left out of this specification. Both seem equivalent to the 
+indicative and left out of this specification. Both seem equivalent to the
 PURL **type** and the VERS **type**
 
 The semantics and expressiveness of each range are similar and VERS
@@ -93,7 +93,7 @@ its authors.
 
 When CVE v5 becomes active, this spec will provide a strict mapping
 between the CVE versionType and the VERS versioning schemes values.
-This specification and the Package-URL **types** should be 
+This specification and the Package-URL **types** should be
 updated accordingly to provide a mapping with the upcoming CVE
 **collectionURL**.
 
@@ -102,11 +102,11 @@ notation that does not exist in most version range notations and may
 not be computable easily in many cases. The description of the
 **lessThan** property is:
 
-> The non-inclusive upper limit of the range. This is the least version NOT 
-> in the range. The usual version syntax is expanded to allow a pattern to 
-> end in an asterisk (\*), indicating an arbitrarily large number in the 
+> The non-inclusive upper limit of the range. This is the least version NOT
+> in the range. The usual version syntax is expanded to allow a pattern to
+> end in an asterisk (\*), indicating an arbitrarily large number in the
 > version ordering. For example, {version: 1.0 lessThan: 1.\*} would describe
-> the entire 1.X branch for most range kinds, and {version: 2.0, lessThan: \*} 
+> the entire 1.X branch for most range kinds, and {version: 2.0, lessThan: \*}
 > describes all versions starting at 2.0, including 3.0, 5.1, and so on.
 
 The conversion to VERS range should be:
@@ -153,11 +153,11 @@ is exclusively on versions but VERS supports the conversion of any CPE range.
 ### Why not use node-semver ranges?
 
 The **node-semver** tool is similar to but more complex than VERS.
-The use of AND and OR constraints in **node-semver** presents some practical 
+The use of AND and OR constraints in **node-semver** presents some practical
 issues:
 
 - A space means "AND" and therefore white spaces are significant. Having
-  significant white spaces in a string makes normalization more
+  significant white spaces in a string makes normalisation more
   complicated and may be a source of confusion if you remove the
   spaces from the string. VERS avoids the ambiguity of spaces by
   ignoring them.
@@ -201,10 +201,10 @@ and aspects specific to the versions used only in the Python ecosystem.
 
 The RubyGems specification suggests but does not enforce using semver.
 It uses operators similar to **node-semver** with the difference
-that RubyGems uses the "~>" aka. pessimistic operator instead of the 
-plain "\~" tilde used in **node-semver**. This operator implies some 
+that RubyGems uses the "~>" aka. pessimistic operator instead of the
+plain "\~" tilde used in **node-semver**. This operator implies some
 semver-like versioning, yet gem versions are not strictly semver. This
-makes the notation complex to implement and impractical to reuse in 
+makes the notation complex to implement and impractical to reuse in
 places that do not use the same Ruby-specific semver-like semantics.
 
 See: https://guides.rubygems.org/patterns/#declaring-dependencies

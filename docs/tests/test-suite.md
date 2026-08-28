@@ -46,7 +46,7 @@ There are two VERS **test groups**:
 - 'required': A test case to demonstrate conformance with the VERS
   specification.
 - 'recommended': A test case that is recommended to identify common problems
-  in VERS data and how to remediate or normalize them in order to pass the
+  in VERS data and how to remediate or normalise them in order to pass the
   'required' tests. The use of 'recommended' test cases is always optional.
 
 The terminology of 'required' vs 'recommended' matches the use of "shall" vs

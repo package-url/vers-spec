@@ -2,7 +2,7 @@
   "$schema": "https://packageurl.org/schemas/vers-test.schema-0.2.json",
   "tests": [
     {
-      "description": "Canonical parse succeeds for an already normalized VERS.",
+      "description": "Canonical parse succeeds for a normalised VERS.",
       "test_group": "required",
       "test_type": "parse",
       "input": "vers:npm/>=1.0.0|<2.0.0",
