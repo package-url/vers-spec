@@ -7,33 +7,43 @@ hide_table_of_contents: false
 
 # How to parse and validate VERS
 
-## Parsing and validating VERS notation
+## Terminology
+In this document we use terminology from [Clause 5 VERS Specification of the
+proposed Ecma VERS Standard](https://github.com/package-url/vers-spec/blob/main/docs/specification/standard/Clause-5-VERS-Specification.md)
+The defined terms are in **bold** following Ecma style. The specific terms
+are:
+- **type** and **constraints** are standard VERS components
+- **constraint**: refers to one instance of a constraint within a list of
+  constraints (**constraints**) which is composed of a **comparator** and a
+  **version**
+- **comparator**: a set of characters defined in Clause 5
+- **version**: the version string within a single **constraint**
 
-To parse a VERS string:
+## Parsing VERS
 
-- Check that the VERS string is canonical.
+- Check that the VERS string is valid.
 - Tools shall report an error if the VERS string contains any ASCII whitespace
   character (including SPACE, TAB, and LF).
-- Start from left, and split once on colon ':'.
+- Start from the left and split once on colon ':'.
 - The left hand side is the URI-scheme that shall be lowercase.
     - Tools shall validate that the URI-scheme value is 'vers'.
 - The right hand side is the specifier.
 - Split the specifier from left once on a slash '/'.
 - The left hand side is the **type** that shall be lowercase. Tools should
-  validate that the **type** is a known **type**.
-- The right hand side is a list of one or more constraints. Tools
-  validate that this **constraints** string is not empty
-  after splitting.
+  validate that the **type** is a registered **type** and report a warning
+  message if the **type** is not currently registered.
+- The right hand side is a list of one or more **constraints**. Tools shall
+  validate that this **constraints** string is not empty after splitting.
 - If the string is equal to '\*', the **constraints** value is
   '*'. Parsing is done and no further processing is needed for this VERS.
   A tool should report an error if there are characters other than '\*'.
 - Tools shall report an error if the constraints string has a leading or
   trailing pipe '|'.
-- Split the constraints on pipe '|'. The result is a list of
-  **constraints** strings. Tools shall report an error if consecutive
+- Split the **constraints** on pipe '|'. The result is a list of
+  **constraint** strings. Tools shall report an error if consecutive
   pipes are present.
-- For each **constraints** string:
-    - Determine if the **constraints** string starts with one of the
+- For each **constraint** string:
+    - Determine if the **constraint** string starts with one of the
       two-character **comparators** ('>=', '<=', '!=') or one-character
       **comparators** ('<', '>'):
         - If it starts with '>=', then the comparator is '>='.
@@ -41,89 +51,85 @@ To parse a VERS string:
         - If it starts with '!=', then the comparator is '!='.
         - If it starts with '<', then the comparator is '<'.
         - If it starts with '>', then the comparator is '>'.
-        - Remove the comparator from **constraints** string
-          start. The remaining string is the version.
-    - Otherwise, if the **constraints** string starts with '=', tools shall
+        - Remove the comparator from **constraint** string
+          start. The remaining string is the **version**.
+    - Otherwise, if the **constraint** string starts with '=', tools shall
       report an error: the equality comparator is implicit and shall be
       represented by a bare version without a leading '='.
-    - Otherwise the version is the full **constraints** string
+    - Otherwise the **version** is the full **constraints** string
       (which implies an equality comparator of '=')
     - Tools should validate and report an error if the version is
       empty.
-    - If the version contains a percent '%' character, tools shall validate
+    - If the **version** contains a percent '%' character, tools shall validate
       that each '%' starts a valid percent-encoded triplet.
-    - Tools shall apply percent-decoding exactly once to the version string.
-      Tools shall report an error for invalid or non-canonical
-      percent-encoded sequences.
-    - Append the parsed **constraints** strings to the constraints list.
+    - Tools shall apply percent-decoding exactly once to the **version**
+      string.
+      Tools shall report an error for invalid percent-encoded sequences.
+    - Append the parsed **constraint** strings to the constraints list.
+- The results are the **type** and the **constraints** string.
 
-Finally:
+Tools should validate and simplify the **constraints** string after parsing is complete by:
 
-- The results are the **type** and the list of **constraints** strings.
+- Sorting and validating the list of **constraints**
 
-Tools should optionally validate and simplify the list of **contraints**
-strings once parsing is complete by:
-
-- Sorting and validating the list of constraints
-
-Tools shall report an error if the parsed constraints are non-canonical,
-including non-canonical ordering, duplicate versions, or invalid comparator
-sequences. Tools should not correct or normalise non-canonical input during
+Tools shall report an error if the parsed **constraints** are invalid,
+including invalid ordering, duplicate versions, or invalid **comparator**
+sequences. Tools should not correct or normalise invalid input during
 parsing.
 
-### Constraints simplification
+### Simplifying constraints
 
-Tools can simplify a list of **constraints** strings using the following
-approach.
+Tools can simplify a **constraints** string using the following approach.
 
-These pairs of contiguous constraints with these **comparators** are valid:
+These pairs of contiguous **constraints** with these **comparators** are
+valid:
 
 - '!=' followed by anything
 - '=', '<', or '<=' followed by '=', '!=', '>', or '>='
 - '>', or '>=' followed by '!=', '<', or '<='
 
-These pairs of contiguous constraints with these **comparators** are redundant
-and invalid (ignoring any instances of '!=' because they can show up anywhere):
+The following pairs of contiguous **constraints** with these **comparators**
+are redundant and invalid (ignoring any instances of '!=' because this
+**comparator** can appear anywhere):
 
 - '=', '<' or '<=' followed by '<' or '<=:' this is the same as '<' or '<='
 - '>' or '>=' followed by '=', '>' or '>=:' this is the same as '>' or '>='
 
-A procedure to remove redundant constraints can be:
+A procedure to remove redundant **constraints** is:
 
-- Start from a list of constraints of **comparator** and **version**, sorted
-  by **version** where each **version** occurs only once in any
-  constraint.
+- Start from a **constraints** string sorted by **version** where each
+**version** occurs only once in any **constraint**.
 
-- If the constraints list contains a single constraint (star, equal or
+- If the **constraints** contain only a single **constraint** (star, equal or
   anything) return this list and simplification is finished.
 
-- Split the constraints list in two sub lists:
+- Split the **constraints** into two sub lists:
 
-    - a list of "unequal constraints" where the comparator is '!='
-    - a remainder list of "constraints" where the comparator is not
+    - an "unequal constraints list" where the comparator is '!='
+    - a "remainder constraints list" where the comparator is not
       '!='
 
-- If the remainder list of "constraints" is empty, return the "unequal
+- If the "remainder list of constraints" is empty, return the "unequal
   constraints" list and simplification is finished.
 
-- Iterate over the constraints list, considering the current and next
-  contiguous constraints, and the previous constraint (e.g., before
+- Iterate over the **constraints**, considering the current and next
+  contiguous **constraints**, and the previous **constraint** (e.g., before
   current) if it exists:
 
-    - If current comparator is '>' or '>=' and next comparator is
-      '=', '>' or '>=', discard the next constraint
-    - If current comparator is '=', '<' or '<=' and the next
-      comparator is '<' or '<=', discard current constraint.
-      The previous constraint becomes current if it exists.
-    - If there is a previous constraint:
-        - If previous comparator is '>' or '>=' and current
-          comparator is '=', '>' or '>=', discard the current
-          constraint
-        - If previous comparator is '=', '<' or '<=' and current
-          comparator is '<' or '<=', discard the previous constraint
+    - If current **comparator** is '>' or '>=' and next **comparator** is
+      '=', '>' or '>=', discard the next **constraint**
+    - If current **comparator** is '=', '<' or '<=' and the next
+      **comparator** is '<' or '<=', discard the current **constraint**.
+      The previous **constraint** becomes current if it exists.
+    - If there is a previous **constraint**:
+        - If the previous **comparator** is '>' or '>=' and the current
+          **comparator** is '=', '>' or '>=', discard the current
+          **constraint**.
+        - If the previous **comparator** is '=', '<' or '<=' and the current
+          **comparator** is '<' or '<=', discard the previous **constraint**.
 
-- Concatenate the "unequal constraints" list and the filtered
-  "constraints" list
+- Concatenate the "unequal constraints list" and the "filtered
+  constraints list"
 
 - Sort by version and return.
 
@@ -131,65 +137,65 @@ A procedure to remove redundant constraints can be:
 
 To check if a "tested version" is contained within a version range:
 
-- Start from a parsed version range specifier with:
+- Start from a parsed VERS notation with:
 
-    - a VERS **type**
-    - a list of constraints of **comparator** and **version**, sorted by
-      version and where each version occurs only once in any
-      constraint.
+    - **type**
+    - **constraints** sorted by **version** where each **version** occurs only
+      once in any **constraint**
 
-- If the constraint list contains only one item and the comparator is
-  '*', then the "tested version" is IN the range. Check is finished.
+- If the **constraints** contain only one **constraint** and the
+  **comparator** is '*', then the "tested version" is IN the range. The
+  version check is finished.
 
 - Select the version equality and comparison procedures suitable for
-  this versioning scheme and use these for all version comparisons
+  this VERS **type** and use these for all version comparisons
   performed below.
 
-- If the "tested version" is equal to any of the constraint
-  versions where the constraint comparator is for equality (any of '=',
-  '<=', or '>=') then the "tested version" is in the range. Check is
+- If the "tested version" is equal to any of the **constraint**
+  **versions** where the **comparator** is for equality (any of '=',
+  '<=', or '>=') then the "tested version" is IN the range. Check is
   finished.
 
-- If the "tested version" is equal to any of the constraint
-  versions where the constraint comparator is '!=' then the "tested
-  version" is NOT in the range. Check is finished.
+- If the "tested version" is equal to any of the **constraint**
+  **versions** where the **constraint** **comparator**  is '!=' then the
+  "tested version" is NOT IN the range. Check is finished.
 
-- Split the constraint list in two sub lists:
+- Split the **constraints** into two sub lists:
 
-    - a first list where the comparator is '=' or '!='
-    - a second list where the comparator is neither '=' nor '!='
+    - a first list where the **comparator** is '=' or '!='
+    - a second list where the **comparator** is neither '=' nor '!='
 
-- Iterate over the current and next contiguous constraint pairs (aka.
+- Iterate over the current and next contiguous **constraint** pairs (aka.
   pairwise) in the second list.
 
-- For each current and next constraint:
+- For each current and next **constraint**:
 
-    - If this is the first iteration and current comparator is '<'
+    - If this is the first iteration and the current **comparator** is '<'
       or <=' and the "tested version" is less than the current
-      version then the "tested version" is IN the range. Check is
+      **version** then the "tested version" is IN the range. Check is
       finished.
-    - If this is the last iteration and next comparator is '>' or
-      '>=' and the "tested version" is greater than the next version
+    - If this is the last iteration and the next **comparator** is '>' or
+      '>=' and the "tested version" is greater than the next **version**
       then the "tested version" is IN the range. Check is finished.
-    - If current comparator is '>' or '>=' and next comparator is
-      '<' or '<=' and the "tested version" is greater than the
+    - If the current **comparator** is '>' or '>=' and the next **comparator**
+      is '<' or '<=' and the "tested version" is greater than the
       current version and the "tested version" is less than the next
       version then the "tested version" is IN the range. Check is
       finished.
-    - If current comparator is '<' or '<=' and next comparator is
-      '>' or '>=' then these versions are out the range. Continue
+    - If the current **comparator** is '<' or '<=' and next **comparator** is
+      '>' or '>=' then these versions are NOT IN the range. Continue
       to the next iteration.
 
 - Reaching here without having finished the check before means that
-  the "tested version" is NOT in the range.
+  the "tested version" is NOT IN the range.
 
-### Notes and caveats
+### Notes
 
 - Comparing versions from VERS notations with a different **type** is an
-  error. Even though there may be some similarities between the "semver" version
-  for an "npm" and the "deb" version for its Debian packaging, the way versions
-  are compared for each **type** may be different. Tools should report an error
-  in this case.
+  error. Even though there may be some similarities between the "semver"
+  version for an 'npm' package and the 'deb' version for its Debian packaging,
+  the way **versions** are compared for each **type** may be different. Tools
+  should report an error in this case.
 - All references to sorting or ordering of version constraints mean
   sorting by version. And sorting by versions always implies using the VERS
-  **type**-specified version comparison and ordering.
+  **type**-specified **version** for comparison and ordering.
