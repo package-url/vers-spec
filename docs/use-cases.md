@@ -1,7 +1,7 @@
 # VERS use cases
 
 A primary VERS use case is to test if a package version is contained with a
-**constraints** string. A package version is within VERS **constraints** if it
+**constraints** sequence. A package version is within VERS **constraints** if it
 falls within any of the intervals defined by the **constraints**.  Otherwise,
 the package version is outside of the **constraints**.
 
@@ -31,13 +31,13 @@ Some important use cases derived from this include:
 For example, to define a set of versions that contains either version
 "1.2.3", or any versions greater than or equal to "2.0.0" but less than
 "5.0.0" using the "node-semver" version scheme for the "npm" PURL **type**,
-the VERS notation will be:
+the VERS will be:
 
     vers:npm/1.2.3|>=2.0.0|<5.0.0
 
 This is an example of how to read a **constraints** string in version
 order from left to right to determine the versions that are included in a
-VERS notation. In this case you process in order:
+VERS. In this case you process in order:
 - Include a single version "1.2.3"
 - Include versions that are ">=2.0.0"
 - Stop including versions when you reach the constraint "<5.0.0"
@@ -46,7 +46,7 @@ Other examples are:
 
 ### A single version in an "npm" package dependency:
 For a package dependency originally seen as a dependency on version "1.2.3" in
-a `package.json` manifest file the VERS notation is:
+a `package.json` manifest file the VERS is:
 
     vers:npm/1.2.3
 
@@ -59,12 +59,12 @@ each with its own fixed version: `affects Apache TomEE 8.0.0-M1 - 8.0.1,
 Apache TomEE 7.1.0 - 7.1.2, Apache TomEE 7.0.0-M1 - 7.0.7,
 Apache TomEE 1.0.0-beta1 - 1.7.5.`
 
-- A normalised VERS notation is:
+- A normalised VERS is:
 
       vers:maven/>=1.0.0-beta1|<=1.7.5|>=7.0.0-M1|<=7.0.7|>=7.1.0|<=7.1.2|>=8.0.0-M1|<=8.0.1
 
 - An alternative is to use four VERS notations to cover the same range using
-  one VERS notation for each of the vulnerable "branches":
+  one VERS for each of the vulnerable "branches":
 
       vers:tomee/>=1.0.0-beta1|<=1.7.5
       vers:tomee/>=7.0.0-M1|<=7.0.7
@@ -77,6 +77,6 @@ Apache TomEE 1.0.0-beta1 - 1.7.5.`
 Note how the pessimistic version **constraint** is expanded for the RubyGems
 dependency expression: `'library', '~>2.2.0', '!=2.2.1', '<2.3.0'`
 
-- The VERS notation is:
+- The VERS is:
 
       vers:gem/>=2.2.0|!=2.2.1|<2.3.0
