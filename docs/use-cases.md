@@ -24,7 +24,7 @@ Some important use cases derived from this include:
   dependencies. This usually requires deploying heuristics and algorithms
   (possibly as complex as SAT solvers) that are ecosystem- and tool-specific
   and outside of the scope of this specification. VERS can be used in tandem
-  with PURL to provide an input to this dependency   resolution process.
+  with PURL to provide an input to this dependency resolution process.
 
 ## Examples
 
