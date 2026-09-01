@@ -75,10 +75,10 @@ Examples of valid VERS ranges for this VERS type.
 
 _All items shall be unique._
 
-**6.5 Native and VERS equivalent examples**
+**6.5 Native range and VERS equivalent examples**
 
-**Location:** /native_and_vers_equivalent_examples
-**Property:** native_and_vers_equivalent_examples (Optional)
+**Location:** /native_range_and_vers_equivalent_examples
+**Property:** native_range_and_vers_equivalent_examples (Optional)
 **Type:** Object
 
 The definition of native and VERS range equivalents for a VERS type. This information is optional for a VERS type.
@@ -88,9 +88,10 @@ The definition of native and VERS range equivalents for a VERS type. This inform
 
 | **Property**           | **Type** | **Requirement** | **Description**                                              |
 | ---------------------- | -------- | --------------- | ------------------------------------------------------------ |
-| native_range           | String   | Required        | Example of a native range for this VERS type.                |
-| vers_range             | String   | Required        | The VERS range that corresponds to the native range example. |
-| note                   | String   | Optional        | Extra note text.                                             |
+| native_range           | String   | Required        | Native range example for this VERS type.                     |
+| vers                   | String   | Required        | Corresponding VERS notation for this VERS type.              |
+| note                   | String   | Optional        | Optional note about this example.                            |
+| reference_url          | URI as specified in RFC 3986 | Optional | Optional reference URL for this native range example. |
 
 **6.6 Note**
 
