@@ -174,7 +174,7 @@ ranges. These rules are:
 
 Starting from a de-duplicated and sorted list of **constraints**, the
 following rules apply to the **comparators** of any two contiguous
-**constraints**:
+**constraints** segments:
 
 - A **constraint** using the '!=' **comparator** can be followed by a
   **constraint** using a **comparator** (any of '!=', '>', '>=', '<', '<=') or no **constraint**.
