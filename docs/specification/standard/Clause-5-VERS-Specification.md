@@ -131,21 +131,29 @@ without a **comparator** asserts equality. For example `vers:npm/1.2.3` means
 that the **version** is equal to "1.2.3". If a **constraint** string starts
 with '=', tools shall report an error.
 
-#### 5.3.3.2 Version**
+#### 5.3.3.2 Version
 A **version** is an ASCII string.
 - A **version** contains only printable ASCII letters, digits and punctuation.
-- ASCII whitespace is not permitted in a VERS string except for a
-  percent-encoded space (' '). Tools shall report an error if any other  whitespace character, for example tab or line feed, is used.
 - If a **version** contains any of these characters:
   '>', '<', '=', '!', '*', '|', '%', these characters shall be
   percent-encoded using URI percent-encoding rules.
+- ASCII whitespace is not permitted in a VERS string except for a
+  percent-encoded space (' '). Tools shall report an error if any other
+  ASCII whitespace character, for example tab or line feed, is used.
+  Percent-encoding is applied to the literal **version** data: a literal '%'
+  in a **version** shall be encoded as '%25', while the '%' that starts an
+  existing percent-encoded triplet shall not be encoded again.
 - Tools shall report an error for invalid percent-encoded sequences.
 
-A single **version** in a **constraint** means that a package version equal to this version satisfies the range specification. Equality is based on the
-equality of two normalised version strings according to the applicable **type**. For most schemes, this is a simple string equality. A **type** may, however,
-define normalisation or other rules for equality such as the "pypi" rules from PEP 440.
+A single **version** in a **constraint** means that a package version equal to
+this version satisfies the range specification. Equality is based on the
+equality of two normalised version strings according to the applicable
+**type**. For most schemes, this is a simple string equality. A **type** may,
+however, define normalisation or other rules for equality such as the "pypi"
+rules from PEP 440.
 
-A package version satisfies VERS **constraints** if it is contained within any of the segments defined by the **constraints**.
+A package version satisfies VERS **constraints** if it is contained within any
+of the segments defined by the **constraints**.
 
 ## 5.4 VERS validation rules
 
@@ -158,7 +166,8 @@ ranges. These rules are:
   **constraints** segments is significant for validity: tools shall report
   an error for invalid ordering.
 - **Versions** are unique. Each version shall be unique within a
-  **constraints** instance, and can occur only once in any **constraint**, regardless of the **comparators**. Tools shall report an error for
+  **constraints** instance, and can occur only once in any **constraint**,
+  regardless of the **comparators**. Tools shall report an error for
   duplicated **versions**.
 - There can be only one asterisk in a **constraints** instance: '\*' shall
   occur only once and alone in **constraints** instance.
