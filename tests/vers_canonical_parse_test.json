@@ -7,8 +7,8 @@
       "test_type": "parse",
       "input": "vers:npm/>=1.0.0|<2.0.0",
       "expected_output": {
-        "scheme": "npm",
-        "version_constraints": [
+        "type": "npm",
+        "constraints": [
           [
             ">=",
             "1.0.0"
@@ -66,8 +66,8 @@
       "test_type": "parse",
       "input": "vers:npm/1.0.0",
       "expected_output": {
-        "scheme": "npm",
-        "version_constraints": [
+        "type": "npm",
+        "constraints": [
           [
             "=",
             "1.0.0"
@@ -97,8 +97,8 @@
       "test_type": "parse",
       "input": "vers:npm/1.0%252F0",
       "expected_output": {
-        "scheme": "npm",
-        "version_constraints": [
+        "type": "npm",
+        "constraints": [
           [
             "=",
             "1.0%2F0"
