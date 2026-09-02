@@ -12,7 +12,7 @@ the VERS specification, we are focused on three categories of VERS **types**:
 
 - Package ecosystem VERS **types**: Our initial focus is to define VERS
   **types** for packages with a registered [PURL (Package-URL) **type**](https://package-url.github.io/www.packageurl.org/docs/purl/purl-spec-purl-types#registered-purl-types).
-- Special VERS **types** : These "generic" version schemes should be reserved
+- General VERS **types** : These general version schemes should be reserved
   for special cases.
 
 ## Package ecosystem VERS types
@@ -34,7 +34,7 @@ will also be the name for the VERS **type**.
 | cpan      | Perl CPAN defines its own version range notation similar to VERS with two-segment versions. |  https://metacpan.org/pod/CPAN::Meta::Spec#VERSION-NUMBERS <br> https://perlmaven.com/how-to-compare-version-numbers-in-perl-and-for-cpan-modules  |
 | dart | The Dart pub versioning scheme is similar to "node-semver". Version resolution uses its own algorithm. | https://dart.dev/tools/pub/versioning |
 | deb       | Debian and Ubuntu use their own native notation and are known for their use of "epochs" to disambiguate versions. Their native comparators are '<<', '<=', '=', '>=' and '>>'. As '<<' and '>>' are not allowed as comparators in VERS, tools should translate '<<' to '<' and '>>' to '>' when converting Debian ranges. | https://www.debian.org/doc/debian-policy/ch-relationships.html |
-| gem       | RubyGems strongly suggests using SemVer for versioning but does not enforce it. As a result some popular packages do not use strict Semver. RubyGems uses their own notation for version ranges which is similar to the "node-semver" notation with some subtle differences. | https://guides.rubygems.org/patterns/#semantic-versioning and https://guides.rubygems.org/patterns/#prerelease-gems |
+| gem       | RubyGems strongly suggests using SemVer for versioning but does not enforce it. As a result some popular packages do not use strict Semver. RubyGems uses their own notation for version ranges which is similar to the "node-semver" notation with some subtle differences. | https://guides.rubygems.org/versioning/ |
 | golang    | Go modules use SemVer versions with a specific minimum version resolution algorithm.   | https://golang.org/ref/mod#versions|
 | hackage | The Haskell Package Versioning Policy provides a notation similar to VERS based on a modified SemVer with extra notations such as star and caret.   | https://pvp.haskell.org/  |
 | maven     | Apache Maven uses a [math interval notation](https://en.wikipedia.org/wiki/Interval_(mathematics)) with brackets. | http://maven.apache.org/enforcer/enforcer-rules/versionRanges.html  |
@@ -43,34 +43,34 @@ will also be the name for the VERS **type**.
 | pypi      | Python uses its own version and version range notation with notable peculiarities for how pre-release and post-release suffixes are used. | https://www.python.org/dev/peps/pep-0440/   |
 | rpm       | RPM distros use their own range notation and they use "epochs" like Debian. | https://rpm-software-management.github.io/rpm/manual/dependencies.html |
 
-## Special VERS types
+## General VERS types
 
-There are special "generic" VERS **types** to be used sparingly for special
+There are general purpose VERS **types** to be used sparingly for special
 cases:
 
-- **all**: a generic VERS **type** for a range containing all
+- **all**: a general VERS **type** for a range containing all
   versions. 'vers:all/*' is the only valid VERS form for this **type**.
-- **datetime**: a generic VERS **type** that uses a timestamp for comparison.
+- **datetime**: a general VERS **type** that uses a timestamp for comparison.
   The timestamp must adhere to RFC3339, section 5.6. See
   https://www.rfc-editor.org/rfc/rfc3339#section-5.6. In canonical VERS,
   datetime values use an uppercase 'T' date/time separator and an uppercase
   'Z' UTC designator. Lowercase 't' and 'z' are permitted by RFC3339, but are
   non-canonical for VERS. The colon ':' characters used within the time and
   UTC offset are part of the datetime version string and shall not be percent-encoded.
-- **generic**: a generic VERS **type** using a comparison algorithm which
+- **generic**: a general VERS **type** using a comparison algorithm which
   will be specified later, likely based on a split on any wholly alpha or
   wholly numeric segments and dealing with digit and string
   comparisons, similar to libversion.
-- **intdot**: a generic VERS **type** that allows version components to be
+- **intdot**: a general VERS **type** that allows version components to be
   specified as integers separated by dots, e.g. '10.234.5.12'. Versions
   specified in this scheme consist of ASCII digits only, formatted with only
   non-negative integers, and ignoring leading zeros. Interpretation of the
   version should stop at the first character that is not a digit or a dot.
-- **lexicographic**: a generic VERS **type** that compares versions based on
+- **lexicographic**: a general VERS **type** that compares versions based on
   lexicographic order, interpreted as UTF-8. Strings should be compared
-  byte-wise as unsigned bytes without normalization. UTF-8 encoding is defined
+  byte-wise as unsigned bytes without normalisation. UTF-8 encoding is defined
   in https://datatracker.ietf.org/doc/html/rfc3629.
-- **none**: a generic VERS **type** for a range containing no versions.
+- **none**: a general VERS **type** for a range containing no versions.
   'vers:none/*' is the only valid VERS form for this scheme.
 - **semver**: a VERS **type** that uses the same syntax as SemVer. It follows
   the MAJOR.MINOR.PATCH format and is defined in the Semantic Versioning

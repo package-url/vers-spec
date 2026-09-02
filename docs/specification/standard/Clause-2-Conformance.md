@@ -1,4 +1,4 @@
-# Conformance
+# 2 Conformance
 
 A conforming implementation of Version Range Specifier (VERS) Standard shall
 fully implement and support all elements defined within this Standard,

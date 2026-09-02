@@ -11,34 +11,34 @@
     "vers:pypi/>=3.0.0|!=2.0.3",
     "vers:pypi/0.0.2|0.0.6|>=3.0.0|0.0.1|0.0.4|0.0.5|0.0.3"
   ],
-  "native_and_vers_equivalent_examples": [
+  "native_range_and_vers_equivalent_examples": [
     {
       "native_range": ">= 1.0",
-      "vers_range": "vers:pypi/>=1.0"
+      "vers": "vers:pypi/>=1.0"
     },
     {
       "native_range": "<2.1.0",
-      "vers_range": "vers:pypi/<2.1.0"
+      "vers": "vers:pypi/<2.1.0"
     },
     {
       "native_range": "!=5",
-      "vers_range": "vers:pypi/!=5"
+      "vers": "vers:pypi/!=5"
     },
     {
       "native_range": ">=1.0a1,<1.0.5||>=1.1b1,<1.1.1",
-      "vers_range": "vers:pypi/>=1.0a1|<1.0.5|>=1.1b1|<1.1.1"
+      "vers": "vers:pypi/>=1.0a1|<1.0.5|>=1.1b1|<1.1.1"
     },
     {
       "native_range": ">=5.0.0,<5.0.12||>=6.0.0,<6.0.5||>=6.1.0,<6.2.2",
-      "vers_range": "vers:pypi/>=5.0.0|<5.0.12|>=6.0.0|<6.0.5|>=6.1.0|<6.2.2"
+      "vers": "vers:pypi/>=5.0.0|<5.0.12|>=6.0.0|<6.0.5|>=6.1.0|<6.2.2"
     },
     {
       "native_range": "<21.2.3||>=22.0.0,<22.2.3||>=23.0.0,<23.0.3",
-      "vers_range": "vers:pypi/<21.2.3|>=22.0.0|<22.2.3|>=23.0.0|<23.0.3"
+      "vers": "vers:pypi/<21.2.3|>=22.0.0|<22.2.3|>=23.0.0|<23.0.3"
     },
     {
       "native_range": "==2.3.0||==3.0.0",
-      "vers_range": "vers:pypi/2.3.0|3.0.0"
+      "vers": "vers:pypi/2.3.0|3.0.0"
     }
   ],
   "reference_urls": [

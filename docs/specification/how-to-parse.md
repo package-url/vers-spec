@@ -49,6 +49,9 @@ To parse a VERS string:
         - If it starts with '>', then the comparator is '>'.
         - Remove the comparator from **constraints** string
           start. The remaining string is the version.
+    - Otherwise, if the **constraints** string starts with '=', tools shall
+      report an error: the equality comparator is implicit and shall be
+      represented by a bare version without a leading '='.
     - Otherwise the version is the full **constraints** string
       (which implies an equality comparator of '=')
     - Tools should validate and report an error if the version is
@@ -71,7 +74,7 @@ strings once parsing is complete by:
 
 Tools shall report an error if the parsed constraints are non-canonical,
 including non-canonical ordering, duplicate versions, or invalid comparator
-sequences. Tools should not correct or normalize non-canonical input during
+sequences. Tools should not correct or normalise non-canonical input during
 parsing.
 
 ### Constraints simplification

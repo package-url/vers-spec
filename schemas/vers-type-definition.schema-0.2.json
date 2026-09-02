@@ -58,7 +58,7 @@
     },
     "vers_examples": {
       "title": "VERS examples",
-      "description": "Examples of valid VERS ranges for this VERS type.",
+      "description": "Examples of valid VERS notations for this VERS type.",
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,
@@ -73,9 +73,9 @@
         ]
       ]
     },
-    "native_and_vers_equivalent_examples": {
+    "native_range_and_vers_equivalent_examples": {
       "title": "Examples of native version ranges and their VERS equivalents.",
-      "description": "Optional list of examples of valid, native version ranges mapped to their corresponding VERS syntax.",
+      "description": "Optional list of examples of native version ranges mapped to their corresponding VERS syntax.",
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,
@@ -84,34 +84,32 @@
         "additionalProperties": false,
         "required": [
           "native_range",
-          "vers_range"
+          "vers"
         ],
         "properties": {
           "native_range": {
-            "title": "Native Range",
-            "description": "Native range for this VERS type.",
+            "title": "Native range example",
+            "description": "Native range example for this VERS type.",
             "type": "string"
           },
-          "vers_range": {
-            "title": "Corresponding VERS Range",
-            "description": "Corresponding VERS range.",
+          "vers": {
+            "title": "Corresponding VERS notation",
+            "description": "Corresponding VERS notation for this VERS type.",
             "type": "string"
           },
           "note": {
             "title": "Note",
             "description": "Optional note about this example.",
             "type": "string"
+          },
+          "reference_url": {
+            "title": "Reference URL",
+            "description": "Optional reference URL for this native range example.",
+            "type": "string",
+            "format": "uri"
           }
         }
-      },
-      "examples": [
-        {
-          "native_range": "1.0-ALPHA2 || ~2.0.0",
-          "vers_range": "vers:foo/1.0-ALPHA2|>=2.0.0",
-          "example": "~2.0.0",
-          "note": "The tilde character means that a version should be at least equal to the version."
-        }
-      ]
+      }
     },
     "note": {
       "title": "Note",
@@ -120,7 +118,7 @@
     },
     "reference_urls": {
       "title": "Reference URLs",
-      "description": "List of informational reference URLs about this VERS type, such as specifications, reference code and related pointers.",
+      "description": "List of informational reference URLs about this VERS type, such as specifications or reference code.",
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,
