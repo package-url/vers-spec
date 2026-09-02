@@ -138,7 +138,7 @@ A **version** is an ASCII string.
   '>', '<', '=', '!', '*', '|', '%', these characters shall be
   percent-encoded using URI percent-encoding rules.
 - ASCII whitespace is not permitted in a VERS string except for a
-  percent-encoded SPACE ('%20'). Tools shall report an error if any other
+  percent-encoded space ('%20'). Tools shall report an error if any other
   ASCII whitespace character, for example tab or line feed, is used.
   Percent-encoding is applied to the literal **version** data: a literal '%'
   in a **version** shall be encoded as '%25', while the '%' that starts an
