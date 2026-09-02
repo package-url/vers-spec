@@ -72,7 +72,7 @@ strings once parsing is complete by:
 
 Tools shall report an error if the parsed constraints are non-canonical,
 including non-canonical ordering, duplicate versions, or invalid comparator
-sequences. Tools should not correct or normalize non-canonical input during
+sequences. Tools should not correct or normalise non-canonical input during
 parsing.
 
 ### Constraints simplification
