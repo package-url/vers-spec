@@ -88,7 +88,7 @@ There are two rules related to the set of registered VERS **type** definitions f
 
 ### 5.3.3 Constraints
 - The **constraints** component shall be preceded by an unencoded
-  '/' slash separator when not empty.
+  '/' slash separator and shall contain one or more **constraints**.
 - Each segment of the **constraints** component is called a **constraint**.
   Each **constraint** is composed of either a single **version** as in
   '1.2.3' or the combination of a **comparator** and a **version** as in

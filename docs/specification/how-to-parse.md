@@ -21,9 +21,9 @@ To parse a VERS string:
 - Split the specifier from left once on a slash '/'.
 - The left hand side is the **type** that shall be lowercase. Tools should
   validate that the **type** is a known **type**.
-- The right hand side is a list of one or more constraints. Tools
-  validate that this **constraints** string is not empty
-  after splitting.
+- The right hand side is a non-empty list of one or more **constraints**.
+  Tools shall report an error if this **constraints** string is empty after
+  splitting.
 - If the string is equal to '\*', the **constraints** value is
   '*'. Parsing is done and no further processing is needed for this VERS.
   A tool should report an error if there are characters other than '\*'.

@@ -29,6 +29,14 @@
       "expected_message": "non-canonical VERS: whitespace is not permitted"
     },
     {
+      "description": "Parsing fails when the constraints component is empty.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:npm/",
+      "expected_failure": true,
+      "expected_message": "non-canonical VERS: constraints must not be empty"
+    },
+    {
       "description": "Parsing fails when constraints start with a pipe.",
       "test_group": "required",
       "test_type": "parse",
