@@ -3,7 +3,10 @@
 VERS stands for "Version Range Specifier". A VERS is an ASCII URI string
 composed of three components:
 
-    scheme:type/constraints|
+    scheme:type/constraints
+
+When there are multiple **constraints**, they are separated by an unencoded
+pipe '|'.
 
 Components are separated by a specific character for unambiguous parsing.
 
