@@ -12,14 +12,12 @@ hide_table_of_contents: false
 To parse a VERS string:
 
 - Check that the VERS string is canonical.
-- Literal ASCII whitespace is not permitted anywhere in a VERS string,
-  including the **scheme**, **type**, **separators**, **comparators**, and
-  **version**. Tools shall report an error if any ASCII whitespace character
-  is present, including SPACE, TAB, and LF.
-- ASCII whitespace that is intended as part of a **version** shall be
-  represented using its canonical percent-encoded form, such as '%20' for
-  SPACE or '%09' for TAB. The resulting version is percent-decoded exactly
-  once during parsing.
+- Tools shall report an error if the VERS string contains any literal ASCII
+  whitespace character (including SPACE, TAB, and LF).
+- ASCII whitespace that is part of a **version** shall be represented by a
+  percent-encoded SPACE ('%20'). Other ASCII whitespace, such as TAB or LF,
+  is not permitted. The resulting version is percent-decoded exactly once
+  during parsing.
 - Start from left, and split once on colon ':'.
 - The left hand side is the URI-scheme that shall be lowercase.
     - Tools shall validate that the URI-scheme value is 'vers'.
@@ -74,7 +72,7 @@ strings once parsing is complete by:
 
 Tools shall report an error if the parsed constraints are non-canonical,
 including non-canonical ordering, duplicate versions, or invalid comparator
-sequences. Tools should not correct or normalise non-canonical input during
+sequences. Tools should not correct or normalize non-canonical input during
 parsing.
 
 ### Constraints simplification

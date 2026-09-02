@@ -161,7 +161,8 @@ issues:
   complicated and may be a source of confusion if you remove the
   spaces from the string. VERS avoids this ambiguity by rejecting
   literal ASCII whitespace. If whitespace is part of a version, it
-  must be percent-encoded, such as `%20` for SPACE or `%09` for TAB.
+  must be percent-encoded, such as `%20` for SPACE. Other ASCII whitespace,
+  such as TAB or LF, is not permitted.
 - The advanced range syntax has grown to be rather complex using
   hyphen ranges, star ranges, carets and tilde constructs that are
   all tied to the JavaScript and npm methods for handling versions in
