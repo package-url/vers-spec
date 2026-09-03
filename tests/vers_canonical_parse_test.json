@@ -2,13 +2,13 @@
   "$schema": "https://packageurl.org/schemas/vers-test.schema-0.2.json",
   "tests": [
     {
-      "description": "Canonical parse succeeds for a normalised VERS.",
+      "description": "Canonical parse succeeds for an already normalised VERS.",
       "test_group": "required",
       "test_type": "parse",
       "input": "vers:npm/>=1.0.0|<2.0.0",
       "expected_output": {
-        "scheme": "npm",
-        "version_constraints": [
+        "type": "npm",
+        "constraints": [
           [
             ">=",
             "1.0.0"
@@ -74,8 +74,8 @@
       "test_type": "parse",
       "input": "vers:npm/1.0.0",
       "expected_output": {
-        "scheme": "npm",
-        "version_constraints": [
+        "type": "npm",
+        "constraints": [
           [
             "=",
             "1.0.0"
@@ -105,14 +105,52 @@
       "test_type": "parse",
       "input": "vers:npm/1.0%252F0",
       "expected_output": {
-        "scheme": "npm",
-        "version_constraints": [
+        "type": "npm",
+        "constraints": [
           [
             "=",
             "1.0%2F0"
           ]
         ]
       }
+    },
+    {
+      "description": "Parsing accepts percent-encoded SPACE in a version.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:lexicographic/1%202",
+      "expected_output": {
+        "type": "lexicographic",
+        "constraints": [
+          [
+            "=",
+            "1 2"
+          ]
+        ]
+      }
+    },
+    {
+      "description": "Parsing fails when TAB is percent-encoded in a version.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:lexicographic/1%092",
+      "expected_failure": true,
+      "expected_message": "non-canonical VERS: whitespace is not permitted"
+    },
+    {
+      "description": "Parsing fails when literal ASCII whitespace occurs in a version.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:lexicographic/1 2",
+      "expected_failure": true,
+      "expected_message": "non-canonical VERS: whitespace is not permitted"
+    },
+    {
+      "description": "Validation recommends percent-encoding SPACE in a version.",
+      "test_group": "recommended",
+      "test_type": "validate",
+      "input": "vers:lexicographic/1 2",
+      "expected_output": "vers:lexicographic/1%202"
     },
     {
       "description": "Parsing fails when version percent-encoding is invalid.",

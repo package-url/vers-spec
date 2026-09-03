@@ -12,8 +12,12 @@ hide_table_of_contents: false
 To parse a VERS string:
 
 - Check that the VERS string is canonical.
-- Tools shall report an error if the VERS string contains any ASCII whitespace
-  character (including SPACE, TAB, and LF).
+- Tools shall report an error if the VERS string contains any literal ASCII
+  whitespace character (including space, tab, and line feed).
+- ASCII whitespace that is part of a **version** shall be represented by a
+  percent-encoded space ('%20'). Other ASCII whitespace, such as TAB or LF,
+  is not permitted. The resulting version is percent-decoded exactly once
+  during parsing.
 - Start from left, and split once on colon ':'.
 - The left hand side is the URI-scheme that shall be lowercase.
     - Tools shall validate that the URI-scheme value is 'vers'.
