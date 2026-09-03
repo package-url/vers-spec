@@ -23,7 +23,7 @@ are:
 ## Parsing VERS
 
 - Check that the VERS string is valid.
-- Tools shall report an error if the VERS string contains any ASCII whitespace
+- Tools shall report an error if the VERS contains any ASCII whitespace
   character (including SPACE, TAB, or LF).
 - Start from the left and split once on colon ':'.
 - The left-hand side is the URI scheme, which shall be lowercase.
@@ -34,19 +34,20 @@ are:
   Tools should validate that the **type** is a registered **type** and report
   a warning message if the **type** is not currently registered.
 - The right-hand side is the **constraints** component. Tools
-  shall validate that the **constraints** component is not empty after splitting.
-- If the string is equal to '\*', the **constraints** value is
-  '*'. Parsing is done and no further processing is needed for this VERS.
-  A tool should report an error if there are characters other than '\*'.
+  shall validate that the **constraints** component is not empty after
+  splitting.
+- If the string is equal to '\*', the **constraints** value is an asterisk
+  ('*'). Parsing is done and no further processing is needed for this VERS.
+  A tool shall report an error if there are characters other than '\*'.
 - Tools shall report an error if the **constraints** component has a leading
   or trailing pipe '|'.
-- Split the **constraints** on pipe '|'. The result is a sequence of
+- Split the **constraints** string on pipe '|'. The result is a sequence of
   **constraint** strings. Tools shall report an error if consecutive
   pipes ('|') are present.
 - For each **constraint** string:
     - Determine if the **constraint** string starts with one of the
       two-character **comparators** ('>=', '<=', '!=') or one-character
-      **comparators** ('<', '>'):
+      **comparators** ('=','<', '>'):
         - If it starts with '>=', then the comparator is '>='.
         - If it starts with '<=', then the comparator is '<='.
         - If it starts with '!=', then the comparator is '!='.
@@ -59,7 +60,7 @@ are:
       represented by a bare version without a leading '='.
     - Otherwise the **version** is the full **constraint** string
       (which implies an equality comparator of '=')
-    - Tools should validate and report an error if the **version** is
+    - Tools shall validate and report an error if the **version** is
       empty.
     - If the **version** contains a percent '%' character, tools shall
       validate that each '%' starts a valid percent-encoded triplet.
@@ -67,17 +68,17 @@ are:
       string.
       Tools shall report an error for invalid percent-encoded sequences.
     - Append the parsed **constraint** strings to the **constraints**.
-- The results are the **type** and the **constraints** string.
+- The results are the **type** and the **constraints** components.
 
-Tools should validate and simplify **constraints** after parsing is complete
+Tools shall validate and simplify **constraints** after parsing is complete
 by:
 
 - Sorting and validating the sequence of **constraint** strings.
 
-Tools shall report an error if the parsed **constraints** are invalid,
-including invalid ordering, duplicate versions, or invalid **comparator**
-sequences. Tools should not correct or normalise invalid input during
-parsing.
+Tools shall report an error if the parsed **constraints** component is
+invalid, including invalid ordering, duplicate versions, or invalid
+**comparator** sequences. Tools shall not correct or normalise invalid input
+during parsing.
 
 ### Simplifying constraints
 
@@ -87,7 +88,7 @@ These pairs of contiguous **constraint** strings with these **comparators**
 are valid:
 
 - '!=' followed by anything
-- '=', '<', or '<=' followed by '=', '!=', '>', or '>='
+- '<', or '<=' followed by '=', '!=', '>', or '>='
 - '>', or '>=' followed by '!=', '<', or '<='
 
 The following pairs of contiguous **constraints** with these **comparators**
@@ -100,10 +101,10 @@ are redundant and invalid (ignoring any instances of '!=' because this
 A procedure to remove redundant **constraints** is:
 
 - Start from a **constraints** string sorted by **version** where each
-  **version** occurs only once in any **constraint** string.
+  **version** occurs only once in any **constraint**.
 
 - If the **constraints** component contains only a single **constraint**
-  (star, equal or other) return this **constraint** and simplification is
+  (asterisk equal or other) return this **constraint** and simplification is
   finished.
 
 - Split the **constraints** component into two sub lists:
@@ -116,14 +117,15 @@ A procedure to remove redundant **constraints** is:
   constraints" list and simplification is finished.
 
 - Iterate over the **constraints** component, considering the current and next
-  contiguous **constraint** string, and the previous **constraint** string
+  contiguous **constraint** strings, and the previous **constraint** string
   (e.g., before current) if it exists:
 
     - If the current **comparator** is '>' or '>=' and the next **comparator**
-      is '=', '>' or '>=', discard the next **constraint**.
+      is '>' or '>=', discard the next **constraint**.
     - If the current **comparator** is '=', '<' or '<=' and the next
       **comparator** is '<' or '<=', discard the current **constraint**.
-      The previous **constraint** becomes current if it exists.
+      The previous **constraint** becomes the current **constraint** if it
+      exists.
     - If there is a previous **constraint**:
         - If the previous **comparator** is '>' or '>=' and the current
           **comparator** is '=', '>' or '>=', discard the current
