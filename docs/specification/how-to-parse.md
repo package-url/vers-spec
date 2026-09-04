@@ -48,22 +48,23 @@ are:
 - Split the **constraints** string on pipe '|'. The result is a sequence of
   **constraint** strings. Tools shall report an error if consecutive
   pipes ('|') are present.
-- For each **constraint** string:
-    - Determine if the **constraint** string starts with one of the
-      two-character **comparators** ('>=', '<=', '!=') or one-character
-      **comparators** ('=','<', '>'):
-        - If it starts with '>=', then the comparator is '>='.
-        - If it starts with '<=', then the comparator is '<='.
-        - If it starts with '!=', then the comparator is '!='.
-        - If it starts with '<', then the comparator is '<'.
-        - If it starts with '>', then the comparator is '>'.
-        - Remove the comparator from beginning of a **constraint** string. The
-          remaining string is the **version**.
+- For each **constraint** string determine:
+    - If the **constraint** string starts with no **comparator** value then
+      this is the implicit equality condition and the remaining string is the
+      **version**.
     - If the **constraint** string starts with '=', tools shall
-      report an error: the equality comparator is implicit and shall be
+      report an error: the equality condition is implicit and shall be
       represented by a bare version without a leading '='.
-    - Otherwise the **version** is the full **constraint** string
-      (which implies an equality comparator of '=')
+   -  If the **constraint** string starts with one of the two-character
+      **comparator** values ('>=', '<=', '!=') or with one of the
+      one-character **comparator** values ('<', '>') and:
+        - If it starts with '>=', then the **comparator** is '>='.
+        - If it starts with '<=', then the **comparator** is '<='.
+        - If it starts with '!=', then the **comparator** is '!='.
+        - If it starts with '<', then the **comparator** is '<'.
+        - If it starts with '>', then the **comparator** is '>'.
+      Remove the **comparator** from beginning of a **constraint** string.
+      The remaining string is the **version**.
     - Tools shall validate and report an error if the **version** is
       empty.
     - If the **version** contains a percent '%' character, tools shall
@@ -92,15 +93,18 @@ These pairs of contiguous **constraint** strings with these **comparators**
 are valid:
 
 - '!=' followed by anything
-- '<', or '<=' followed by '=', '!=', '>', or '>='
+- '<', or '<=' followed by '!=', '>', '>=' or no **comparator** value
+  (equality)
 - '>', or '>=' followed by '!=', '<', or '<='
 
 The following pairs of contiguous **constraints** with these **comparators**
 are redundant and invalid (ignoring any instances of '!=' because this
 **comparator** can appear anywhere):
 
-- '=', '<' or '<=' followed by '<' or '<=:' this is the same as '<' or '<='
-- '>' or '>=' followed by '=', '>' or '>=:' this is the same as '>' or '>='
+- no **comparator** value (equality), '<' or '<=' followed by '<' or '<=:'
+  this is the same as '<' or '<='
+- '>' or '>=' followed by no **comparator** value (equality), '>' or '>=:'
+  this is the same as '>' or '>='
 
 A procedure to remove redundant **constraints** is:
 
@@ -126,16 +130,17 @@ A procedure to remove redundant **constraints** is:
 
     - If the current **comparator** is '>' or '>=' and the next **comparator**
       is '>' or '>=', discard the next **constraint**.
-    - If the current **comparator** is '=', '<' or '<=' and the next
-      **comparator** is '<' or '<=', discard the current **constraint**.
-      The previous **constraint** becomes the current **constraint** if it
-      exists.
+    - If the current **comparator** is no value (equality), '<' or '<=' and
+      the next **comparator** is '<' or '<=', discard the current
+      **constraint**. The previous **constraint** becomes the current
+      **constraint** if it exists.
     - If there is a previous **constraint**:
         - If the previous **comparator** is '>' or '>=' and the current
-          **comparator** is '=', '>' or '>=', discard the current
+          **comparator** is no value (equality) '>' or '>=', discard the
+          current **constraint**.
+        - If the previous **comparator** is no value (equality), '<' or '<='
+          and the current **comparator** is '<' or '<=', discard the previous
           **constraint**.
-        - If the previous **comparator** is '=', '<' or '<=' and the current
-          **comparator** is '<' or '<=', discard the previous **constraint**.
 
 - Concatenate the "unequal constraints list" and the "remainder constraints
   list"
@@ -161,7 +166,7 @@ To check if a "tested version" is contained within a version range:
   performed below.
 
 - If the "tested version" is equal to any of the **constraint**
-  **versions** where the **comparator** is for equality (any of '=',
+  **versions** where the **comparator** is for equality (any of no value,
   '<=', or '>=') then the "tested version" is IN the range. The version check
   is finished.
 
@@ -171,8 +176,9 @@ To check if a "tested version" is contained within a version range:
 
 - Split the **constraints** component into two sub lists:
 
-    - a first list where the **comparator** is '=' or '!='
-    - a second list where the **comparator** is neither '=' nor '!='
+    - a first list where the **comparator** is no value (equality) or '!='
+    - a second list where the **comparator** is neither no value (equality)
+      nor '!='
 
 - Iterate over the current and next contiguous **constraint** pairs (aka.
   pairwise) in the second list.
