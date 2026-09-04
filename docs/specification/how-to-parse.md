@@ -136,7 +136,7 @@ A procedure to remove redundant **constraints** is:
       **constraint** if it exists.
     - If there is a previous **constraint**:
         - If the previous **comparator** is '>' or '>=' and the current
-          **comparator** is no value (equality) '>' or '>=', discard the
+          **comparator** is no value (equality), '>' or '>=', discard the
           current **constraint**.
         - If the previous **comparator** is no value (equality), '<' or '<='
           and the current **comparator** is '<' or '<=', discard the previous
