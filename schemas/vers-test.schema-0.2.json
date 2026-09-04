@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema#",
-  "$id": "https://packageurl.org/schemas/vers-test.schema-0.2.json",
+  "$id": "https://packageurl.org/vers-schemas/vers-test.schema-0.2.json",
   "title": "VERS test definition",
   "description": "Schema for Version Range Specifier (VERS) test case definitions.",
   "type": "object",
