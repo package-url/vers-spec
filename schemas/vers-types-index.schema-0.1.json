@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft/2020-12/schema#",
-  "$id": "https://packageurl.org/schemas/vers-type-index.schema-0.1.json",
+  "$id": "https://packageurl.org/vers-schemas/vers-type-index.schema-0.1.json",
   "title": "VErsion Range Specifier (VERS) types index",
   "description": "An index of registered VERS types.",
   "type": "array",

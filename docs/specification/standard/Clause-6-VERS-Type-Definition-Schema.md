@@ -14,7 +14,7 @@ The VERS Type Definition Schema is formally specified by a Draft 2020-12 JSON
 Schema. Each published version of this specification is accompanied by a
 versioned meta-schema at a stable URI:
 
-https://packageurl.org/schemas/vers-type-definition.schema-<major>.<minor>.json
+https://packageurl.org/vers-schemas/vers-type-definition.schema-<major>.<minor>.json
 
 **Location:** /
 
