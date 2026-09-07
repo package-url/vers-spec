@@ -184,7 +184,7 @@ following rules apply to the **comparators** of any two contiguous
 - Ignoring all **constraints** with the '!=' **comparator**, an equality
   **constraint** shall be followed only by a **constraint** with one of the **comparator** characters: '>', or '>=', or no **comparator** (for equality)
   or no **constraint**.
-- Ignoring all constraints with no **comparator (equality) or the '!='
+- Ignoring all constraints with no **comparator** (equality) or the '!='
   **comparator**, the sequence of **constraints** shall be an alternation of Greater-than and Lesser-than **comparators**:
 - A **constraint** using '\<' or '\<=' shall be followed by one of '>' or
   '>=' (or no **constraint**).
