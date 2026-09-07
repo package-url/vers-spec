@@ -15,7 +15,7 @@ are:
 - **type** and **constraints** are standard VERS components
 - **constraint**: refers to one instance of a constraint within a sequence of
   constraints (the **constraints** component)
-- Each **constraint" is composed of a **comparator** and a
+- Each **constraint** is composed of a **comparator** and a
   **version**
 - **comparator**: a set of characters defined in Clause 5
 - **version**: the version string within a single **constraint**
@@ -96,6 +96,7 @@ These pairs of contiguous **constraint** strings with these **comparators**
 are valid:
 
 - '!=' followed by anything
+- 'null' followed by '>', '>='
 - '<', or '<=' followed by '!=', '>', '>=' or null
 - '>', or '>=' followed by '!=', '<', or '<='
 
