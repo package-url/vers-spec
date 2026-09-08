@@ -74,9 +74,12 @@ like 'semver'.
 This Standard includes the *VERS Type Definition Schema* but it does not
 include the set of current "registered" VERS type definition files (in JSON
 format) because there are ongoing additions and changes to these files. The
-current "registered" VERS **type** definition files are located at: https://www.packageurl.org/vers-types/. Registration refers to the Package-URL community process for adding a new VERS **type**.
+current "registered" VERS **type** definition files are located at: https://www.packageurl.org/vers-types/.
+Registration refers to the Package-URL community process for adding a new VERS
+ **type**.
 
-There are two rules related to the set of registered VERS **type** definitions for conforming tools to validate the VERS **type** component:
+There are two rules related to the set of registered VERS **type** definitions
+for conforming tools to validate the VERS **type** component:
 
 - If a VERS **type** is registered, then a VERS is invalid if it does
   not conform to all of the rules for the corresponding VERS **type**
@@ -99,7 +102,9 @@ There are two rules related to the set of registered VERS **type** definitions f
   pipe '|'. The pipe "|" has no special meaning other than being a separator.
 - There is no limit on the number of **constraints** segments.
 
-The sequence of **constraints** represents distinct intervals in the version timeline of a package. The separators do not mean "and" or "or". They are separators in a sequence of **constraints** segments.
+The sequence of **constraints** represents distinct intervals in the version
+timeline of a package. The separators do not mean "and" or "or". They are
+separators in a sequence of **constraints** segments.
 
 #### 5.3.3.1 Comparators
 A **comparator** is composed of these ASCII characters:
@@ -180,12 +185,15 @@ following rules apply to the **comparators** of any two contiguous
 **constraints** segments:
 
 - A **constraint** using the '!=' **comparator** can be followed by a
-  **constraint** using a **comparator** (any of '!=', '>', '>=', '<', '<=') or no **constraint**.
+  **constraint** using a **comparator** (any of '!=', '>', '>=', '<', '<=') or
+  no **constraint**.
 - Ignoring all **constraints** with the '!=' **comparator**, an equality
-  **constraint** shall be followed only by a **constraint** with one of the **comparator** characters: '>', or '>=', or no **comparator** (for equality)
+  **constraint** shall be followed only by a **constraint** with one of the
+  **comparator** characters: '>', or '>=', or no **comparator** (for equality)
   or no **constraint**.
 - Ignoring all constraints with no **comparator** (equality) or the '!='
-  **comparator**, the sequence of **constraints** shall be an alternation of Greater-than and Lesser-than **comparators**:
+  **comparator**, the sequence of **constraints** shall be an alternation of
+  Greater-than and Lesser-than **comparators**:
 - A **constraint** using '\<' or '\<=' shall be followed by one of '>' or
   '>=' (or no **constraint**).
 - A **constraint** using '>' or '>=' shall be followed by one of '\<' or
