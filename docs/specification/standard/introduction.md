@@ -1,10 +1,3 @@
----
-id: introduction
-title: Introduction
-sidebar_label: Introduction
-hide_table_of_contents: true
----
-
 # Introduction
 
 There is no universal notation for software package version ranges and
