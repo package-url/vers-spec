@@ -1,12 +1,13 @@
 # Annex A (normative) VERS Type Definition
-This Annex provides a copy of the current Version Range Specifier (VERS) Type Definition Schema. The format is JSON Schema version Draft 2020-12.
+This Annex provides a copy of the current Version Range Specifier (VERS) Type
+Definition Schema. The format is JSON Schema version Draft 2020-12.
 
-The schema shown below is available in electronic form at: https://packageurl.org/schemas/vers-type-definition.schema-0.2.json
+The schema shown below is available in electronic form at: https://packageurl.org/vers-schemas/vers-type-definition.schema-1.0.json
 
 ~~~
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema#",
-  "$id": "https://packageurl.org/schemas/vers-type-definition.schema-0.2.json",
+  "$id": "https://packageurl.org/vers-schemas/vers-type-definition.schema-1.0.json",
   "title": "Version Range Specifier (VERS) Type Definition",
   "description": "Schema to define the structure of a VErsion Range Specifier (VERS) type.",
   "type": "object",
