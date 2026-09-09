@@ -49,33 +49,25 @@ are:
   **constraint** strings. Tools shall report an error if consecutive
   pipes ('|') are present.
 - For each **constraint** string determine:
-    - If the **constraint** string starts with no **comparator** value then
-      this is the implicit equality condition and the remaining string is the
-      **version**. For the following steps related to parsing or validating
-      **comparator** values this implicit equality condition is referenced as
-      null.
+    - If it starts with '>=', then the **comparator** is '>='.
+    - If it starts with '<=', then the **comparator** is '<='.
+    - If it starts with '!=', then the **comparator** is '!='.
+      If it starts with '<', then the **comparator** is '<'.
+    - If it starts with '>', then the **comparator** is '>'.
+    - If it does not start with any of the comparators listed above, then the
+      **comparator** is the default equality **comparator**: *null*.
     - If the **constraint** string starts with '=', tools shall
-      report an error: the equality condition is implicit and shall be
-      represented by a bare version without a leading '='.
-   -  If the **constraint** string starts with one of the two-character
-      **comparator** values ('>=', '<=', '!=') or with one of the
-      one-character **comparator** values ('<', '>') and:
-        - If it starts with '>=', then the **comparator** is '>='.
-        - If it starts with '<=', then the **comparator** is '<='.
-        - If it starts with '!=', then the **comparator** is '!='.
-        - If it starts with '<', then the **comparator** is '<'.
-        - If it starts with '>', then the **comparator** is '>'.
-      Remove the **comparator** from the beginning of a **constraint** string.
-      The remaining string is the **version**.
-    - Tools shall validate and report an error if the **version** is
-      empty.
-    - If the **version** contains a percent '%' character, tools shall
-      validate that each '%' starts a valid percent-encoded triplet.
-    - Tools shall apply percent-decoding exactly once to the **version**
-      string.
-      Tools shall report an error for invalid percent-encoded sequences.
-    - Append the parsed **constraint** strings to the **constraints**
-      component.
+      report an error.
+- Remove the **comparator** from the beginning of a **constraint** string.
+  The remaining string is the **version**.
+- Tools shall validate and report an error if the **version** is
+  empty.
+- If the **version** contains a percent '%' character, tools shall
+  validate that each '%' starts a valid percent-encoded triplet.
+ - Tools shall apply percent-decoding exactly once to the **version**
+   string. Tools shall report an error for invalid percent-encoded sequences.
+- Append the parsed **constraint** strings to the **constraints**
+  component.
 - The results are the **type** and the **constraints** components.
 
 Tools shall validate and simplify **constraints** after parsing is complete
@@ -96,17 +88,17 @@ These pairs of contiguous **constraint** strings with these **comparators**
 are valid:
 
 - '!=' followed by anything
-- 'null' followed by '>', '>='
-- '<', or '<=' followed by '!=', '>', '>=' or null
-- '>', or '>=' followed by '!=', '<', or '<='
+- *null* followed by '>', '>='
+- '<', or '<=' followed by '!=', '>', '>=' or *null*
+- '>', or '>=' followed by '!=', '<', '<=' or *null*
 
 The following pairs of contiguous **constraints** with these **comparators**
 are redundant and invalid (ignoring any instances of '!=' because this
 **comparator** can appear anywhere):
 
-- null, '<' or '<=' followed by '<' or '<=:'
+- *null*, '<' or '<=' followed by '<' or '<=:'
   this is the same as '<' or '<='
-- '>' or '>=' followed by null, '>' or '>=:'
+- '>' or '>=' followed by *null*, '>' or '>=:'
   this is the same as '>' or '>='
 
 A procedure to remove redundant **constraints** is:
@@ -133,15 +125,15 @@ A procedure to remove redundant **constraints** is:
 
     - If the current **comparator** is '>' or '>=' and the next **comparator**
       is '>' or '>=', discard the next **constraint**.
-    - If the current **comparator** is null, '<' or '<=' and
+    - If the current **comparator** is *null*, '<' or '<=' and
       the next **comparator** is '<' or '<=', discard the current
       **constraint**. The previous **constraint** becomes the current
       **constraint** if it exists.
     - If there is a previous **constraint** and:
          - If the previous **comparator** is '>' or '>=' and the current
-          **comparator** is null, '>' or '>=', discard the
+          **comparator** is *null*, '>' or '>=', discard the
           current **constraint**.
-        - If the previous **comparator** is null, '<' or '<='
+        - If the previous **comparator** is *null*, '<' or '<='
           and the current **comparator** is '<' or '<=', discard the previous
           **constraint**.
 
@@ -169,7 +161,7 @@ To check if a "tested version" is contained within a version range:
   performed below.
 
 - If the "tested version" is equal to any of the **constraint**
-  **versions** where the **comparator** is for equality (any of null,
+  **versions** where the **comparator** is for equality (any of *null*,
   '<=', or '>=') then the "tested version" is IN the range. The version check
   is finished.
 
@@ -179,8 +171,8 @@ To check if a "tested version" is contained within a version range:
 
 - Split the **constraints** component into two sub lists:
 
-    - a first list where the **comparator** is null or '!='
-    - a second list where the **comparator** is neither null nor '!='
+    - a first list where the **comparator** is *null* or '!='
+    - a second list where the **comparator** is neither *null* nor '!='
 
 - Iterate over the current and next contiguous **constraint** pairs (aka.
   pairwise) in the second list.
