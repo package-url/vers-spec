@@ -187,7 +187,7 @@ following rules apply to the **comparators** of any two contiguous
 - A **constraint** using the '!=' **comparator** can be followed by a
   **constraint** using a **comparator** (any of *null*, '!=', '>', '>=', '<',
   '<=') or (no **constraint**).
-- Ignoring all **constraints** with the '!=' **comparator**, a **null*
+- Ignoring all **constraints** with the '!=' **comparator**, a *null*
   (equality) **constraint** shall be followed only by a **constraint** with one
   of: *null*, '>', or '>=' (or no **constraint**).
 - Ignoring all constraints with the '!=' **comparator** or the *null*
