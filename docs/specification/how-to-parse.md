@@ -91,7 +91,7 @@ These pairs of contiguous **constraint** strings with these **comparators**
 are valid:
 
 - '!=' followed by anything
-- *null* followed by '>', '>='
+- *null* followed by *null*, '!=', '>', '>='
 - '<', or '<=' followed by '!=', '>', '>=' or *null*
 - '>', or '>=' followed by '!=', '<', or '<='
 
