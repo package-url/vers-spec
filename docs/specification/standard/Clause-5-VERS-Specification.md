@@ -72,10 +72,11 @@ applies to a single package or project or a general purpose version scheme
 like 'semver'.
 
 This Standard includes the *VERS Type Definition Schema* but it does not
-include the set of current "registered" VERS type definition files (JSON
+include the set of current "registered" VERS type definition files (in JSON
 format) because there are ongoing additions and changes to these files. The
-current "registered" VERS **type** definition files are located at: https://www.packageurl.org/vers-types/. Registration refers to the Package-URL community
-process for adding a new VERS **type**.
+current "registered" VERS **type** definition files are located at: https://www.packageurl.org/vers-types/.
+Registration refers to the Package-URL community process for adding a new VERS
+ **type**.
 
 There are two rules related to the set of registered VERS **type** definitions
 for conforming tools to validate the VERS **type** component:
@@ -114,9 +115,6 @@ A **comparator** is composed of these ASCII characters:
 - the Asterisk character: '\*' (asterisk, '*')
 
 A **comparator** shall be one of the following:
-- *null* is the Equality **comparator** and the default. For example,
-  `vers:npm/1.2.3` means that the **version** is equal to "1.2.3". If a
-  **constraint** string starts with '=', tools shall report an error.
 - '!=' is the Inequality **comparator**. This means that a version shall not
   be equal to the provided version and it shall be excluded from the range.
   For example: '!=1.2.3' means that version "1.2.3" is excluded.
@@ -136,6 +134,11 @@ A **comparator** shall be one of the following:
   versions of a Debian package. This includes past, current and possible
   future versions.
 
+There is no Equality **comparator** (equals, '=') because a **version**
+without a **comparator** asserts equality. For example `vers:npm/1.2.3` means
+that the **version** is equal to "1.2.3". If a **constraint** string starts
+with '=', tools shall report an error.
+
 #### 5.3.3.2 Version
 A **version** is an ASCII string.
 - A **version** contains only printable ASCII letters, digits and punctuation.
@@ -152,7 +155,7 @@ A **version** is an ASCII string.
 
 A single **version** in a **constraint** means that a package version equal to
 this version satisfies the range specification. Equality is based on the
-equality of two normalised version strings according to the applicable VERS
+equality of two normalised version strings according to the applicable
 **type**. For most schemes, this is a simple string equality. A **type** may,
 however, define normalisation or other rules for equality such as the "pypi"
 rules from PEP 440.
@@ -171,28 +174,30 @@ ranges. These rules are:
   **constraints** segments is significant for validity: tools shall report
   an error for invalid ordering.
 - **Versions** are unique. Each version shall be unique within a
-  **constraints** instance. Tools shall report an error for duplicated
-  **versions**.
-- There can be only one asterisk in a **constraints** instance. Asterisk
-  ()'\*') shall occur only once and alone in a **constraints** instance.
+  **constraints** instance, and can occur only once in any **constraint**,
+  regardless of the **comparators**. Tools shall report an error for
+  duplicated **versions**.
+- There can be only one asterisk in a **constraints** instance: '\*' shall
+  occur only once and alone in **constraints** instance.
 
 Starting from a de-duplicated and sorted list of **constraints**, the
 following rules apply to the **comparators** of any two contiguous
 **constraints** segments:
 
 - A **constraint** using the '!=' **comparator** can be followed by a
-  **constraint** using a **comparator** (any of *null*, '!=', '>', '>=', '<',
-  '<=') or no **constraint**.
-- Ignoring all **constraints** with the '!=' **comparator**, a *null*
-  (equality) **constraint** shall be followed only by a **constraint** with
-  one of the **comparators**: *null*, '>', or '>=', or no **constraint**.
-- Ignoring all constraints with the *null* (equality)) or the '!='
+  **constraint** using a **comparator** (any of '!=', '>', '>=', '<', '<=') or
+  no **constraint**.
+- Ignoring all **constraints** with the '!=' **comparator**, an equality
+  **constraint** shall be followed only by a **constraint** with one of the
+  **comparator** characters: '>', or '>=', or no **comparator** (for equality)
+  or no **constraint**.
+- Ignoring all constraints with no **comparator** (equality) or the '!='
   **comparator**, the sequence of **constraints** shall be an alternation of
   Greater-than and Lesser-than **comparators**:
-  - A **constraint** using '\<' or '\<=' shall be followed by one of '>' or
-  '>=' or no **constraint**.
-  - A **constraint** using '>' or '>=' shall be followed by one of '\<' or
-  '\<=' or no **constraint**.
+- A **constraint** using '\<' or '\<=' shall be followed by one of '>' or
+  '>=' (or no **constraint**).
+- A **constraint** using '>' or '>=' shall be followed by one of '\<' or
+  '\<=' (or no **constraint**).
 
 Tools shall report an error for an invalid sequence of **constraints**
 segments.
