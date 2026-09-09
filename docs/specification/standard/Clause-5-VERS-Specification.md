@@ -175,8 +175,9 @@ ranges. These rules are:
   **constraints** instance, and can occur only once in any **constraint**,
   regardless of the **comparators**. Tools shall report an error for
   duplicated **versions**.
-- There can be only one asterisk in a **constraints** instance: Asterisk
+- There can be only one asterisk in a **constraints** sequence: Asterisk
   ('\*') shall occur only once and alone in a **constraints** instance.
+  An Asterisk constraint shall not be use with other **constraints** in a **constraints** sequence.
 
 Starting from a de-duplicated and sorted list of **constraints**, the
 following rules apply to the **comparators** of any two contiguous
