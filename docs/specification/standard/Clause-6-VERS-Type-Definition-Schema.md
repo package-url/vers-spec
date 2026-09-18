@@ -30,7 +30,7 @@ Schema to specify a Version Range Specifier (VERS) type as a structured definiti
 | type_name             | String   | Required        | The name for this VERS type.                                                                           |
 | description           | String   | Required        | The description of this VERS type.                                                                     |
 | vers_examples         | Array    | Required        | Examples for valid VERS ranges for this VERS type.                                                     |
-| native_and_vers_equivalent_examples | Array  | Optional | List of examples of valid, native version ranges mapped to their corresponding VERS syntax.        |
+| native_range_and_vers_equivalent_examples | Array  | Optional | List of examples of valid, native version ranges mapped to their corresponding VERS syntax.        |
 | note                  | String   | Optional        | Note about this VERS type.                                                                         |
 | reference_urls        | Array    | Optional        | List of informational reference URLs about this VERS type, such as specifications or reference code. |
 
