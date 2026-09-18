@@ -196,7 +196,7 @@ following rules apply to the **comparators** of any two contiguous
   - A **constraint** using '\<' or '\<=' shall be followed by one of '>' or
   '>=' (or no **constraint**).
   - A **constraint** using '>' or '>=' shall be followed by one of '\<' or
-    '\<=' (or no **constraint**)
+    '\<=' (or no **constraint**).
 
 Tools shall report an error for an invalid sequence of **constraints**
 segments.
