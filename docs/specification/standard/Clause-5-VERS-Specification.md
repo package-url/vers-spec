@@ -193,9 +193,9 @@ following rules apply to the **comparators** of any two contiguous
 - Ignoring all constraints with the '!=' **comparator** or the *null*
   (equality) **comparator**, the sequence of **constraints** shall be an
   alternation of Greater-than and Lesser-than **comparators**:
-- A **constraint** using '\<' or '\<=' shall be followed by one of '>' or
+  - A **constraint** using '\<' or '\<=' shall be followed by one of '>' or
   '>=' (or no **constraint**).
-- A **constraint** using '>' or '>=' shall be followed by one of '\<' or
+  - A **constraint** using '>' or '>=' shall be followed by one of '\<' or
     '\<=' (or no **constraint**)
 
 Tools shall report an error for an invalid sequence of **constraints**
