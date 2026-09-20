@@ -15,7 +15,7 @@ impacted versions is an approach that may require frequent updates. A version
 range is a necessary, compact, and practical way to reference multiple
 versions rather than listing all versions.
 
-VErsion Range Specifier (VERS) introduces a standard URI-based syntax to
+Version Range Specifier (VERS) introduces a standard URI-based syntax to
 define package version ranges and the semantics (algorithm or procedure) to
 interpret each version range notation. This standardization provides more
 accurate and consistent analysis of package version dependencies and the
