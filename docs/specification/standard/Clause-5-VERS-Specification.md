@@ -89,6 +89,39 @@ for conforming tools to validate the VERS **type** component:
   Clause of the Standard. In this case tools should report a warning that the
   VERS **type** is not registered.
 
+#### 5.3.2.1 Reserved types
+
+There are three reserved **types** for special use: 'example',
+'invalid' and 'test'. This ensures that certain types can be used freely in
+documentation and tests without any risk of colliding with a real name. The reserved **types** are:
+
+- 'example': a VERS **type** for illustrative **constraints** in
+  documentation. A VERS with the 'example' **type** is a syntactically valid
+  VERS that can be built and parsed like any other VERS, but its **versions**
+  do not refer to a real package. Using 'example' avoids a name collision with
+  a current or future registered **type**.
+- 'invalid': a VERS **type** that is intentionally
+  invalid. A VERS whose **type** is 'invalid' is invalid whatever its
+  **constraints** are: tools shall report an error when they build or parse
+  it. This makes it possible to write down "an invalid VERS" in documentation
+  and in test data as a string that is otherwise well-formed and stable.
+- 'test': a VERS **type** for test cases. Tools and test suites shall use
+  'test' rather than an ad-hoc name, such as 'unknown-type', when the
+  **type** itself is not the subject of a test: an ad-hoc name could be
+  registered in the future which would silently change the expected result of
+  the test, whereas 'test' can never be registered.
+
+The syntax and validation rules of this Clause apply to a VERS with a
+reserved **type**, with these exceptions:
+
+- The **constraints** of a VERS using a reserved **type** cannot be sorted by
+  **version** order because no **version** ordering is defined for a reserved
+  **type**. A reserved **type** is never a registered **type**, so tools
+  should report a warning that the **type** is not registered when they build
+  or parse a VERS using the 'example' or 'test' **type**.
+- A VERS using the 'invalid' **type** is always invalid: tools shall report an
+  error whatever its **constraints** are.
+
 ### 5.3.3 Constraints
 - The **constraints** component shall be preceded by an unencoded
   '/' slash separator and shall contain one or more **constraints**.
