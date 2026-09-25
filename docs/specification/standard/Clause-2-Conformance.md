@@ -1,6 +1,6 @@
 # 2 Conformance
 
-A conforming implementation of Version Range Specifier (VERS) Standard shall
+A conforming implementation of the Version Range Specifier (VERS) Standard shall
 fully implement and support all elements defined within this Standard,
 including the syntax, components, and semantic requirements for constructing and
 interpreting valid VERS notations.
@@ -21,7 +21,7 @@ to normalisation and equivalence rules. Furthermore, implementations shall
 process URI encoding and decoding for VERS components according to the
 standards outlined in RFC 3986.
 
-Invalid VERS notations that fail to conform to the specification shall be
+Invalid VERS notations that fail to conform to the Standard shall be
 identified and rejected by any conforming implementation. This guarantees the
 integrity and reliability of VERS notations in all supported contexts.
 

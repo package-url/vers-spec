@@ -10,3 +10,8 @@ software package. The VERS type component defines the ecosystem-specific
 structure and meaning for the VERS constraints component. This Standard
 specifies the syntax for VERS and the schema for defining VERS types, but it
 does not include any specific VERS type definitions.
+
+This edition of the Standard supports linear versioning where the software
+versions do not branch to form a tree of versions. For tree-based versioning
+with branches, a possible solution is to use multiple VERS until direct
+support for tree use cases is implemented in a future version of the Standard.
