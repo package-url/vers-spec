@@ -119,11 +119,11 @@ documentation and tests without any risk of colliding with a real name. The rese
 The syntax and validation rules of this Clause apply to a VERS with a
 reserved **type**, with these exceptions:
 
-- The **constraints** of a VERS using a reserved **type** cannot be sorted by
-  **version** order because no **version** ordering is defined for a reserved
-  **type**. A reserved **type** is never a registered **type**, so tools
-  should report a warning that the **type** is not registered when they build
-  or parse a VERS using the 'example' or 'test' **type**.
+- The rule that **constraints** shall be sorted by **version** order does not
+  apply to the 'example' and 'test' **types**: their **constraints** are
+  taken in the order written. No **version** ordering is defined for these
+  **types**, so tools shall report an error for any operation that requires
+  comparing **versions**, such as containment, equality or comparison.
 - A VERS using the 'invalid' **type** is always invalid: tools shall report an
   error whatever its **constraints** are.
 
