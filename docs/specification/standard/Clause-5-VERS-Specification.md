@@ -18,6 +18,11 @@ Components are separated by a specific character for unambiguous parsing.
 | type   | Required    | The Version Range Specifier type such as 'deb', 'npm', 'pypi' 'semver' etc. |
 | constraints | Required | A sequence of one or more version ranges. |
 
+This edition of the VERS specification only applies to linear versioning
+use cases; it does not cover tree-based versioning use cases. To model
+branching trees of versions, a possible solution is to use multiple VERS,
+one for each branch.
+
 ## 5.1 A VERS is a URI scheme
 
 A VERS is a valid URI scheme that conforms to URI definitions or
@@ -67,7 +72,7 @@ A **type** defines:
 
 By convention a **type** should be the same as the PURL **type** for a given
 package or software ecosystem. It is, however, permissible to define a **type**
-that does not match an existing PURL **type** such as a version scheme that
+that does not match an existing PURL **type** such as a VERS **type** that
 applies to a single package or project or a general purpose version scheme
 like 'semver'.
 
