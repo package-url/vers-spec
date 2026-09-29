@@ -16,7 +16,7 @@
     "$schema": {
       "title": "JSON schema",
       "description": "URL of the JSON schema for VERS type definition.",
-      "const": "https://packageurl.org/schemas/vers-type-definition.schema-0.2.json",
+      "const": "https://packageurl.org/schemas/vers-type-definition.schema-1.0.json",
       "format": "uri"
     },
     "$id": {
