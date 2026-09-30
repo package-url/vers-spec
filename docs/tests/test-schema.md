@@ -20,7 +20,7 @@ The structure of test cases used in VERS test files is defined in a JSON
 schema. The current VERS Test Schema is [version 0.2](https://packageurl.org/vers-schemas/vers-test.schema-0.2.json).
 The VERS Test Schema v0.2 implements [JSON Schema version "Draft 2020-12"](https://json-schema.org/draft/2020-12).
 
-# VERS Test Schema v0.2 changes
+## VERS Test Schema v0.2 changes
 The VERS test schema was updated to [version 0.2](https://packageurl.org/vers-schemas/vers-test.schema-0.2.json) on August 4, 2026. This update
 included an automated update to all of the VERS test suite files at:
 `vers-spec/tests/`. A summary of these changes is:
