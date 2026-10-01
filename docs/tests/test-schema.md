@@ -17,11 +17,11 @@ functions such as:
 - Validate a VERS string,
 
 The structure of test cases used in VERS test files is defined in a JSON
-schema. The current VERS Test Schema is [version 0.2](https://packageurl.org/vers-schemas/vers-test.schema-0.2.json).
+schema. The current VERS Test Schema is [vers-test.schema-0.2.json](https://github.com/package-url/vers-spec/blob/main/schemas/vers-test.schema-0.2.json).
 The VERS Test Schema v0.2 implements [JSON Schema version "Draft 2020-12"](https://json-schema.org/draft/2020-12).
 
 ## VERS Test Schema v0.2 changes
-The VERS test schema was updated to [version 0.2](https://packageurl.org/vers-schemas/vers-test.schema-0.2.json) on August 4, 2026. This update
+The VERS test schema was updated to version 0.2 on August 4, 2026. This update
 included an automated update to all of the VERS test suite files at:
 `vers-spec/tests/`. A summary of these changes is:
 
@@ -67,8 +67,8 @@ does not require the input VERS string to be in canonical form.
 
 The VERS Test Schema v0.1 is available at: https://packageurl.org/schemas/vers-test.schema-0.1.json.
 
-There is also an <a href="/interactive_schemas/vers-test.schema-0.2.html" target="_blank">Interactive HTML</a> `↗`
-presentation of the v0.1 VERS Test Schema.
+There is also an <a href="/interactive_schemas/vers-test.schema-0.2.html" target="_blank">Interactive HTML</a> `↗` presentation of the v0.1 VERS Test
+Schema.
 
 The original VERS test suite files for the v0.1 VERS Test Schema are available
 under the [vers-spec v1.0.2 release](https://github.com/package-url/vers-spec/releases/tag/v1.0.2).
