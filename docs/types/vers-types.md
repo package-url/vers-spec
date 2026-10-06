@@ -14,6 +14,9 @@ the VERS specification, we are focused on three categories of VERS **types**:
   **types** for packages with a registered [PURL (Package-URL) **type**](https://package-url.github.io/www.packageurl.org/docs/purl/purl-spec-purl-types#registered-purl-types).
 - General VERS **types** : These general version schemes should be reserved
   for special cases.
+- Reserved VERS **types**: These are reserved by the VERS standard for
+  special use in documentation and tests and shall never be registered
+  (see [Clause 5.3.2.1](../specification/standard/Clause-5-VERS-Specification)).
 
 ## Package ecosystem VERS types
 Most software package ecosystems have a version scheme. Some variation of
@@ -75,6 +78,24 @@ cases:
 - **semver**: a VERS **type** that uses the same syntax as SemVer. It follows
   the MAJOR.MINOR.PATCH format and is defined in the Semantic Versioning
   Specification 2.0.0. See https://semver.org/spec/v2.0.0.html.
+
+## Reserved VERS types
+
+There are three reserved **types** that are reserved by the VERS standard
+for special use:
+
+- **example**: a **type** for illustrative **constraints** in documentation.
+  A VERS using the 'example' **type** is syntactically valid, but tools should
+  report a warning that the **type** is not registered. No version ordering is
+  defined: **constraints** are taken in the order written and tools shall
+  report an error for any operation that requires comparing versions.
+- **invalid**: a **type** that is intentionally invalid. A VERS whose **type**
+  is 'invalid' is invalid whatever its **constraints** are, and tools shall
+  report an error when they build or parse it.
+- **test**: a **type** for test cases, used when the **type** itself is not
+  the subject of a test. A VERS using the 'test' **type** is syntactically
+  valid, but tools should report a warning that the **type** is not registered.
+  No version ordering is defined, as for 'example'.
 
 ## Version comparison conventions
 
