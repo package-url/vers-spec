@@ -1,0 +1,48 @@
+{
+  "$schema": "https://packageurl.org/vers-schemas/vers-test.schema-0.2.json",
+  "tests": [
+    {
+      "description": "Parsing succeeds for a VERS using the reserved 'example' type: the type is syntactically valid but not registered, so tools should report a warning rather than an error.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:example/1.2.3",
+      "expected_output": {
+        "type": "example",
+        "constraints": [
+          [
+            "",
+            "1.2.3"
+          ]
+        ]
+      },
+      "expected_message": "unregistered VERS type: 'example' is reserved by the VERS standard"
+    },
+    {
+      "description": "Parsing fails for a VERS using the reserved 'invalid' type: unlike 'example' and 'test', the 'invalid' type is always invalid and tools shall report an error whatever its constraints are.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:invalid/1.0.0",
+      "expected_failure": true,
+      "expected_message": "invalid VERS type: 'invalid' is reserved for intentionally invalid VERS notations"
+    },
+    {
+      "description": "Parsing fails for a VERS using the reserved 'invalid' type, even with the Asterisk constraint.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:invalid/*",
+      "expected_failure": true,
+      "expected_message": "invalid VERS type: 'invalid' is reserved for intentionally invalid VERS notations"
+    },
+    {
+      "description": "Containment fails for a VERS using a reserved type that defines no version ordering: because versions cannot be compared, containment shall report an error.",
+      "test_group": "required",
+      "test_type": "containment",
+      "input": {
+        "version": "2.0.0",
+        "vers": "vers:example/1.2.3|>=2.0.0|<5.0.0"
+      },
+      "expected_failure": true,
+      "expected_message": "no version ordering is defined for the reserved VERS type: example"
+    }
+  ]
+}

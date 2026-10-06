@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "$id": "https://packageurl.org/vers-schemas/vers-reserved-types.schema-0.1.json",
+  "title": "VErsion Range Specifier (VERS) reserved types",
+  "description": "The VERS types reserved by the VERS standard for special use. A reserved type shall never be registered as a VERS type. The 'invalid' type is always invalid; the 'example' and 'test' types are syntactically valid but define no version ordering.",
+  "type": "object",
+  "additionalProperties": false,
+  "definitions": {
+    "reserved_type": {
+      "title": "Reserved VERS type",
+      "description": "A VERS type value reserved by the VERS standard. The 'invalid' type is always invalid; the 'example' and 'test' types are syntactically valid but define no version ordering, so their constraints are taken in the order written.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "description"
+      ],
+      "properties": {
+        "type": {
+          "title": "Reserved VERS type",
+          "description": "The reserved VERS type value.",
+          "type": "string",
+          "enum": [
+            "example",
+            "invalid",
+            "test"
+          ]
+        },
+        "description": {
+          "title": "Description",
+          "description": "The description of this reserved VERS type and of its intended use.",
+          "type": "string"
+        },
+        "examples": {
+          "title": "VERS examples",
+          "description": "Examples of VERS notations using this reserved VERS type. Each is a well formed VERS that a tool shall reject because the type is reserved.",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^vers:[a-z][a-z0-9-\\.]+/.*$"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "$schema",
+    "reserved_types"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "URL of the JSON schema for the VERS reserved types.",
+      "const": "https://packageurl.org/vers-schemas/vers-reserved-types.schema-0.1.json",
+      "format": "uri"
+    },
+    "reserved_types": {
+      "title": "Reserved VERS types",
+      "description": "The complete list of the VERS types reserved by the VERS standard, in alphabetical order.",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 3,
+      "items": {
+        "$ref": "#/definitions/reserved_type"
+      }
+    }
+  }
+}
