@@ -1,5 +1,5 @@
 
-# Details for VERS type: {'vers-type'}
+# Details for VERS type: {vers-type}
 The naming convention is `{vers-type}-details.md`
 
 (The following topics are suggestions - they are not required.)

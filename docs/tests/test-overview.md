@@ -12,11 +12,11 @@ support language-neutral testing of VERS implementations. The objectives for
 the VERS test suite are to:
 - Enable tools to demonstrate conformance with the VERS specification as
   defined in the [VERS Core Specification](https://packageurl.org/docs/vers/specification)
-  or in registered VERS **type** definitions.
+  and in registered VERS **type** definitions.
 - Help tools identify and fix common problems in VERS data.
 
 The structure of test cases used in VERS test files is defined in a JSON
-schema that is available at: https://packageurl.org/schemas/vers-test.schema-0.2.json.
+Schema. The current VERS Test Schema is [version 0.2](https://packageurl.org/vers-schemas/vers-test.schema-0.2.json).
 
 ## Conformance
 Since the primary goal for the VERS test suite is to help VERS tools achieve
@@ -24,7 +24,7 @@ and demonstrate conformance with the VERS specification, it is important to
 state what we mean by conformance. Conformance for VERS is defined in the
 VERS specification files at: https://github.com/package-url/vers-spec/tree/main/docs/specification/standard.
 
-A  summary is: "A conforming implementation of Version Range Specifier (VERS)
+The summary is: "A conforming implementation of Version Range Specifier (VERS)
 shall fully implement and support all elements defined within this Standard,
 including the syntax, components, and semantic requirements for constructing
 and interpreting valid VERS notations."
@@ -45,7 +45,7 @@ The VERS Standard requires that:
 - Each VERS component in a set (object) conforms to the VERS Standard.
 
 ## Terminology
-Some key terminology for VERS tests is:
+Some key terminology for the VERS test suite is:
 
 | Term            | Definition                                              |
 |-----------------|---------------------------------------------------------|

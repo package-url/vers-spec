@@ -13,7 +13,7 @@ canonical form.
 
 ## Test files
 Each VERS test file is a collection of test cases whose structure is defined
-by the VERS test schema. The current VERS test schema is located at: https://packageurl.org/schemas/.
+by the VERS test schema. The current VERS test schema is [vers-test.schema-0.2.json](https://github.com/package-url/vers-spec/blob/main/schemas/vers-test.schema-0.2.json).
 
 The VERS test files are currently organized in the folder: https://github.com/package-url/vers-spec/tree/main/tests. Most test file names follow the pattern of VERS **type**
 concatenated with **test type**.
