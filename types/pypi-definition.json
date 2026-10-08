@@ -1,5 +1,5 @@
 {
-  "$schema": "https://packageurl.org/schemas/vers-type-definition.schema-0.2.json",
+  "$schema": "https://packageurl.org/vers-schemas/vers-type-definition.schema-1.0.json",
   "$id": "https://packageurl.org/vers-types/pypi-definition.json",
   "type": "pypi",
   "type_name": "pypi versioning",
