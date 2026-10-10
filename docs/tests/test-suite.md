@@ -75,9 +75,6 @@ There are nine VERS **test types**:
   string. The input is a VERS string (in canonical form or not) and the output
   is a VERS string in canonical form.
 
-See [`/docs/how-to-parse.md`](https://packageurl.org/docs/vers/how-to-parse#parsing-and-validating-vers-notation) for more information about
-the 'containment', 'parse', and 'validate' **test types**.
-
 ### input
 - **input** may be a VERS string or an object containing VERS components.
 - **input** does not need to be in canonical form, but a test case with
