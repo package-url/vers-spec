@@ -69,6 +69,45 @@
       "expected_message": "non-canonical VERS: constraints are not sorted by version"
     },
     {
+      "description": "Parsing fails when every constraint uses the '!=' comparator.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:npm/!=1.0.0",
+      "expected_failure": true,
+      "expected_message": "non-canonical VERS: constraints must not consist only of '!=' constraints"
+    },
+    {
+      "description": "Parsing fails when every constraint uses the '!=' comparator.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:npm/!=1.0.0|!=2.0.0",
+      "expected_failure": true,
+      "expected_message": "non-canonical VERS: constraints must not consist only of '!=' constraints"
+    },
+    {
+      "description": "Parsing succeeds when a '!=' constraint excludes a version from an interval.",
+      "test_group": "required",
+      "test_type": "parse",
+      "input": "vers:npm/>=1.0.0|!=1.5.0|<2.0.0",
+      "expected_output": {
+        "type": "npm",
+        "constraints": [
+          [
+            ">=",
+            "1.0.0"
+          ],
+          [
+            "!=",
+            "1.5.0"
+          ],
+          [
+            "<",
+            "2.0.0"
+          ]
+        ]
+      }
+    },
+    {
       "description": "Parsing assigns the implicit equality comparator to a bare version.",
       "test_group": "required",
       "test_type": "parse",

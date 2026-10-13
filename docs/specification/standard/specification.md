@@ -178,6 +178,11 @@ impossible version ranges. These rules are:
   error for duplicated versions.
 - There can be only one asterisk: if used, '\*' shall occur only once and 
   alone in a range, without any other constraint or version.
+- Exclusions need something to exclude from: unless the range is '\*', it
+  shall contain at least one constraint whose **comparator** is not '!='. A
+  '!=' constraint only removes a version from the intervals defined by the
+  other constraints, so a range made only of '!=' constraints is ambiguous.
+  Tools shall report an error for such ranges.
 
 Starting from a de-duplicated and sorted list of constraints, these
 extra rules apply to the **comparators** of any two contiguous constraints:
