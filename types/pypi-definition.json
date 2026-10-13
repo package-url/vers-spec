@@ -22,7 +22,7 @@
     },
     {
       "native_range": "!=5",
-      "vers": "vers:pypi/!=5"
+      "vers": "vers:pypi/<5|>5"
     },
     {
       "native_range": ">=1.0a1,<1.0.5||>=1.1b1,<1.1.1",
