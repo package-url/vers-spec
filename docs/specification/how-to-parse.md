@@ -177,6 +177,21 @@ To check if a "tested version" is contained within a version range:
     - a first list where the **comparator** is *null* or '!='
     - a second list where the **comparator** is neither *null* nor '!='
 
+- If the second list is empty, then the "tested version" is NOT IN the range.
+  The version check is finished.
+
+- If the second list contains exactly one **constraint**, there are no
+  contiguous pairs to iterate over:
+
+    - If its **comparator** is '>' or '>=' and the "tested version" is greater
+      than its **version**, then the "tested version" is IN the range. The
+      version check is finished.
+    - If its **comparator** is '<' or '<=' and the "tested version" is less
+      than its **version**, then the "tested version" is IN the range. The
+      version check is finished.
+    - Otherwise, the "tested version" is NOT IN the range. The version check
+      is finished.
+
 - Iterate over the current and next contiguous **constraint** pairs (aka.
   pairwise) in the second list.
 
