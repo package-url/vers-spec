@@ -29,7 +29,7 @@
         "native_range": "!=5",
         "scheme": "pypi"
       },
-      "expected_output": "vers:pypi/!=5"
+      "expected_output": "vers:pypi/<5|>5"
     }
   ]
 }

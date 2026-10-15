@@ -79,9 +79,9 @@ by:
 - Sorting and validating the sequence of **constraint** strings.
 
 Tools shall report an error if the parsed **constraints** component is
-invalid, including invalid ordering, duplicate versions, or invalid
-**comparator** sequences. Tools shall not correct or normalise invalid input
-during parsing.
+invalid, including invalid ordering, duplicate versions, invalid
+**comparator** sequences, or only '!=' **constraints**. Tools shall not
+correct or normalise invalid input during parsing.
 
 ### Simplifying constraints
 
@@ -110,8 +110,8 @@ A procedure to remove redundant **constraints** is:
   **version** occurs only once in any **constraint**.
 
 - If the **constraints** component contains only a single **constraint**
-  (asterisk equal or other) return this **constraint** and simplification is
-  finished.
+  (asterisk equal or other) whose **comparator** is not '!=', return this
+  **constraint** and simplification is finished.
 
 - Split the **constraints** component into two sub lists:
 
@@ -119,8 +119,9 @@ A procedure to remove redundant **constraints** is:
     - a "remainder constraints list" where the comparator is not
       '!='
 
-- If the "remainder constraints list" is empty, return the "unequal
-  constraints" list and simplification is finished.
+- If the "remainder constraints list" is empty, the **constraints** are
+  invalid: a **constraints** sequence made only of '!=' **constraints** is
+  ambiguous, and tools shall report an error.
 
 - Iterate over the **constraints** component, considering the current and next
   contiguous **constraint** strings, and the previous **constraint** string

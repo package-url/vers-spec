@@ -184,6 +184,12 @@ ranges. These rules are:
   ('\*') shall occur only once and alone in a **constraints** instance.
   An Asterisk constraint shall not be use with other **constraints** in a
   **constraints** sequence.
+- Exclusions need something to exclude from: unless the **constraints** is an
+  Asterisk ('\*'), it shall contain at least one **constraint** whose
+  **comparator** is not '!='. A '!=' **constraint** only removes a version
+  from the intervals defined by the other **constraints**, so a
+  **constraints** sequence made only of '!=' **constraints** is ambiguous.
+  Tools shall report an error for such **constraints**.
 
 Starting from a de-duplicated and sorted list of **constraints**, the
 following rules apply to the **comparators** of any two contiguous

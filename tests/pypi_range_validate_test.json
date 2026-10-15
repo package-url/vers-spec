@@ -72,11 +72,12 @@
       "expected_output": "vers:pypi/0.0.1"
     },
     {
-      "description": "Validate test for PyPI VERS range.",
+      "description": "Parsing fails when every constraint uses the '!=' comparator.",
       "test_group": "required",
-      "test_type": "validate",
+      "test_type": "parse",
       "input": "vers:pypi/!=0.0.1",
-      "expected_output": "vers:pypi/!=0.0.1"
+      "expected_failure": true,
+      "expected_message": "non-canonical VERS: constraints must not consist only of '!=' constraints"
     },
     {
       "description": "Validate test for PyPI VERS range.",
