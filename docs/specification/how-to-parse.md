@@ -37,6 +37,14 @@ are:
 - The left-hand side is the **type** component, which shall be lowercase.
   Tools should validate that the **type** is a registered **type** and report
   a warning message if the **type** is not currently registered.
+- Tools shall check the **type** against the VERS **types** that are reserved
+  by the VERS specification: 'example', 'invalid' and 'test'. The 'example'
+  and 'test' **types** are syntactically valid but are never registered, so
+  tools should report the warning that the **type** is not registered; no
+  **version** ordering is defined for them, so their **constraints** are taken
+  in the order written and tools shall report an error for any operation that
+  requires comparing **versions**. The 'invalid' **type** is always invalid:
+  tools shall report an error whatever its **constraints** are.
 - The right-hand side is the **constraints** component. Tools
   shall validate that the **constraints** component is not empty after
   splitting.

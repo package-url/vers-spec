@@ -44,6 +44,8 @@ Schema to specify a Version Range Specifier (VERS) type as a structured definiti
 
 **Pattern Constraint:** ^\[a-z\]\[a-z0-9-\\.\]+\$
 
+**Excluded Values:** example, invalid, test
+
 The type string for this VERS type.
 
 **Example 1 (Informative)**
